@@ -9,7 +9,7 @@ const Logo = ({ inverse = false }: { inverse?: boolean }) => {
       alt="GearUp"
       width={132}
       height={36}
-      className={`h-auto w-[132px] object-contain ${inverse ? "brightness-0 invert" : ""}`}
+      className={`object-contain ${inverse ? "brightness-0 invert" : ""}`}
     />
   );
 };
