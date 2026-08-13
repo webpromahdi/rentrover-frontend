@@ -40,7 +40,7 @@ export default function GearCard({ item }: { item: GearCardItem }) {
   const isAvailable = item.availability !== false;
 
   return (
-    <Card className="group p-0 shadow-[0_2px_12px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(20,29,52,0.15)]">
+    <Card className="group p-0 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-200">
         <Image
           src={item.image}

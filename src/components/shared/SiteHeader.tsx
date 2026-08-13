@@ -31,56 +31,60 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
   }, []);
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        !isTransparent
-          ? "border-b border-border bg-white/95 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-md"
-          : "border-transparent bg-transparent"
-      }`}
-    >
-      <div className="container flex h-[70px] items-center justify-between">
-        {/* Logo */}
-        <Link href="/" aria-label="RentRover home">
-          <Logo inverse={isTransparent} />
-        </Link>
+    <>
+      <header
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+          !isTransparent
+            ? "border-b border-border bg-white/95 shadow-sm backdrop-blur-md"
+            : "border-transparent bg-transparent"
+        }`}
+      >
+        <div className="container flex h-[70px] items-center justify-between">
+          {/* Logo */}
+          <Link href="/" aria-label="RentRover home">
+            <Logo inverse={isTransparent} />
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav
-          aria-label="Primary navigation"
-          className="hidden items-center gap-7 lg:flex"
-        >
-          {guestLinks.map(({ label, href }) => {
-            const isActive =
-              href === "/" ? pathname === "/" : pathname.startsWith(href);
-            return (
-              <Link
-                key={label}
-                href={href}
-                className={`text-sm font-semibold transition-colors hover:text-primary ${
-                  isActive
-                    ? "text-primary"
-                    : !isTransparent
-                    ? "text-foreground"
-                    : "text-white/90"
-                }`}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Desktop Nav */}
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center gap-7 lg:flex"
+          >
+            {guestLinks.map(({ label, href }) => {
+              const isActive =
+                href === "/" ? pathname === "/" : pathname.startsWith(href);
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  className={`text-sm font-semibold transition-colors hover:text-primary ${
+                    isActive
+                      ? "text-primary"
+                      : !isTransparent
+                      ? "text-foreground"
+                      : "text-white/90"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
 
-        {/* Desktop Right Actions */}
-        <div className="hidden items-center lg:flex">
-          {user ? <UserMenu user={user} /> : <GuestActions />}
+          {/* Desktop Right Actions */}
+          <div className="hidden items-center lg:flex">
+            {user ? <UserMenu user={user} /> : <GuestActions />}
+          </div>
+
+          {/* Mobile Hamburger / Drawer */}
+          <div className="lg:hidden">
+            <MobileDrawer user={user} isTransparent={isTransparent} />
+          </div>
         </div>
-
-        {/* Mobile Hamburger / Drawer */}
-        <div className="lg:hidden">
-          <MobileDrawer user={user} isTransparent={isTransparent} />
-        </div>
-      </div>
-    </header>
+      </header>
+      {/* Spacer to prevent content from hiding under the fixed navbar on non-home pages */}
+      {!isHomePage && <div className="h-[70px]" aria-hidden="true" />}
+    </>
   );
 };
 

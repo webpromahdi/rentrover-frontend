@@ -43,23 +43,23 @@ const badgeVariants = cva(
         condition: "bg-condition text-condition-foreground",
       },
       size: {
-        default: "h-5 rounded-4xl px-2 py-0.5 text-xs font-medium",
+        default: "h-5 rounded-md px-2 py-0.5 text-xs font-medium",
         
         // Status Sizing Variants
-        status: "rounded-full px-2.5 py-1 text-[11px] font-extrabold tracking-[0.04em]",
-        statusSm: "rounded px-2 py-0.5 text-[10px] font-extrabold uppercase",
-        statusLg: "rounded-full px-3 py-1 text-xs font-extrabold uppercase",
+        status: "rounded-md px-2 py-0.5 text-xs font-semibold",
+        statusSm: "rounded-sm px-1.5 py-0.5 text-[10px] font-semibold",
+        statusLg: "rounded-md px-2.5 py-1 text-sm font-semibold",
         
         // Role & Condition Sizing Variants
-        role: "rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide",
-        condition: "rounded-full px-2.5 py-1 text-[10px] font-extrabold tracking-[0.05em]",
-        conditionCard: "rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.08em]",
+        role: "rounded-md px-2 py-0.5 text-[10px] font-semibold",
+        condition: "rounded-md px-2 py-0.5 text-[10px] font-semibold",
+        conditionCard: "rounded-md px-2 py-0.5 text-[10px] font-semibold",
         
         // Category / Info Sizing Variants
-        category: "rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.08em]",
-        categoryLg: "rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em]",
-        info: "rounded-full px-3 py-1 text-xs font-bold",
-        infoLg: "rounded-full px-3 py-1.5",
+        category: "rounded-md px-2 py-0.5 text-[10px] font-semibold",
+        categoryLg: "rounded-md px-2.5 py-1 text-xs font-semibold",
+        info: "rounded-md px-2.5 py-1 text-xs font-semibold",
+        infoLg: "rounded-md px-3 py-1.5",
       },
     },
     defaultVariants: {

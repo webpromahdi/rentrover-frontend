@@ -1,5 +1,5 @@
 "use client";
-import { Trash2, Loader2 } from "lucide-react";
+import { Trash2, Loader2, Inbox } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -16,6 +16,7 @@ import {
 import ConditionBadge from "@/components/shared/ConditionBadge";
 import Availability from "@/components/shared/Availability";
 import Link from "next/link";
+import { EmptyState } from "@/components/shared/EmptyState";
 import Image from "next/image";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -145,11 +146,18 @@ const GearTable = ({
         <TableBody>
           {rows.length === 0 ? (
             <TableRow>
-              <TableCell
-                colSpan={10}
-                className="py-8 text-center text-slate-500"
-              >
-                No gear found. Add some gear to get started!
+              <TableCell colSpan={10} className="p-8">
+                <EmptyState
+                  icon={Inbox}
+                  title="No gear found"
+                  description="You haven't added any gear yet. Add some gear to get started!"
+                  action={
+                    <Button render={<Link href="/dashboard/provider/gear/new" />} size="sm">
+                      Add New Gear
+                    </Button>
+                  }
+                  className="min-h-[250px] border-none bg-transparent"
+                />
               </TableCell>
             </TableRow>
           ) : (

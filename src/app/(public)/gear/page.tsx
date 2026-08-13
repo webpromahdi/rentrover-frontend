@@ -3,6 +3,7 @@ import {
   ChevronLeft,
   ListFilter,
   Filter,
+  Search,
 } from "lucide-react";
 import { Suspense } from "react";
 import GearCard, { type GearCardItem } from "@/components/shared/GearCard";
@@ -14,6 +15,9 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import { EmptyState } from "@/components/shared/EmptyState";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { getPublicCategoriesAction } from "@/app/(public)/_actions/homeActions";
 import { getPublicGearsAction } from "@/app/(customer)/_actions/gearActions";
 import { filterGears } from "./_actions/filterGears";
@@ -232,8 +236,17 @@ export default async function GearBrowsePage({
                 <GearCard key={item.id} item={item} />
               ))}
               {paginatedItems.length === 0 && (
-                <div className="col-span-full py-20 text-center">
-                  <p className="text-slate-500 font-medium">No gear found matching your criteria.</p>
+                <div className="col-span-full py-10">
+                  <EmptyState 
+                    icon={Search}
+                    title="No gear found"
+                    description="We couldn't find any gear matching your current filters. Try adjusting your search criteria."
+                    action={
+                      <Button render={<Link href="/gear" />} variant="outline">
+                        Clear Filters
+                      </Button>
+                    }
+                  />
                 </div>
               )}
             </div>

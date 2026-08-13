@@ -134,17 +134,17 @@ export default async function HomePage() {
   ]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white font-[Inter] text-foreground">
+    <main className="min-h-screen overflow-hidden bg-white text-foreground">
       {/* Hero*/}
       <section
         id="home"
         className="relative flex min-h-screen items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
       >
         <div className="relative z-10 mx-auto max-w-5xl">
-          <p className="mx-auto inline-flex rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wider text-white sm:text-sm uppercase">
+          <p className="mx-auto inline-flex rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wide text-white sm:text-sm uppercase">
             Premier Equipment Rental Platform
           </p>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Access Premium Sports
             <br className="hidden sm:block" /> and Outdoor Gear
           </h1>
@@ -176,7 +176,7 @@ export default async function HomePage() {
             ].map(([number, label]) => (
               <div key={label} className="px-4 py-4">
                 <p className="text-2xl font-extrabold text-white">{number}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-slate-300">
+                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-slate-300">
                   {label}
                 </p>
               </div>
@@ -189,16 +189,16 @@ export default async function HomePage() {
       <section id="categories" className="bg-muted px-5 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
               Find your kit
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] text-foreground sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               Browse by Category
             </h2>
           </div>
 
           {categories.length > 0 ? (
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
+            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
               {categories.map((cat: PublicCategory) => {
                 const Icon = CATEGORY_ICONS[cat.name] ?? Layers;
                 return (
@@ -220,7 +220,7 @@ export default async function HomePage() {
             </div>
           ) : (
             // Fallback static categories if API fails
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
+            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
               {[
                 { name: "Camping & Hiking", Icon: TentTree },
                 { name: "Cycling", Icon: Bike },
@@ -255,10 +255,10 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+              <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
                 Popular right now
               </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] text-foreground sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                 Top Gear This Week
               </h2>
               <p className="mt-3 text-slate-500">
@@ -305,10 +305,10 @@ export default async function HomePage() {
       <section id="how-it-works" className="bg-slate-900 px-5 py-20 text-white">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary/70">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-primary/70">
               The simple way
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
               Rent Gear in 4 Simple Steps
             </h2>
           </div>
@@ -333,10 +333,10 @@ export default async function HomePage() {
       <section id="about-us" className="bg-muted px-5 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
               Built for the outdoors
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] text-foreground sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               Why Thousands Choose RentRover
             </h2>
           </div>
@@ -361,10 +361,10 @@ export default async function HomePage() {
         <section className="px-5 py-20">
           <div className="mx-auto max-w-7xl">
             <div className="text-center">
-              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+              <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
                 In their words
               </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] text-foreground sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                 What Our Customers Say
               </h2>
             </div>
@@ -379,7 +379,7 @@ export default async function HomePage() {
                 return (
                   <Card
                     key={review.id}
-                    className="rounded-xl border border-border bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+                    className="rounded-xl border border-border bg-white p-7 shadow-sm"
                   >
                     <p className="font-serif text-5xl leading-7 text-primary">
                       "
@@ -424,7 +424,7 @@ export default async function HomePage() {
         <div className="absolute -left-12 top-0 size-64 rounded-full border-[28px] border-white/10" />
         <div className="absolute -right-16 -bottom-28 size-72 rotate-45 border-[34px] border-white/10" />
         <div className="relative mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-extrabold tracking-[-0.025em] sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             Ready to Rent Rover for Your Next Adventure?
           </h2>
           <p className="mt-4 text-lg text-red-100">
