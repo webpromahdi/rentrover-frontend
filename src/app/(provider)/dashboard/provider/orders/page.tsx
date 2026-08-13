@@ -132,19 +132,19 @@ const ProviderOrdersContent = () => {
             placeholder="Search by customer, gear or order ID..."
             value={localSearch}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm focus:border-[#e31824] focus:ring-2 focus:ring-red-100 focus-visible:ring-0 sm:max-w-sm"
+            className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm focus:border-primary focus:ring-2 focus:ring-red-100 focus-visible:ring-0 sm:max-w-sm"
           />
         </label>
       </div>
 
       {/* P3-1: Relative wrapper for gradient scroll-hint on mobile */}
       <div className="relative">
-        <div className="flex gap-5 overflow-x-auto border-b border-slate-100 bg-white px-4 pt-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] scrollbar-none">
+        <div className="flex gap-5 overflow-x-auto border-b border-border bg-white px-4 pt-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] scrollbar-none">
           {STATUS_TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => handleFilterChange("tab", tab)}
-              className={`h-auto whitespace-nowrap border-b-2 pb-3 text-sm font-bold transition-colors ${activeTab === tab ? "border-[#e31824] text-[#e31824]" : "border-transparent text-slate-500 hover:text-[#1b2748]"}`}
+              className={`h-auto whitespace-nowrap border-b-2 pb-3 text-sm font-bold transition-colors ${activeTab === tab ? "border-primary text-primary" : "border-transparent text-slate-500 hover:text-foreground"}`}
             >
               {STATUS_DISPLAY[tab]} ({tabCounts[tab]})
             </button>
@@ -166,7 +166,7 @@ const ProviderOrdersContent = () => {
       ) : (
         <ScrollArea className="mt-6 h-full w-full rounded-xl border border-slate-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <Table className="min-w-[960px] w-full text-left text-sm">
-            <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+            <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               <TableRow className="hover:bg-transparent">
                 {[
                   "Order ID",
@@ -192,17 +192,17 @@ const ProviderOrdersContent = () => {
                 return (
                   <TableRow
                     key={order.id}
-                    className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                    className="border-b border-border last:border-0 hover:bg-slate-50/50"
                   >
                     <TableCell className="px-4 py-4">
                       <Link
                         href={`/dashboard/provider/orders/${order.id}`}
-                        className="font-bold text-[#e31824]"
+                        className="font-bold text-primary"
                       >
                         #{order.id.slice(0, 8).toUpperCase()}
                       </Link>
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-medium text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-medium text-foreground">
                       {order.customer?.name ?? "—"}
                     </TableCell>
                     <TableCell className="px-5 py-4 text-[13px] text-slate-600">
@@ -217,7 +217,7 @@ const ProviderOrdersContent = () => {
                     <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                       {order.quantity}
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
                       ${parseFloat(order.totalAmount).toFixed(2)}
                     </TableCell>
                     <TableCell className="px-5 py-4">
@@ -230,7 +230,7 @@ const ProviderOrdersContent = () => {
                           onClick={() =>
                             updateStatus({ id: order.id, status: nextStatus })
                           }
-                          className={`h-8 rounded-lg px-3 text-xs font-bold transition-colors ${order.status === "PLACED" ? "bg-[#e31824] text-white hover:bg-[#c41520]" : order.status === "PAID" ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-emerald-600 text-white hover:bg-emerald-700"}`}
+                          className={`h-8 rounded-lg px-3 text-xs font-bold transition-colors ${order.status === "PLACED" ? "bg-primary text-white hover:bg-primary/90" : order.status === "PAID" ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-emerald-600 text-white hover:bg-emerald-700"}`}
                         >
                           {actionLabel}
                         </Button>

@@ -69,8 +69,8 @@ const ProviderDashboardPage = () => {
       Icon: Boxes,
       n: isLoading ? "…" : totalGear.toString(),
       label: "Total Gear Listed",
-      c: "text-[#e31824]",
-      b: "bg-red-50",
+      c: "text-primary",
+      b: "bg-primary/10",
     },
     {
       Icon: RotateCw,
@@ -92,7 +92,7 @@ const ProviderDashboardPage = () => {
         ? "…"
         : `$${totalEarnings.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       label: "Total Earnings",
-      c: "text-[#1b2748]",
+      c: "text-foreground",
       b: "bg-slate-100",
     },
   ];
@@ -105,14 +105,14 @@ const ProviderDashboardPage = () => {
           <div className="flex gap-3">
             <Link
               href="/dashboard/provider/gear/new"
-              className="flex h-10 items-center gap-2 rounded-lg bg-[#e31824] px-4 text-sm font-bold text-white transition-colors hover:bg-[#c41520]"
+              className="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
             >
               <Plus className="size-4" />
               Add New Gear
             </Link>
             <Link
               href="/dashboard/provider/orders"
-              className="hidden h-10 items-center rounded-lg border border-[#e31824] px-4 text-sm font-bold text-[#e31824] transition-colors hover:bg-red-50 sm:flex"
+              className="hidden h-10 items-center rounded-lg border border-primary px-4 text-sm font-bold text-primary transition-colors hover:bg-primary/10 sm:flex"
             >
               View All Orders
             </Link>
@@ -132,7 +132,7 @@ const ProviderDashboardPage = () => {
               <Icon className={`size-6 ${c}`} />
             </span>
             <div>
-              <p className="text-2xl font-extrabold tracking-tight text-[#1b2748]">
+              <p className="text-2xl font-extrabold tracking-tight text-foreground">
                 {n}
               </p>
               <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-500">
@@ -145,12 +145,12 @@ const ProviderDashboardPage = () => {
 
       <section className="mt-10">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Gear Inventory
           </h2>
           <Link
             href="/dashboard/provider/gear"
-            className="text-[13px] font-semibold text-[#e31824] hover:underline"
+            className="text-[13px] font-semibold text-primary hover:underline"
           >
             View all
           </Link>
@@ -160,12 +160,12 @@ const ProviderDashboardPage = () => {
 
       <section className="mt-10">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Pending Orders
           </h2>
           <Link
             href="/dashboard/provider/orders"
-            className="text-[13px] font-semibold text-[#e31824] hover:underline"
+            className="text-[13px] font-semibold text-primary hover:underline"
           >
             View all
           </Link>
@@ -184,7 +184,7 @@ const ProviderDashboardPage = () => {
         ) : (
           <ScrollArea className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
             <Table className="min-w-[760px] w-full text-left text-sm">
-              <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+              <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                 <TableRow className="hover:bg-transparent">
                   {[
                     "Order ID",
@@ -204,17 +204,17 @@ const ProviderDashboardPage = () => {
                 {recentOrders.map((order) => (
                   <TableRow
                     key={order.id}
-                    className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                    className="border-b border-border last:border-0 hover:bg-slate-50/50"
                   >
                     <TableCell className="px-5 py-4">
                       <Link
                         href={`/dashboard/provider/orders/${order.id}`}
-                        className="font-bold text-[#e31824]"
+                        className="font-bold text-primary"
                       >
                         #{order.id.slice(0, 8).toUpperCase()}
                       </Link>
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-medium text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-medium text-foreground">
                       {order.customer?.name ?? "—"}
                     </TableCell>
                     <TableCell className="px-5 py-4 text-[13px] text-slate-600">
@@ -223,7 +223,7 @@ const ProviderDashboardPage = () => {
                     <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                       {formatDate(order.startDate)} — {formatDate(order.endDate)}
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
                       ${parseFloat(order.totalAmount).toFixed(2)}
                     </TableCell>
                     <TableCell className="px-5 py-4">

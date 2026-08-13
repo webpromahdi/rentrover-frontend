@@ -1,15 +1,21 @@
 import Image from "next/image";
 
-const brandLogo = "/gearup-logo.png";
+const lightLogo = "/rent-rover.png";
+const darkLogo = "/rent-rover-dark.png";
 
 const Logo = ({ inverse = false }: { inverse?: boolean }) => {
   return (
     <Image
-      src={brandLogo}
-      alt="GearUp"
-      width={132}
-      height={36}
-      className={`object-contain ${inverse ? "brightness-0 invert" : ""}`}
+      src={inverse ? darkLogo : lightLogo}
+      alt="RentRover Logo"
+      width={300}
+      height={100}
+      style={{
+        width: '100%',
+        height: 'auto',
+        maxWidth: '132px'
+      }}
+      className="object-contain"
     />
   );
 };

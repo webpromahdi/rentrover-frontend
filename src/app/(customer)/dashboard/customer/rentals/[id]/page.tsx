@@ -43,7 +43,7 @@ const statusBadgeColors: Record<string, string> = {
   PAID: "bg-emerald-100 text-emerald-700",
   PICKED_UP: "bg-purple-100 text-purple-700",
   RETURNED: "bg-slate-100 text-slate-700",
-  CANCELLED: "bg-red-100 text-red-700",
+  CANCELLED: "bg-primary/20 text-red-700",
 };
 
 const CustomerRentalDetailsPage = () => {
@@ -157,42 +157,42 @@ const CustomerRentalDetailsPage = () => {
           <div className="p-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-extrabold text-[#1b2748]">
+                <h2 className="text-2xl font-extrabold text-foreground">
                   {gear?.name ?? "Gear Item"}
                 </h2>
                 <p className="mt-1 text-sm text-slate-500">{gear?.brand}</p>
                 {gear?.address && (
                   <p className="mt-1.5 flex items-center gap-1.5 text-sm text-slate-500">
-                    <MapPin className="size-3.5 text-[#e31824]" />
+                    <MapPin className="size-3.5 text-primary" />
                     {gear.address}
                   </p>
                 )}
               </div>
               <StatusBadge status={order.status} />
             </div>
-            <div className="mt-6 grid grid-cols-2 gap-y-5 border-t border-slate-100 pt-6 text-sm">
+            <div className="mt-6 grid grid-cols-2 gap-y-5 border-t border-border pt-6 text-sm">
               <p className="text-slate-500">
                 Rental period{" "}
-                <strong className="block pt-1 text-[#1b2748]">
+                <strong className="block pt-1 text-foreground">
                   {formatDate(order.startDate)} — {formatDate(order.endDate)}
                 </strong>
               </p>
               <p className="text-slate-500">
                 Duration{" "}
-                <strong className="block pt-1 text-[#1b2748]">
+                <strong className="block pt-1 text-foreground">
                   {days} day{days !== 1 ? "s" : ""} · {order.quantity} unit
                   {order.quantity !== 1 ? "s" : ""}
                 </strong>
               </p>
               <p className="text-slate-500">
                 Price per day{" "}
-                <strong className="block pt-1 text-[#1b2748]">
+                <strong className="block pt-1 text-foreground">
                   ${pricePerDay.toFixed(2)}
                 </strong>
               </p>
               <p className="text-slate-500">
                 Total amount{" "}
-                <strong className="block pt-1 text-xl text-[#e31824]">
+                <strong className="block pt-1 text-xl text-primary">
                   ${totalAmount.toFixed(2)}
                 </strong>
               </p>
@@ -202,7 +202,7 @@ const CustomerRentalDetailsPage = () => {
 
         {/* Right: Order Summary + Pay Now */}
         <Card className="h-fit rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Order Summary
           </h2>
           <dl className="mt-5 space-y-4 text-sm">
@@ -227,9 +227,9 @@ const CustomerRentalDetailsPage = () => {
               </dd>
             </div>
           </dl>
-          <div className="my-6 border-t border-slate-100" />
+          <div className="my-6 border-t border-border" />
           <div className="flex items-center justify-between">
-            <span className="text-sm font-bold text-[#1b2748]">
+            <span className="text-sm font-bold text-foreground">
               Payment status
             </span>
             <StatusBadge status={isPaid ? "PAID" : "PENDING"} />
@@ -238,14 +238,14 @@ const CustomerRentalDetailsPage = () => {
           {!isPaid && !isCancelled && (
             <Link
               href={`/dashboard/customer/payment/${order.id}`}
-              className="mt-5 flex h-12 items-center justify-center rounded-lg bg-[#e31824] text-sm font-extrabold text-white transition hover:bg-[#c41520]"
+              className="mt-5 flex h-12 items-center justify-center rounded-lg bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
             >
               Pay Now
             </Link>
           )}
 
           {isCancelled && (
-            <div className="mt-5 rounded-lg bg-red-50 p-3 text-center text-sm font-bold text-red-600">
+            <div className="mt-5 rounded-lg bg-primary/10 p-3 text-center text-sm font-bold text-red-600">
               This order has been cancelled.
             </div>
           )}
@@ -259,7 +259,7 @@ const CustomerRentalDetailsPage = () => {
       {/* Order Progress */}
       {!isCancelled && (
         <section className="mt-8 rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Order Progress
           </h2>
           <div className="mt-8 grid grid-cols-3 gap-y-7 md:grid-cols-5">
@@ -290,7 +290,7 @@ const CustomerRentalDetailsPage = () => {
                       <Circle className="size-3" />
                     )}
                   </span>
-                  <p className="mt-3 text-[11px] font-extrabold uppercase tracking-wider text-[#1b2748]">
+                  <p className="mt-3 text-[11px] font-extrabold uppercase tracking-wider text-foreground">
                     {step.label.replaceAll("_", " ")}
                   </p>
                 </div>
@@ -302,7 +302,7 @@ const CustomerRentalDetailsPage = () => {
 
       {/* Payment History */}
       <section className="mt-8 rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-        <h2 className="mb-5 text-xl font-extrabold text-[#1b2748]">
+        <h2 className="mb-5 text-xl font-extrabold text-foreground">
           Payment History
         </h2>
         {order.payments && order.payments.length > 0 ? (
@@ -365,7 +365,7 @@ const CustomerRentalDetailsPage = () => {
 
       {/* Other Rentals */}
       <section className="mt-8">
-        <h2 className="mb-4 text-xl font-extrabold text-[#1b2748]">
+        <h2 className="mb-4 text-xl font-extrabold text-foreground">
           Other Rentals
         </h2>
         {otherOrders.length === 0 ? (
@@ -377,7 +377,7 @@ const CustomerRentalDetailsPage = () => {
             </p>
             <Link
               href="/dashboard/customer/rent"
-              className="mt-4 inline-flex h-10 items-center gap-2 rounded-lg bg-[#e31824] px-4 text-sm font-bold text-white transition hover:bg-[#c41520]"
+              className="mt-4 inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition hover:bg-primary/90"
             >
               Browse Gear
             </Link>
@@ -390,7 +390,7 @@ const CustomerRentalDetailsPage = () => {
                 href={`/dashboard/customer/rentals/${rental.id}`}
                 className="overflow-hidden rounded-xl border-none bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)] flex flex-col transition hover:shadow-md"
               >
-                <div className="flex h-24 items-center border-b border-slate-100">
+                <div className="flex h-24 items-center border-b border-border">
                   {rental.gearItem?.image ? (
                     <div className="relative h-full w-24 shrink-0 overflow-hidden">
                       <Image
@@ -407,7 +407,7 @@ const CustomerRentalDetailsPage = () => {
                     </div>
                   )}
                   <div className="p-3">
-                    <h3 className="font-bold text-[#1b2748] line-clamp-1">
+                    <h3 className="font-bold text-foreground line-clamp-1">
                       {rental.gearItem?.name ?? "Gear Item"}
                     </h3>
                     <p className="mt-1 text-xs text-slate-500">

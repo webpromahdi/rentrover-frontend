@@ -94,7 +94,7 @@ export function ActiveFilters({
       </div>
       <button
         onClick={() => router.replace(pathname, { scroll: false })}
-        className="ml-auto pr-2 text-xs font-bold text-[#e31824] hover:underline shrink-0"
+        className="ml-auto pr-2 text-xs font-bold text-primary hover:underline shrink-0"
       >
         Clear All
       </button>

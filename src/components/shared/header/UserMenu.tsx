@@ -24,7 +24,7 @@ export const GuestActions = ({ mobile = false }: { mobile?: boolean }) => {
       <div className="grid gap-3">
         <Link
           href="/login"
-          className="flex h-11 w-full items-center justify-center rounded-lg bg-[#e31824] text-sm font-bold text-white transition hover:bg-[#c41520]"
+          className="flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
         >
           Log In
         </Link>
@@ -36,7 +36,7 @@ export const GuestActions = ({ mobile = false }: { mobile?: boolean }) => {
     <div className="flex items-center gap-3">
       <Link
         href="/login"
-        className="flex h-10 items-center rounded-lg bg-[#e31824] px-5 text-sm font-bold text-white transition hover:bg-[#c41520]"
+        className="flex h-10 items-center rounded-lg bg-primary px-5 text-sm font-bold text-white transition hover:bg-primary/90"
       >
         Log In
       </Link>
@@ -73,8 +73,8 @@ export const UserMenu = ({ user }: { user: HeaderUser }) => {
         className="w-56"
       >
         {/* User Info Header */}
-        <div className="border-b border-slate-100 px-3 py-2.5">
-          <p className="truncate text-sm font-bold text-[#1b2748]">
+        <div className="border-b border-border px-3 py-2.5">
+          <p className="truncate text-sm font-bold text-foreground">
             {user.name}
           </p>
           <p className="truncate pt-0.5 text-xs text-slate-500">{user.email}</p>
@@ -88,7 +88,7 @@ export const UserMenu = ({ user }: { user: HeaderUser }) => {
               onClick={() => {
                 window.location.assign(href);
               }}
-              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm font-semibold text-[#1a1a2e]"
+              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm font-semibold text-foreground"
             >
               <Icon className="size-4" />
               {label}
@@ -100,7 +100,7 @@ export const UserMenu = ({ user }: { user: HeaderUser }) => {
           <DropdownMenuItem
             variant="destructive"
             onClick={handleLogout}
-            className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm font-bold text-[#e31824]"
+            className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 text-sm font-bold text-primary"
           >
             <logoutLink.icon className="size-4" />
             {logoutLink.label}

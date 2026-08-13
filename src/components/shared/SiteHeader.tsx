@@ -16,10 +16,10 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 shadow-[0_1px_8px_rgba(0,0,0,0.08)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/95 shadow-[0_1px_8px_rgba(0,0,0,0.08)] backdrop-blur">
       <div className="container flex h-[70px] items-center justify-between">
         {/* Logo */}
-        <Link href="/" aria-label="GearUp home">
+        <Link href="/" aria-label="RentRover home">
           <Logo />
         </Link>
 
@@ -35,8 +35,8 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
               <Link
                 key={label}
                 href={href}
-                className={`text-sm font-semibold transition-colors hover:text-[#e31824] ${
-                  isActive ? "text-[#e31824]" : "text-[#1a1a2e]"
+                className={`text-sm font-semibold transition-colors hover:text-primary ${
+                  isActive ? "text-primary" : "text-foreground"
                 }`}
               >
                 {label}

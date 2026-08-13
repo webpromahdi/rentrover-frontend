@@ -29,7 +29,7 @@ export const Avatar = ({ user, size = "md" }: AvatarProps) => {
   return (
     <span
       aria-label={`${user.name} avatar`}
-      className={`flex ${dimensions} items-center justify-center rounded-full bg-[#1b2748] text-white ring-2 ring-slate-100`}
+      className={`flex ${dimensions} items-center justify-center rounded-full bg-slate-900 text-white ring-2 ring-slate-100`}
     >
       <CircleUserRound className="size-5" />
     </span>

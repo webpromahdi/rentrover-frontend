@@ -34,7 +34,7 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
     <Sheet>
       <SheetTrigger
         aria-label="Open navigation menu"
-        className="flex size-10 items-center justify-center rounded-lg text-[#1b2748] outline-none hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-[#e31824]"
+        className="flex size-10 items-center justify-center rounded-lg text-foreground outline-none hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-[#e31824]"
       >
         <Menu className="size-6" />
       </SheetTrigger>
@@ -45,13 +45,13 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
         className="w-[min(86vw,340px)] p-0 flex flex-col"
       >
         {/* Drawer Header */}
-        <div className="flex h-[70px] items-center justify-between border-b border-slate-100 px-5">
-          <Link href="/" aria-label="GearUp home">
+        <div className="flex h-[70px] items-center justify-between border-b border-border px-5">
+          <Link href="/" aria-label="RentRover home">
             <Logo />
           </Link>
           <SheetClose
             aria-label="Close navigation menu"
-            className="flex size-10 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-[#1b2748]"
+            className="flex size-10 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-foreground"
           >
             <X className="size-5" />
           </SheetClose>
@@ -59,11 +59,11 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
 
         {/* User info (if logged in) */}
         {user && (
-          <div className="border-b border-slate-100 bg-slate-50 px-5 py-5">
+          <div className="border-b border-border bg-slate-50 px-5 py-5">
             <div className="flex items-center gap-3">
               <Avatar user={user} />
               <div className="min-w-0">
-                <p className="truncate text-sm font-bold text-[#1b2748]">
+                <p className="truncate text-sm font-bold text-foreground">
                   {user.name}
                 </p>
                 <p className="truncate pt-0.5 text-xs text-slate-500">
@@ -84,7 +84,7 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
               <Link
                 key={label}
                 href={href}
-                className="flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-[#1a1a2e] transition hover:bg-red-50 hover:text-[#e31824]"
+                className="flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-foreground transition hover:bg-primary/10 hover:text-primary"
               >
                 {label}
               </Link>
@@ -103,7 +103,7 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
                   <Link
                     key={label}
                     href={href}
-                    className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-[#1a1a2e] transition hover:bg-red-50 hover:text-[#e31824]"
+                    className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-foreground transition hover:bg-primary/10 hover:text-primary"
                   >
                     <Icon className="size-4" />
                     {label}
@@ -112,7 +112,7 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm font-bold text-[#e31824] transition hover:bg-red-50 text-left"
+                  className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm font-bold text-primary transition hover:bg-primary/10 text-left"
                 >
                   <logoutLink.icon className="size-4" />
                   {logoutLink.label}
@@ -124,7 +124,7 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
 
         {/* Guest CTA at bottom */}
         {!user && (
-          <div className="border-t border-slate-100 p-5">
+          <div className="border-t border-border p-5">
             <GuestActions mobile />
           </div>
         )}

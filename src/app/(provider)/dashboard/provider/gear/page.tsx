@@ -75,7 +75,7 @@ const ProviderGearContent = () => {
         action={
           <Link
             href="/dashboard/provider/gear/new"
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#e31824] px-4 text-sm font-bold text-white transition-colors hover:bg-[#c41520]"
+            className="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
           >
             <Plus className="size-4" />
             Add New Gear
@@ -89,7 +89,7 @@ const ProviderGearContent = () => {
             placeholder="Search your gear..."
             value={localSearch}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm focus:border-[#e31824] focus:ring-2 focus:ring-red-100"
+            className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm focus:border-primary focus:ring-2 focus:ring-red-100"
           />
         </label>
         {/* Two filter dropdowns in a 2-col grid on mobile */}
@@ -98,7 +98,7 @@ const ProviderGearContent = () => {
             value={selectedCategory}
             onValueChange={(val) => handleFilterChange("category", val)}
           >
-            <SelectTrigger className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-sm focus:border-[#e31824] focus:ring-2 focus:ring-red-100">
+            <SelectTrigger className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-sm focus:border-primary focus:ring-2 focus:ring-red-100">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
             <SelectContent>
@@ -113,7 +113,7 @@ const ProviderGearContent = () => {
             value={selectedCondition}
             onValueChange={(val) => handleFilterChange("condition", val)}
           >
-            <SelectTrigger className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-sm focus:border-[#e31824] focus:ring-2 focus:ring-red-100">
+            <SelectTrigger className="h-10 rounded-lg border border-slate-200 bg-white px-3 text-sm focus:border-primary focus:ring-2 focus:ring-red-100">
               <SelectValue placeholder="Select Condition" />
             </SelectTrigger>
             <SelectContent>
@@ -130,7 +130,7 @@ const ProviderGearContent = () => {
           onClick={() =>
             handleFilterChange("available", availableOnly ? "all" : "true")
           }
-          className="flex h-10 w-full md:w-auto items-center gap-3 text-sm font-bold text-[#1b2748] sm:col-span-2 md:col-span-1"
+          className="flex h-10 w-full md:w-auto items-center gap-3 text-sm font-bold text-foreground sm:col-span-2 md:col-span-1"
         >
           <Availability active={availableOnly} />
           Available only

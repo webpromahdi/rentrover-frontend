@@ -37,14 +37,14 @@ export const ProfileCard = ({ user }: { user: any }) => {
               className="size-[120px] rounded-full object-cover ring-4 ring-white shadow-sm"
             />
           ) : (
-            <div className="flex size-[120px] items-center justify-center rounded-full bg-[#1b2748] text-white ring-4 ring-white shadow-sm">
+            <div className="flex size-[120px] items-center justify-center rounded-full bg-slate-900 text-white ring-4 ring-white shadow-sm">
               <CircleUserRound className="size-[60px]" />
             </div>
           )}
           {/* Edit Avatar Button */}
           <button
             type="button"
-            className="absolute bottom-1 right-1 flex size-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition-colors hover:bg-slate-50 hover:text-[#e31824]"
+            className="absolute bottom-1 right-1 flex size-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition-colors hover:bg-slate-50 hover:text-primary"
           >
             <Pencil className="size-4" />
           </button>
@@ -53,10 +53,10 @@ export const ProfileCard = ({ user }: { user: any }) => {
         {/* User Info */}
         <div className="flex-1 space-y-3">
           <div>
-            <h2 className="text-2xl font-extrabold text-[#1b2748] sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
               {user.name}
             </h2>
-            <div className="mt-2 inline-flex items-center rounded-full bg-red-50 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#e31824]">
+            <div className="mt-2 inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-primary">
               {user.role}
             </div>
           </div>
@@ -75,7 +75,7 @@ export const ProfileCard = ({ user }: { user: any }) => {
 
         {/* Edit Button */}
         <div className="sm:self-start">
-          <button className="flex h-10 items-center justify-center gap-2 rounded-lg bg-[#e31824] px-5 text-sm font-bold text-white transition hover:bg-[#c41520]">
+          <button className="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-white transition hover:bg-primary/90">
             <Pencil className="size-4" />
             Edit Profile
           </button>

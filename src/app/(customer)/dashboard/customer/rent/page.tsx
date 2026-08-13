@@ -21,7 +21,7 @@ import { useSearchAndSort } from "@/app/hooks/useSearchAndSort";
 import { usePagination } from "@/app/hooks/usePagination";
 
 const categoryColorPalette = [
-  { color: "text-red-500", bg: "bg-red-50" },
+  { color: "text-red-500", bg: "bg-primary/10" },
   { color: "text-emerald-500", bg: "bg-emerald-50" },
   { color: "text-amber-500", bg: "bg-amber-50" },
   { color: "text-blue-500", bg: "bg-blue-50" },
@@ -38,7 +38,7 @@ const conditionBadge: Record<string, string> = {
   EXCELLENT: "bg-emerald-100 text-emerald-700",
   GOOD: "bg-green-100 text-green-700",
   FAIR: "bg-amber-100 text-amber-700",
-  POOR: "bg-red-100 text-red-700",
+  POOR: "bg-primary/20 text-red-700",
 };
 
 const PAGE_SIZE = 12;
@@ -229,12 +229,12 @@ const CustomerRentGearContent = () => {
       {/* Browse by Category */}
       <div className="mb-8">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-[#1b2748]">
+          <h2 className="text-lg font-bold text-foreground">
             Browse by Category
           </h2>
           <Link
             href="#"
-            className="text-sm font-bold text-[#e31824] hover:underline"
+            className="text-sm font-bold text-primary hover:underline"
           >
             View All
           </Link>
@@ -252,14 +252,14 @@ const CustomerRentGearContent = () => {
             return (
               <div
                 key={cat.id}
-                className="flex min-w-[130px] cursor-pointer flex-col items-center justify-center rounded-xl bg-white py-4 px-3 shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition border border-transparent hover:border-[#e31824] hover:shadow-md"
+                className="flex min-w-[130px] cursor-pointer flex-col items-center justify-center rounded-xl bg-white py-4 px-3 shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition border border-transparent hover:border-primary hover:shadow-md"
               >
                 <span
                   className={`flex size-11 items-center justify-center rounded-full ${palette.bg} mb-2.5`}
                 >
                   <Tag className={`size-5 ${palette.color}`} />
                 </span>
-                <p className="text-sm font-bold text-[#1b2748] text-center">
+                <p className="text-sm font-bold text-foreground text-center">
                   {cat.name}
                 </p>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -274,7 +274,7 @@ const CustomerRentGearContent = () => {
       {/* Available Gear List */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200 pb-4">
         <div>
-          <h2 className="text-lg font-bold text-[#1b2748]">Available Gear</h2>
+          <h2 className="text-lg font-bold text-foreground">Available Gear</h2>
           <p className="text-sm text-slate-500">
             {availableGears.length} items found
           </p>
@@ -356,15 +356,15 @@ const CustomerRentGearContent = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <button className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-white text-slate-400 shadow-md transition hover:text-[#e31824]">
+                <button className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-white text-slate-400 shadow-md transition hover:text-primary">
                   <Heart className="size-4" />
                 </button>
-                <span className="absolute bottom-3 left-3 rounded px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider bg-white/90 text-[#1b2748]">
+                <span className="absolute bottom-3 left-3 rounded px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider bg-white/90 text-foreground">
                   {gear.category?.name ?? "—"}
                 </span>
               </div>
               <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-extrabold text-[#1b2748] truncate">
+                <h3 className="font-extrabold text-foreground truncate">
                   {gear.name}
                 </h3>
                 <p className="text-sm text-slate-500">{gear.brand}</p>
@@ -378,7 +378,7 @@ const CustomerRentGearContent = () => {
 
                 <div className="mt-1 flex items-center gap-1.5 text-xs">
                   <Star className="size-3.5 fill-amber-400 text-amber-400" />
-                  <span className="font-bold text-[#1b2748]">—</span>
+                  <span className="font-bold text-foreground">—</span>
                   <span
                     className={`ml-1 rounded px-1.5 py-0.5 text-[10px] font-extrabold uppercase ${conditionBadge[gear.condition] ?? "bg-slate-100 text-slate-600"}`}
                   >
@@ -387,7 +387,7 @@ const CustomerRentGearContent = () => {
                 </div>
 
                 <div className="mt-4 flex items-center justify-between">
-                  <p className="font-extrabold text-[#e31824]">
+                  <p className="font-extrabold text-primary">
                     ${gear.pricePerDay}{" "}
                     <span className="text-xs font-normal text-slate-500">
                       / day
@@ -400,7 +400,7 @@ const CustomerRentGearContent = () => {
 
                 <Link
                   href={`/dashboard/customer/rent/${gear.id}`}
-                  className="mt-4 flex h-10 w-full items-center justify-center rounded-md bg-[#e31824] text-sm font-bold text-white transition hover:bg-[#c41520]"
+                  className="mt-4 flex h-10 w-full items-center justify-center rounded-md bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
                 >
                   Rent Now
                 </Link>

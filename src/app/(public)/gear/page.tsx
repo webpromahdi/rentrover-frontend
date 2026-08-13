@@ -97,10 +97,10 @@ export default async function GearBrowsePage({
     <>
       <section className="border-b border-slate-200 bg-white py-9">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#e31824]">
+          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
             Gear rental marketplace
           </p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-[-0.025em] text-[#1b2748] sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-extrabold tracking-[-0.025em] text-foreground sm:text-4xl">
             Browse All Gear
           </h1>
         </div>
@@ -111,8 +111,8 @@ export default async function GearBrowsePage({
           {/* Desktop Sidebar */}
           <aside className="hidden h-fit rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.08)] lg:sticky lg:top-24 lg:block">
             <div className="mb-6 flex items-center justify-between">
-              <h2 className="flex items-center gap-2 text-lg font-extrabold text-[#1b2748]">
-                <ListFilter className="size-5 text-[#e31824]" />
+              <h2 className="flex items-center gap-2 text-lg font-extrabold text-foreground">
+                <ListFilter className="size-5 text-primary" />
                 Filters
               </h2>
             </div>
@@ -126,11 +126,11 @@ export default async function GearBrowsePage({
             <div className="mb-6 flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_2px_12px_rgba(0,0,0,0.04)] md:hidden">
               <div className="flex items-center justify-between gap-3">
                 <Sheet>
-                  <SheetTrigger className="flex h-10 shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-bold text-[#1b2748] transition-colors hover:bg-slate-50">
-                    <ListFilter className="size-3.5 text-[#e31824]" />
+                  <SheetTrigger className="flex h-10 shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-bold text-foreground transition-colors hover:bg-slate-50">
+                    <ListFilter className="size-3.5 text-primary" />
                     Filters
                     {activeFiltersCount > 0 && (
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#e31824] text-[10px] text-white">
+                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] text-white">
                         {activeFiltersCount}
                       </span>
                     )}
@@ -139,9 +139,9 @@ export default async function GearBrowsePage({
                     side="bottom"
                     className="flex !h-[85vh] flex-col overflow-hidden rounded-t-2xl px-0 pb-0"
                   >
-                    <SheetHeader className="flex-row items-center justify-between border-b border-slate-100 px-5 pb-4 pt-4 shrink-0">
-                      <SheetTitle className="mt-0 flex items-center gap-2 text-lg font-extrabold text-[#1b2748]">
-                        <ListFilter className="size-5 text-[#e31824]" />
+                    <SheetHeader className="flex-row items-center justify-between border-b border-border px-5 pb-4 pt-4 shrink-0">
+                      <SheetTitle className="mt-0 flex items-center gap-2 text-lg font-extrabold text-foreground">
+                        <ListFilter className="size-5 text-primary" />
                         Filters
                       </SheetTitle>
                     </SheetHeader>
@@ -150,8 +150,8 @@ export default async function GearBrowsePage({
                         <GearFilters categories={categories} hideApplyButton />
                       </Suspense>
                     </div>
-                    <div className="sticky bottom-0 z-10 w-full shrink-0 border-t border-slate-100 bg-white p-5 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
-                      <SheetClose className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-bold text-white shadow-md transition hover:bg-[#c41520]">
+                    <div className="sticky bottom-0 z-10 w-full shrink-0 border-t border-border bg-white p-5 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+                      <SheetClose className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-bold text-white shadow-md transition hover:bg-primary/90">
                         <Filter className="size-4" />
                         View Results
                       </SheetClose>
@@ -166,14 +166,14 @@ export default async function GearBrowsePage({
 
               <div className="flex items-center justify-between">
                 <p className="text-xs font-medium text-slate-600">
-                  Showing <span className="font-bold text-[#e31824]">{formattedItems.length}</span>{" "}
+                  Showing <span className="font-bold text-primary">{formattedItems.length}</span>{" "}
                   results for{" "}
-                  <span className="font-bold text-[#1b2748]">“All Gear”</span>
+                  <span className="font-bold text-foreground">“All Gear”</span>
                 </p>
               </div>
 
               {activeFiltersCount > 0 && (
-                <div className="scrollbar-none flex items-center gap-2 overflow-x-auto border-t border-slate-100 pt-4">
+                <div className="scrollbar-none flex items-center gap-2 overflow-x-auto border-t border-border pt-4">
                   <Suspense fallback={null}>
                     <ActiveFilters categories={categories} />
                   </Suspense>
@@ -185,9 +185,9 @@ export default async function GearBrowsePage({
             <div className="mb-7 hidden flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] md:flex xl:hidden">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-slate-600">
-                  Showing <span className="font-bold text-[#e31824]">{formattedItems.length}</span>{" "}
+                  Showing <span className="font-bold text-primary">{formattedItems.length}</span>{" "}
                   results for{" "}
-                  <span className="font-bold text-[#1b2748]">“All Gear”</span>
+                  <span className="font-bold text-foreground">“All Gear”</span>
                 </p>
                 <Suspense fallback={null}>
                   <SortDropdown className="w-48" />
@@ -195,7 +195,7 @@ export default async function GearBrowsePage({
               </div>
 
               {activeFiltersCount > 0 && (
-                <div className="scrollbar-none flex items-center gap-2 overflow-x-auto border-t border-slate-100 pt-4">
+                <div className="scrollbar-none flex items-center gap-2 overflow-x-auto border-t border-border pt-4">
                   <Suspense fallback={null}>
                     <ActiveFilters categories={categories} />
                   </Suspense>
@@ -208,9 +208,9 @@ export default async function GearBrowsePage({
               {/* Top Row */}
               <div className="flex items-center justify-between">
                 <p className="shrink-0 whitespace-nowrap text-sm font-medium text-slate-600">
-                  Showing <span className="font-bold text-[#e31824]">{formattedItems.length}</span>{" "}
+                  Showing <span className="font-bold text-primary">{formattedItems.length}</span>{" "}
                   results for{" "}
-                  <span className="font-bold text-[#1b2748]">“All Gear”</span>
+                  <span className="font-bold text-foreground">“All Gear”</span>
                 </p>
                 <Suspense fallback={null}>
                   <SortDropdown className="w-48" />
@@ -219,7 +219,7 @@ export default async function GearBrowsePage({
 
               {/* Bottom Row */}
               {activeFiltersCount > 0 && (
-                <div className="flex items-center border-t border-slate-100 pt-4">
+                <div className="flex items-center border-t border-border pt-4">
                   <Suspense fallback={null}>
                     <ActiveFilters categories={categories} />
                   </Suspense>

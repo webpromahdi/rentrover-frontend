@@ -25,7 +25,7 @@ export default function BrowseCard({
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-[#e31824] px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
+        <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
           {typeof item.category === "string" ? item.category.toUpperCase() : item.category?.name?.toUpperCase() || "GEAR"}
         </span>
         <span
@@ -35,7 +35,7 @@ export default function BrowseCard({
         </span>
       </div>
       <div className="p-5">
-        <h3 className="truncate text-lg font-bold text-[#1b2748]">
+        <h3 className="truncate text-lg font-bold text-foreground">
           {item.name}
         </h3>
         <p className="mt-0.5 text-sm font-medium text-slate-500">
@@ -47,8 +47,8 @@ export default function BrowseCard({
           <span>· {item.reviews} {item.reviews === 1 ? 'review' : 'reviews'}</span>
         </div>
         <div className="mt-4 flex items-end justify-between">
-          <p className="text-xl font-extrabold text-[#e31824]">
-            ৳{item.pricePerDay || item.price}
+          <p className="text-xl font-extrabold text-primary">
+            ${item.pricePerDay || item.price}
             <span className="text-sm font-medium">/day</span>
           </p>
           {item.availability !== false ? (
@@ -58,14 +58,14 @@ export default function BrowseCard({
             </span>
           ) : (
             <span className="flex items-center gap-1 text-xs font-semibold text-red-700">
-              <i className="size-2 rounded-full bg-red-500" />
+              <i className="size-2 rounded-full bg-primary/100" />
               Unavailable
             </span>
           )}
         </div>
         <Link
           href={`/gear/${item.id}`}
-          className="mt-5 flex h-11 items-center justify-center rounded-lg bg-[#e31824] text-sm font-bold text-white hover:bg-[#c41520]"
+          className="mt-5 flex h-11 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white hover:bg-primary/90"
         >
           Rent Now
         </Link>

@@ -89,7 +89,7 @@ const AdminUsersContent = () => {
       <PageHeading
         title="User Management"
         action={
-          <Button className="flex h-10 items-center gap-2 rounded-lg bg-[#e31824] px-4 text-sm font-bold text-white">
+          <Button className="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white">
             <UserPlus className="size-4" />
             Add Admin
           </Button>
@@ -106,12 +106,12 @@ const AdminUsersContent = () => {
               className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm"
             />
           </label>
-          <div className="flex gap-4 overflow-x-auto border-b border-slate-100 xl:border-0">
+          <div className="flex gap-4 overflow-x-auto border-b border-border xl:border-0">
             {ROLES.map((role) => (
               <button
                 key={role}
                 onClick={() => setRoleFilter(role)}
-                className={`whitespace-nowrap border-b-2 pb-2 text-sm font-bold ${roleFilter === role ? "border-[#e31824] text-[#e31824]" : "border-transparent text-slate-500"}`}
+                className={`whitespace-nowrap border-b-2 pb-2 text-sm font-bold ${roleFilter === role ? "border-primary text-primary" : "border-transparent text-slate-500"}`}
               >
                 {role} ({counts[role]})
               </button>
@@ -132,7 +132,7 @@ const AdminUsersContent = () => {
       ) : (
         <ScrollArea className="h-full w-full rounded-xl border border-slate-200 bg-white shadow-sm">
           <Table className="min-w-[700px] w-full text-left text-sm">
-            <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+            <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               <TableRow className="hover:bg-transparent">
                 {["#", "User", "Role", "Status", "Joined", "Action"].map(
                   (h, i) => (
@@ -156,7 +156,7 @@ const AdminUsersContent = () => {
                 return (
                   <TableRow
                     key={user.id}
-                    className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                    className="border-b border-border last:border-0 hover:bg-slate-50/50"
                   >
                     <TableCell className="px-5 py-4 text-[13px] text-slate-400">
                       {i + 1}
@@ -167,7 +167,7 @@ const AdminUsersContent = () => {
                           {initials}
                         </span>
                         <div>
-                          <p className="text-[13px] font-bold text-[#1b2748]">
+                          <p className="text-[13px] font-bold text-foreground">
                             {user.name ?? "—"}
                           </p>
                           <p className="text-[11px] text-slate-400">
@@ -181,7 +181,7 @@ const AdminUsersContent = () => {
                     </TableCell>
                     <TableCell className="px-5 py-4">
                       <span
-                        className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-red-50 text-red-600"}`}
+                        className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-primary/10 text-red-600"}`}
                       >
                         {user.status}
                       </span>
@@ -198,7 +198,7 @@ const AdminUsersContent = () => {
                               user.status === "ACTIVE" ? "SUSPENDED" : "ACTIVE",
                           })
                         }
-                        className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${user.status === "ACTIVE" ? "bg-red-50 text-red-600 hover:bg-red-100" : "bg-emerald-50 text-emerald-600 hover:bg-emerald-100"}`}
+                        className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${user.status === "ACTIVE" ? "bg-primary/10 text-red-600 hover:bg-primary/20" : "bg-emerald-50 text-emerald-600 hover:bg-emerald-100"}`}
                       >
                         {user.status === "ACTIVE" ? "Suspend" : "Activate"}
                       </button>

@@ -11,7 +11,7 @@ const PublicLayout = async ({
   const user = await getHeaderUser();
 
   return (
-    <div className="flex min-h-screen flex-col font-[Inter] text-[#1a1a2e]">
+    <div className="flex min-h-screen flex-col font-[Inter] text-foreground">
       <SiteHeader user={user} />
       <main className="flex-1 bg-slate-50/50">{children}</main>
       <SiteFooter />

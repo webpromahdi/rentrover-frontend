@@ -41,29 +41,29 @@ const ProviderOrderDetailsPage = () => {
           </div>
           <div className="mt-6 flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-extrabold text-[#1b2748]">
+              <h2 className="text-2xl font-extrabold text-foreground">
                 Trek X-Caliber Mountain Bike
               </h2>
               <p className="mt-1 text-sm text-slate-500">Trek · Cycling</p>
             </div>
             <StatusBadge status="PLACED" />
           </div>
-          <div className="mt-6 grid grid-cols-2 gap-5 border-t border-slate-100 pt-5 text-sm">
+          <div className="mt-6 grid grid-cols-2 gap-5 border-t border-border pt-5 text-sm">
             <p className="text-slate-500">
               Rental
-              <strong className="block pt-1 text-[#1b2748]">
+              <strong className="block pt-1 text-foreground">
                 Jul 15 – Jul 18, 2025
               </strong>
             </p>
             <p className="text-slate-500">
               Duration
-              <strong className="block pt-1 text-[#1b2748]">
+              <strong className="block pt-1 text-foreground">
                 3 days · Qty: 1
               </strong>
             </p>
             <p className="text-slate-500">
               Total
-              <strong className="block pt-1 text-xl text-[#e31824]">
+              <strong className="block pt-1 text-xl text-primary">
                 $75.00
               </strong>
             </p>
@@ -72,11 +72,11 @@ const ProviderOrderDetailsPage = () => {
             <p className="font-bold text-amber-800">
               ⚠️ This order is awaiting your confirmation.
             </p>
-            <Button className="mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-bold text-white transition-colors hover:bg-[#c41520]">
+            <Button className="mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-bold text-white transition-colors hover:bg-primary/90">
               <Check className="size-4" />
               Confirm Order
             </Button>
-            <Button className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#e31824] bg-white text-sm font-bold text-[#e31824] transition-colors hover:bg-red-50">
+            <Button className="mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-white text-sm font-bold text-primary transition-colors hover:bg-primary/10">
               <CircleX className="size-4" />
               Cancel Order
             </Button>
@@ -88,38 +88,38 @@ const ProviderOrderDetailsPage = () => {
               JD
             </span>
             <div>
-              <h2 className="font-extrabold text-[#1b2748]">John Doe</h2>
+              <h2 className="font-extrabold text-foreground">John Doe</h2>
               <p className="text-sm text-slate-500">Customer since Jan 2025</p>
             </div>
           </div>
-          <div className="my-6 border-t border-slate-100" />
+          <div className="my-6 border-t border-border" />
           <p className="flex gap-2 text-sm text-slate-600">
-            <Mail className="size-4 text-[#e31824]" />
+            <Mail className="size-4 text-primary" />
             johndoe@email.com
           </p>
           <p className="mt-3 flex gap-2 text-sm text-slate-600">
-            <Phone className="size-4 text-[#e31824]" />
+            <Phone className="size-4 text-primary" />
             +880 1700-999000
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 rounded-lg bg-slate-50 p-4 text-center">
             <p className="text-xs text-slate-500">
               Total orders
-              <strong className="mt-1 block text-lg text-[#1b2748]">3</strong>
+              <strong className="mt-1 block text-lg text-foreground">3</strong>
             </p>
             <p className="text-xs text-slate-500">
               Rating
-              <strong className="mt-1 block text-lg text-[#1b2748]">
+              <strong className="mt-1 block text-lg text-foreground">
                 ⭐ 5.0
               </strong>
             </p>
           </div>
-          <Button className="mt-5 flex h-11 w-full items-center justify-center rounded-lg border border-[#e31824] bg-white text-sm font-bold text-[#e31824] transition-colors hover:bg-red-50">
+          <Button className="mt-5 flex h-11 w-full items-center justify-center rounded-lg border border-primary bg-white text-sm font-bold text-primary transition-colors hover:bg-primary/10">
             Send Message
           </Button>
         </Card>
       </div>
       <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-        <h2 className="text-xl font-extrabold text-[#1b2748]">
+        <h2 className="text-xl font-extrabold text-foreground">
           Order Progress
         </h2>
         <div className="mt-8 grid grid-cols-3 gap-y-7 md:grid-cols-6">
@@ -138,7 +138,7 @@ const ProviderOrderDetailsPage = () => {
                 )}
               </span>
               <p
-                className={`mt-3 text-xs font-extrabold ${step === "CANCELLED" ? "text-slate-400 line-through" : "text-[#1b2748]"}`}
+                className={`mt-3 text-xs font-extrabold ${step === "CANCELLED" ? "text-slate-400 line-through" : "text-foreground"}`}
               >
                 {step.replaceAll("_", " ")}
               </p>

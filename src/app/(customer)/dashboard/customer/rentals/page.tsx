@@ -76,7 +76,7 @@ const CustomerRentalsListPage = () => {
           </p>
           <Link
             href="/dashboard/customer/rent"
-            className="mt-5 inline-flex h-11 items-center gap-2 rounded-lg bg-[#e31824] px-5 text-sm font-bold text-white transition hover:bg-[#c41520]"
+            className="mt-5 inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-white transition hover:bg-primary/90"
           >
             Rent New Gear
           </Link>
@@ -91,8 +91,8 @@ const CustomerRentalsListPage = () => {
                 onClick={() => setActiveTab(key)}
                 className={`whitespace-nowrap border-b-2 pb-3 text-sm font-bold transition-colors ${
                   activeTab === key
-                    ? "border-[#e31824] text-[#e31824]"
-                    : "border-transparent text-slate-500 hover:text-[#1b2748]"
+                    ? "border-primary text-primary"
+                    : "border-transparent text-slate-500 hover:text-foreground"
                 }`}
               >
                 {label}
@@ -118,7 +118,7 @@ const CustomerRentalsListPage = () => {
                   href={`/dashboard/customer/rentals/${rental.id}`}
                   className="group overflow-hidden rounded-xl bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="flex h-28 items-center border-b border-slate-100 p-4">
+                  <div className="flex h-28 items-center border-b border-border p-4">
                     {rental.gearItem?.image ? (
                       <div className="relative h-full w-24 shrink-0 overflow-hidden rounded-lg">
                         <Image
@@ -137,7 +137,7 @@ const CustomerRentalsListPage = () => {
                     <div className="ml-4 flex-1 min-w-0">
                       {/* P2-9: Removed line-clamp — show full name, title attr for tooltip */}
                       <h3
-                        className="font-bold text-[#1b2748] group-hover:text-[#e31824]"
+                        className="font-bold text-foreground group-hover:text-primary"
                         title={rental.gearItem?.name ?? "Gear Item"}
                       >
                         {rental.gearItem?.name ?? "Gear Item"}
@@ -154,7 +154,7 @@ const CustomerRentalsListPage = () => {
                   <div className="flex items-center justify-between bg-slate-50 px-4 py-3">
                     <span className="text-xs font-bold text-slate-500">
                       Total:{" "}
-                      <span className="text-[#1b2748]">
+                      <span className="text-foreground">
                         ${parseFloat(rental.totalAmount).toFixed(2)}
                       </span>
                     </span>

@@ -51,7 +51,7 @@ const LoginForm = () => {
 
         <a
           href="#forgot"
-          className="text-sm font-bold text-[#e31824] hover:underline"
+          className="text-sm font-bold text-primary hover:underline"
         >
           Forgot Password?
         </a>
@@ -60,7 +60,7 @@ const LoginForm = () => {
       <Button
         type="submit"
         disabled={isPending}
-        className="flex h-12 w-full items-center justify-center rounded-lg bg-[#e31824] text-sm font-extrabold text-white transition hover:bg-[#c41520]"
+        className="flex h-12 w-full items-center justify-center rounded-lg bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
       >
         {isPending ? "Signing in..." : "Sign In"}
       </Button>

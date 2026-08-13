@@ -30,10 +30,10 @@ export function GearFilters({
   return (
     <div className="space-y-8 mt-2">
       <details className="group pt-1" open>
-        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-[#1b2748] list-none [&::-webkit-details-marker]:hidden">
+        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-foreground list-none [&::-webkit-details-marker]:hidden">
           Category
-          <ChevronDown className="size-4 text-[#1b2748] transition-transform group-open:hidden" />
-          <ChevronUp className="size-4 text-[#1b2748] hidden transition-transform group-open:block" />
+          <ChevronDown className="size-4 text-foreground transition-transform group-open:hidden" />
+          <ChevronUp className="size-4 text-foreground hidden transition-transform group-open:block" />
         </summary>
         <div className="mt-6 space-y-5">
           {categories.map((category) => (
@@ -57,10 +57,10 @@ export function GearFilters({
       </details>
 
       <details className="group pt-1" open>
-        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-[#1b2748] list-none [&::-webkit-details-marker]:hidden">
+        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-foreground list-none [&::-webkit-details-marker]:hidden">
           Max Price Per Day
-          <ChevronDown className="size-4 text-[#1b2748] transition-transform group-open:hidden" />
-          <ChevronUp className="size-4 text-[#1b2748] hidden transition-transform group-open:block" />
+          <ChevronDown className="size-4 text-foreground transition-transform group-open:hidden" />
+          <ChevronUp className="size-4 text-foreground hidden transition-transform group-open:block" />
         </summary>
         <div className="pt-6">
           <Slider
@@ -71,25 +71,25 @@ export function GearFilters({
             className="mt-2"
           />
           <div className="mt-4 flex items-center justify-between text-xs font-bold text-slate-500">
-            <span className="rounded-md bg-red-50 px-2.5 py-1.5 text-[#e31824]">
-              ৳0
+            <span className="rounded-md bg-primary/10 px-2.5 py-1.5 text-primary">
+              $0
             </span>
             <span>
-              Up to ৳{maxPrice[0]}
+              Up to ${maxPrice[0]}
               {maxPrice[0] === 1000 ? "+" : ""}/day
             </span>
-            <span className="rounded-md bg-red-50 px-2.5 py-1.5 text-[#e31824]">
-              ৳1000+
+            <span className="rounded-md bg-primary/10 px-2.5 py-1.5 text-primary">
+              $1000+
             </span>
           </div>
         </div>
       </details>
 
       <details className="group pt-1" open>
-        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-[#1b2748] list-none [&::-webkit-details-marker]:hidden">
+        <summary className="flex cursor-pointer items-center justify-between text-sm font-extrabold text-foreground list-none [&::-webkit-details-marker]:hidden">
           Condition
-          <ChevronDown className="size-4 text-[#1b2748] transition-transform group-open:hidden" />
-          <ChevronUp className="size-4 text-[#1b2748] hidden transition-transform group-open:block" />
+          <ChevronDown className="size-4 text-foreground transition-transform group-open:hidden" />
+          <ChevronUp className="size-4 text-foreground hidden transition-transform group-open:block" />
         </summary>
         <div className="mt-6 space-y-5">
           {["NEW", "EXCELLENT", "GOOD", "FAIR"].map((condition) => (
@@ -113,14 +113,14 @@ export function GearFilters({
       </details>
 
       <div className="flex items-center justify-between pt-1 pb-4">
-        <span className="text-sm font-extrabold text-[#1b2748]">
+        <span className="text-sm font-extrabold text-foreground">
           Show Available Only
         </span>
         <button
           onClick={toggleAvailableOnly}
           aria-label="Show available gear only"
           className={`relative h-6 w-11 rounded-full transition ${
-            isAvailableOnly ? "bg-[#e31824]" : "bg-slate-300"
+            isAvailableOnly ? "bg-primary" : "bg-slate-300"
           }`}
         >
           <i
@@ -136,7 +136,7 @@ export function GearFilters({
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="mt-8 flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-bold text-white transition hover:bg-[#c41520]"
+          className="mt-8 flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
         >
           <Filter className="size-4" />
           View Results

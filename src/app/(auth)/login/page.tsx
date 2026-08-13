@@ -11,12 +11,12 @@ const LoginPage = () => {
           <Logo />
         </div>
 
-        <h1 className="mt-6 text-3xl font-extrabold tracking-[-0.03em] text-[#1b2748]">
+        <h1 className="mt-6 text-3xl font-extrabold tracking-[-0.03em] text-foreground">
           Welcome Back
         </h1>
 
         <p className="mt-2 text-sm text-slate-500">
-          Sign in to your GearUp account
+          Sign in to your RentRover account
         </p>
       </div>
 
@@ -38,7 +38,7 @@ const LoginPage = () => {
         Don&apos;t have an account?{" "}
         <Link
           href="/register"
-          className="font-bold text-[#e31824] hover:underline"
+          className="font-bold text-primary hover:underline"
         >
           Sign Up →
         </Link>

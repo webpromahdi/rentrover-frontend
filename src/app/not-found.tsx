@@ -21,15 +21,15 @@ export default function NotFound() {
 
         {/* Oops label */}
         <div className="mt-6 flex items-center gap-3 sm:mt-8">
-          <span className="h-px w-6 bg-[#e31824] sm:w-8" />
-          <span className="text-sm font-semibold tracking-widest text-[#e31824] sm:text-base">
+          <span className="h-px w-6 bg-primary sm:w-8" />
+          <span className="text-sm font-semibold tracking-widest text-primary sm:text-base">
             Oops!
           </span>
-          <span className="h-px w-6 bg-[#e31824] sm:w-8" />
+          <span className="h-px w-6 bg-primary sm:w-8" />
         </div>
 
         {/* Heading */}
-        <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-[#1b2748] sm:text-3xl md:text-4xl">
+        <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
           You&apos;ve lost your way.
         </h1>
 
@@ -42,7 +42,7 @@ export default function NotFound() {
         {/* Button */}
         <Link
           href="/"
-          className="mt-8 flex h-12 w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-[#e31824] px-8 text-sm font-bold text-white transition-all hover:bg-[#c41520] hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
+          className="mt-8 flex h-12 w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
         >
           <Home className="size-4 sm:size-5" />
           <span>Back to Homepage</span>

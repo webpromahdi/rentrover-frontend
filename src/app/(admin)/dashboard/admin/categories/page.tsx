@@ -135,7 +135,7 @@ const AdminCategoriesPage = () => {
         <section className="min-w-0 lg:col-span-2">
           <div className="mb-4 flex items-end justify-between">
             <div>
-              <h2 className="text-xl font-extrabold text-[#1b2748]">
+              <h2 className="text-xl font-extrabold text-foreground">
                 All Categories
               </h2>
               <p className="mt-1 text-sm text-slate-500">
@@ -182,14 +182,14 @@ const AdminCategoriesPage = () => {
                   categories.map((category, i) => (
                     <TableRow
                       key={category.id}
-                      className={`border-b border-slate-100 last:border-0 transition-colors ${
+                      className={`border-b border-border last:border-0 transition-colors ${
                         editingCategory?.id === category.id ? "bg-blue-50" : ""
                       }`}
                     >
                       <TableCell className="px-4 py-3 text-slate-500">
                         {i + 1}
                       </TableCell>
-                      <TableCell className="px-4 py-3 font-bold text-[#1b2748]">
+                      <TableCell className="px-4 py-3 font-bold text-foreground">
                         {category.name}
                       </TableCell>
                       <TableCell
@@ -212,7 +212,7 @@ const AdminCategoriesPage = () => {
                           <button
                             onClick={() => deleteMutation.mutate(category.id)}
                             disabled={deleteMutation.isPending}
-                            className="rounded-lg border border-[#e31824] px-2.5 py-1.5 text-xs font-bold text-[#e31824] hover:bg-red-50 transition-colors disabled:opacity-50"
+                            className="rounded-lg border border-primary px-2.5 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 transition-colors disabled:opacity-50"
                           >
                             {deleteMutation.isPending ? "..." : "Delete"}
                           </button>
@@ -227,7 +227,7 @@ const AdminCategoriesPage = () => {
         </section>
 
         <aside className="lg:mt-16 lg:col-span-1 h-fit rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,.06)]">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             {editingCategory ? "Edit Category" : "Add New Category"}
           </h2>
           {editingCategory && (
@@ -236,7 +236,7 @@ const AdminCategoriesPage = () => {
             </p>
           )}
           <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
-            <label className="block text-sm font-bold text-[#1b2748]">
+            <label className="block text-sm font-bold text-foreground">
               Name*
               <Input
                 {...register("name")}
@@ -248,7 +248,7 @@ const AdminCategoriesPage = () => {
               <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
             )}
 
-            <label className="mt-5 block text-sm font-bold text-[#1b2748]">
+            <label className="mt-5 block text-sm font-bold text-foreground">
               Description
               <Textarea
                 {...register("description")}
@@ -269,7 +269,7 @@ const AdminCategoriesPage = () => {
                 className={`h-11 w-full rounded-lg text-sm font-bold text-white flex items-center justify-center gap-2 ${
                   editingCategory
                     ? "bg-blue-600 hover:bg-blue-700"
-                    : "bg-[#e31824] hover:bg-[#c41520]"
+                    : "bg-primary hover:bg-primary/90"
                 }`}
               >
                 {isPending ? (
@@ -294,7 +294,7 @@ const AdminCategoriesPage = () => {
               )}
             </div>
           </form>
-          <p className="mt-5 border-t border-slate-100 pt-4 text-xs leading-5 text-slate-400">
+          <p className="mt-5 border-t border-border pt-4 text-xs leading-5 text-slate-400">
             {editingCategory
               ? "Click Cancel to discard changes."
               : 'Click "Edit" in the table to update an existing category.'}

@@ -75,9 +75,9 @@ export function GearBookingSection({
   };
 
   return (
-    <section className="rounded-xl bg-[#f5f6fa] p-5">
-      <h2 className="flex items-center gap-2 text-lg font-extrabold text-[#1b2748]">
-        <CalendarDays className="size-5 text-[#e31824]" />
+    <section className="rounded-xl bg-muted p-5">
+      <h2 className="flex items-center gap-2 text-lg font-extrabold text-foreground">
+        <CalendarDays className="size-5 text-primary" />
         Select Your Rental Period
       </h2>
       <div className="mt-5 grid grid-cols-2 gap-3">
@@ -89,7 +89,7 @@ export function GearBookingSection({
               min={today}
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-[#1b2748]"
+              className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-foreground"
             />
           </div>
         </label>
@@ -101,13 +101,13 @@ export function GearBookingSection({
               min={startDate || today}
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-[#1b2748]"
+              className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-foreground"
             />
           </div>
         </label>
       </div>
       <div className="mt-5 flex items-center justify-between">
-        <span className="text-sm font-bold text-[#1b2748]">
+        <span className="text-sm font-bold text-foreground">
           Quantity:
         </span>
         <div className="flex items-center rounded-lg border border-slate-200 bg-white">
@@ -118,11 +118,11 @@ export function GearBookingSection({
           >
             <Minus className="size-4" />
           </Button>
-          <span className="w-8 text-center text-sm font-bold text-[#1b2748]">{quantity}</span>
+          <span className="w-8 text-center text-sm font-bold text-foreground">{quantity}</span>
           <Button 
             variant="ghost" 
             onClick={() => setQuantity(q => Math.min(stock, q + 1))}
-            className="flex size-9 items-center justify-center text-[#e31824] hover:bg-red-50 p-0"
+            className="flex size-9 items-center justify-center text-primary hover:bg-primary/10 p-0"
           >
             <Plus className="size-4" />
           </Button>
@@ -131,24 +131,24 @@ export function GearBookingSection({
       <div className="my-5 border-t border-slate-200" />
       <div className="flex items-center justify-between text-sm">
         <span className="text-slate-600">
-          Duration: <strong className="text-[#1b2748]">{days} day{days !== 1 ? 's' : ''}</strong>
+          Duration: <strong className="text-foreground">{days} day{days !== 1 ? 's' : ''}</strong>
         </span>
-        <span className="font-extrabold text-[#1b2748]">
-          Subtotal: ৳{subtotal.toLocaleString()}
+        <span className="font-extrabold text-foreground">
+          Subtotal: ${subtotal.toLocaleString()}
         </span>
       </div>
       <Button 
         disabled={createOrderMutation.isPending || days <= 0}
         onClick={handleRentNow}
-        className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-extrabold text-white hover:bg-[#c41520] disabled:opacity-60">
+        className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-extrabold text-white hover:bg-primary/90 disabled:opacity-60">
         {createOrderMutation.isPending ? (
           <Loader2 className="size-4 animate-spin" />
         ) : (
           <ShoppingCart className="size-4" />
         )}
-        {createOrderMutation.isPending ? "Processing..." : `Rent Now — ৳${subtotal.toLocaleString()}`}
+        {createOrderMutation.isPending ? "Processing..." : `Rent Now — $${subtotal.toLocaleString()}`}
       </Button>
-      <Button className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#e31824] bg-white text-sm font-bold text-[#e31824] hover:bg-red-50">
+      <Button className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-white text-sm font-bold text-primary hover:bg-primary/10">
         <Heart className="size-4" />
         Save to Wishlist
       </Button>

@@ -23,7 +23,7 @@ const getStrengthBar = (password: string) => {
   const percent = (passed / PASSWORD_RULES.length) * 100;
   const colors = [
     "",
-    "bg-red-500",
+    "bg-primary/100",
     "bg-orange-400",
     "bg-yellow-400",
     "bg-blue-500",
@@ -140,14 +140,14 @@ const RegisterForm = () => {
 
       {/* Role Selection */}
       <fieldset>
-        <legend className="text-sm font-bold text-[#1b2748]">I want to:</legend>
+        <legend className="text-sm font-bold text-foreground">I want to:</legend>
 
         <div className="mt-3 grid grid-cols-2 gap-3">
           {/* Customer */}
           <label
             className={`relative cursor-pointer rounded-xl border-2 p-4 transition-colors ${
               role === "CUSTOMER"
-                ? "border-[#e31824] bg-red-50"
+                ? "border-primary bg-primary/10"
                 : "border-slate-200 bg-white hover:border-slate-300"
             }`}
           >
@@ -160,10 +160,10 @@ const RegisterForm = () => {
               className="sr-only"
             />
             {role === "CUSTOMER" && (
-              <Check className="absolute right-3 top-3 size-4 rounded-full bg-[#e31824] p-0.5 text-white" />
+              <Check className="absolute right-3 top-3 size-4 rounded-full bg-primary p-0.5 text-white" />
             )}
             <span className="text-xl">🏃</span>
-            <span className="mt-2 block text-sm font-extrabold text-[#1b2748]">
+            <span className="mt-2 block text-sm font-extrabold text-foreground">
               Customer
             </span>
             <span className="mt-1 block text-xs leading-5 text-slate-600">
@@ -180,7 +180,7 @@ const RegisterForm = () => {
           <label
             className={`relative cursor-pointer rounded-xl border-2 p-4 transition-colors ${
               role === "PROVIDER"
-                ? "border-[#e31824] bg-red-50"
+                ? "border-primary bg-primary/10"
                 : "border-slate-200 bg-white hover:border-slate-300"
             }`}
           >
@@ -193,10 +193,10 @@ const RegisterForm = () => {
               className="sr-only"
             />
             {role === "PROVIDER" && (
-              <Check className="absolute right-3 top-3 size-4 rounded-full bg-[#e31824] p-0.5 text-white" />
+              <Check className="absolute right-3 top-3 size-4 rounded-full bg-primary p-0.5 text-white" />
             )}
             <span className="text-xl">🏪</span>
-            <span className="mt-2 block text-sm font-extrabold text-[#1b2748]">
+            <span className="mt-2 block text-sm font-extrabold text-foreground">
               Provider
             </span>
             <span className="mt-1 block text-xs leading-5 text-slate-600">
@@ -225,14 +225,14 @@ const RegisterForm = () => {
           I agree to the{" "}
           <Link
             href="/terms"
-            className="font-semibold text-[#e31824] hover:underline"
+            className="font-semibold text-primary hover:underline"
           >
             Terms of Service
           </Link>{" "}
           and{" "}
           <Link
             href="/privacy"
-            className="font-semibold text-[#e31824] hover:underline"
+            className="font-semibold text-primary hover:underline"
           >
             Privacy Policy
           </Link>
@@ -248,7 +248,7 @@ const RegisterForm = () => {
       <Button
         type="submit"
         disabled={isPending}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-extrabold text-white transition hover:bg-[#c41520]"
+        className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
       >
         {isPending ? "Creating Account..." : "Create Account"}
         {!isPending && <ArrowRight className="size-4" />}

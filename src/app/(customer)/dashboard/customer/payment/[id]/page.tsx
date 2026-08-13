@@ -31,7 +31,7 @@ const statusColors: Record<string, string> = {
   PAID: "bg-emerald-100 text-emerald-700",
   PICKED_UP: "bg-purple-100 text-purple-700",
   RETURNED: "bg-slate-100 text-slate-700",
-  CANCELLED: "bg-red-100 text-red-700",
+  CANCELLED: "bg-primary/20 text-red-700",
 };
 
 const CustomerPaymentPage = () => {
@@ -87,7 +87,7 @@ const CustomerPaymentPage = () => {
         <div className="flex flex-col items-center justify-center rounded-xl bg-white py-20 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
           <CheckCircle2 className="mb-4 size-12 text-emerald-500" />
           <p className="text-lg font-bold text-slate-700">This order has already been paid!</p>
-          <Button onClick={() => router.push("/dashboard/customer/rentals")} className="mt-4 bg-[#e31824] hover:bg-[#c41520]">
+          <Button onClick={() => router.push("/dashboard/customer/rentals")} className="mt-4 bg-primary hover:bg-primary/90">
             View My Rentals
           </Button>
         </div>
@@ -116,7 +116,7 @@ const CustomerPaymentPage = () => {
       <div className="grid gap-6 xl:grid-cols-[11fr_9fr]">
         {/* Order Summary Card */}
         <Card className="rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Order Summary
           </h2>
 
@@ -137,13 +137,13 @@ const CustomerPaymentPage = () => {
               </div>
             )}
             <div>
-              <h3 className="font-extrabold text-[#1b2748]">
+              <h3 className="font-extrabold text-foreground">
                 {gear?.name ?? "Gear Item"}
               </h3>
               <p className="mt-1 text-sm text-slate-500">{gear?.brand}</p>
               {gear?.address && (
                 <p className="mt-1.5 flex items-center gap-1 text-xs text-slate-500">
-                  <MapPin className="size-3 text-[#e31824]" />
+                  <MapPin className="size-3 text-primary" />
                   {gear.address}
                 </p>
               )}
@@ -162,13 +162,13 @@ const CustomerPaymentPage = () => {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between text-slate-600">
               <span>
-                Gear rental ({days} day{days !== 1 ? "s" : ""} × ৳{pricePerDay.toFixed(2)} × {order.quantity})
+                Gear rental ({days} day{days !== 1 ? "s" : ""} × ${pricePerDay.toFixed(2)} × {order.quantity})
               </span>
-              <span>৳{totalAmount.toFixed(2)}</span>
+              <span>${totalAmount.toFixed(2)}</span>
             </div>
-            <div className="border-t border-slate-200 pt-3 flex justify-between text-lg font-extrabold text-[#1b2748]">
+            <div className="border-t border-slate-200 pt-3 flex justify-between text-lg font-extrabold text-foreground">
               <span>Total</span>
-              <span className="text-[#e31824]">৳{totalAmount.toFixed(2)}</span>
+              <span className="text-primary">${totalAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -186,7 +186,7 @@ const CustomerPaymentPage = () => {
 
         {/* Pay Now Card */}
         <Card className="rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             💳 Complete Payment
           </h2>
           <p className="mt-1 text-sm text-slate-500">
@@ -196,7 +196,7 @@ const CustomerPaymentPage = () => {
           <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-600">Order Total</span>
-              <span className="text-2xl font-extrabold text-[#e31824]">
+              <span className="text-2xl font-extrabold text-primary">
                 ${totalAmount.toFixed(2)}
               </span>
             </div>
@@ -208,7 +208,7 @@ const CustomerPaymentPage = () => {
           <Button
             onClick={() => payMutation.mutate()}
             disabled={payMutation.isPending || order.status === "CANCELLED"}
-            className="mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-[#e31824] text-sm font-extrabold text-white hover:bg-[#c41520] disabled:opacity-60"
+            className="mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-extrabold text-white hover:bg-primary/90 disabled:opacity-60"
           >
             {payMutation.isPending ? (
               <>

@@ -10,13 +10,13 @@ const CancelContent = () => {
   const rentalOrderId = searchParams.get("rentalOrderId");
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f5f6fa] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-muted px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-        <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-red-100">
-          <XCircle className="size-10 text-[#e31824]" />
+        <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-primary/20">
+          <XCircle className="size-10 text-primary" />
         </div>
 
-        <h1 className="text-2xl font-extrabold text-[#1b2748]">
+        <h1 className="text-2xl font-extrabold text-foreground">
           Payment Cancelled
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-slate-500">
@@ -29,7 +29,7 @@ const CancelContent = () => {
           {rentalOrderId && (
             <Link
               href={`/dashboard/customer/payment/${rentalOrderId}`}
-              className="flex h-12 items-center justify-center rounded-xl bg-[#e31824] text-sm font-extrabold text-white transition hover:bg-[#c41520]"
+              className="flex h-12 items-center justify-center rounded-xl bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
             >
               Try Payment Again
             </Link>
@@ -52,7 +52,7 @@ const CancelContent = () => {
           Need help?{" "}
           <a
             href="mailto:support@gearup.com"
-            className="font-bold text-[#e31824] hover:underline"
+            className="font-bold text-primary hover:underline"
           >
             Contact Support
           </a>

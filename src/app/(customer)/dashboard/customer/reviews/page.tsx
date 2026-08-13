@@ -117,7 +117,7 @@ const CustomerReviewsPage = () => {
         {([
           [Star, avgRating, "Avg rating given", "text-amber-500"],
           [MessageSquare, reviews.length.toString(), "Total Reviews", "text-blue-600"],
-          [ClipboardList, pendingRentals.length.toString(), "Pending Reviews", "text-[#e31824]"],
+          [ClipboardList, pendingRentals.length.toString(), "Pending Reviews", "text-primary"],
         ] as StatRow[]).map(([Icon, number, label, color]) => (
           <Card
             key={label as string}
@@ -125,7 +125,7 @@ const CustomerReviewsPage = () => {
           >
             <Icon className={`size-7 ${color}`} />
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">{number}</p>
+              <p className="text-2xl font-extrabold text-foreground">{number}</p>
               <p className="text-sm text-slate-500">{label}</p>
             </div>
           </Card>
@@ -159,7 +159,7 @@ const CustomerReviewsPage = () => {
                   </div>
                 )}
                 <div className="flex-1">
-                  <h3 className="font-extrabold text-[#1b2748]">
+                  <h3 className="font-extrabold text-foreground">
                     {rental.gearItem?.name}
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">
@@ -174,7 +174,7 @@ const CustomerReviewsPage = () => {
                       document.getElementById("review-form")?.scrollIntoView({ behavior: "smooth" });
                     }, 100);
                   }}
-                  className="rounded-lg bg-[#e31824] px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-[#c41520]"
+                  className="rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-white hover:bg-primary/90"
                 >
                   Leave a Review
                 </Button>
@@ -189,7 +189,7 @@ const CustomerReviewsPage = () => {
           id="review-form"
           className="mt-8 max-w-2xl rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
         >
-          <h2 className="text-xl font-extrabold text-[#1b2748]">Leave a Review</h2>
+          <h2 className="text-xl font-extrabold text-foreground">Leave a Review</h2>
           <p className="mt-1 text-sm text-slate-500">
             How was the {selectedRentalForReview.gearItem?.name}?
           </p>
@@ -218,12 +218,12 @@ const CustomerReviewsPage = () => {
               <p className="mt-2 text-sm text-red-500">{errors.rating.message}</p>
             )}
 
-            <label className="mt-5 block text-sm font-bold text-[#1b2748]">
+            <label className="mt-5 block text-sm font-bold text-foreground">
               Your review (Optional)
               <Textarea
                 {...register("comment")}
                 placeholder="Share your experience with this gear..."
-                className="mt-2 min-h-[120px] w-full rounded-lg border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-[#e31824]"
+                className="mt-2 min-h-[120px] w-full rounded-lg border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-primary"
               />
             </label>
             {errors.comment && (
@@ -234,7 +234,7 @@ const CustomerReviewsPage = () => {
               <Button
                 type="submit"
                 disabled={submitReviewMutation.isPending}
-                className="rounded-lg bg-[#e31824] px-5 py-3 text-sm font-bold text-white hover:bg-[#c41520]"
+                className="rounded-lg bg-primary px-5 py-3 text-sm font-bold text-white hover:bg-primary/90"
               >
                 {submitReviewMutation.isPending && (
                   <Loader2 className="mr-2 size-4 animate-spin" />
@@ -257,7 +257,7 @@ const CustomerReviewsPage = () => {
       )}
 
       <section className="mt-9">
-        <h2 className="text-xl font-extrabold text-[#1b2748]">
+        <h2 className="text-xl font-extrabold text-foreground">
           My Submitted Reviews
         </h2>
         {reviews.length === 0 ? (
@@ -289,7 +289,7 @@ const CustomerReviewsPage = () => {
                     </div>
                   )}
                   <div>
-                    <h3 className="font-extrabold text-[#1b2748]">
+                    <h3 className="font-extrabold text-foreground">
                       {review.gearItem?.name}
                     </h3>
                     <p className="mt-1 text-xs text-slate-500">

@@ -177,7 +177,7 @@ const ProviderGearForm = ({
           <Card className={cardClassName}>
             <SectionHeading
               icon={Box}
-              iconClassName="bg-red-50 text-[#e31824]"
+              iconClassName="bg-primary/10 text-primary"
               title="Gear Information"
               description="Core listing details"
             />
@@ -241,13 +241,13 @@ const ProviderGearForm = ({
             />
             <div className="mt-8 grid gap-x-7 gap-y-6 md:grid-cols-2">
               <Field
-                label="Price Per Day (৳)"
+                label="Price Per Day ($)"
                 required
                 error={errors.pricePerDay?.message}
               >
-                <div className="flex overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus-within:border-[#e31824] focus-within:ring-4 focus-within:ring-red-100/70">
+                <div className="flex overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus-within:border-primary focus-within:ring-4 focus-within:ring-red-100/70">
                   <span className="flex h-12 w-11 items-center justify-center border-r border-slate-200/80 bg-slate-50 text-sm font-semibold text-slate-600">
-                    ৳
+                    $
                   </span>
                   <Input
                     {...register("pricePerDay", { valueAsNumber: true })}
@@ -349,7 +349,7 @@ const ProviderGearForm = ({
               <Button
                 type="submit"
                 disabled={createMutation.isPending || updateMutation.isPending}
-                className="h-12 rounded-xl bg-[#e31824] px-6 text-sm font-bold text-white shadow-[0_10px_22px_rgba(227,24,36,0.20)] transition-colors hover:bg-[#c41520] disabled:cursor-not-allowed disabled:opacity-70"
+                className="h-12 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-[0_10px_22px_rgba(227,24,36,0.20)] transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {createMutation.isPending || updateMutation.isPending ? (
                   <>
@@ -374,13 +374,13 @@ const cardClassName =
   "gap-0 rounded-[22px] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_48px_rgba(15,23,42,0.055)] ring-1 ring-white/70 sm:p-8";
 
 const inputClassName =
-  "h-12 rounded-xl border border-slate-200/90 bg-white px-4 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-[#e31824] focus:ring-4 focus:ring-red-100/70";
+  "h-12 rounded-xl border border-slate-200/90 bg-white px-4 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const textareaClassName =
-  "rounded-xl border border-slate-200/90 bg-white text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-[#e31824] focus:ring-4 focus:ring-red-100/70";
+  "rounded-xl border border-slate-200/90 bg-white text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const selectClassName =
-  "h-12 w-full appearance-none rounded-xl border border-slate-200/90 bg-white px-4 pr-11 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-[#e31824] focus:ring-4 focus:ring-red-100/70";
+  "h-12 w-full appearance-none rounded-xl border border-slate-200/90 bg-white px-4 pr-11 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const Field = ({
   label,
@@ -398,11 +398,11 @@ const Field = ({
   <label className={`block ${className}`}>
     <span className="mb-2.5 block text-sm font-bold text-[#15213d]">
       {label}
-      {required && <span className="ml-1 text-[#e31824]">*</span>}
+      {required && <span className="ml-1 text-primary">*</span>}
     </span>
     {children}
     {error && (
-      <p className="mt-2 text-xs font-semibold text-[#e31824]">{error}</p>
+      <p className="mt-2 text-xs font-semibold text-primary">{error}</p>
     )}
   </label>
 );
@@ -425,7 +425,7 @@ const SectionHeading = ({
   title: string;
   description: string;
 }) => (
-  <div className="flex items-center gap-4 border-b border-slate-100 pb-6">
+  <div className="flex items-center gap-4 border-b border-border pb-6">
     <span
       className={`flex size-11 items-center justify-center rounded-2xl ${iconClassName}`}
     >

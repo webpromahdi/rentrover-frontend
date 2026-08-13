@@ -55,7 +55,7 @@ export default async function GearDetailsPage({
       <div className="mb-6 text-sm text-slate-500">
         <Link
           href="/gear"
-          className="font-semibold text-[#e31824] hover:underline"
+          className="font-semibold text-primary hover:underline"
         >
           Browse Gear
         </Link>
@@ -77,7 +77,7 @@ export default async function GearDetailsPage({
             {[gear.image, gear.image, gear.image].map((src, index) => (
               <button
                 key={index}
-                className={`relative aspect-[4/3] p-0 overflow-hidden rounded-lg border-2 ${index === 0 ? "border-[#e31824]" : "border-transparent"}`}
+                className={`relative aspect-[4/3] p-0 overflow-hidden rounded-lg border-2 ${index === 0 ? "border-primary" : "border-transparent"}`}
               >
                 <Image
                   src={src}
@@ -91,10 +91,10 @@ export default async function GearDetailsPage({
           </div>
         </div>
         <div>
-          <span className="inline-flex rounded-full bg-[#e31824] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-white">
+          <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-white">
             {gear.category?.name || "Gear"}
           </span>
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.03em] text-[#1b2748] sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.03em] text-foreground sm:text-4xl">
             {gear.name}
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
@@ -122,7 +122,7 @@ export default async function GearDetailsPage({
             </span>
             <p className="text-sm text-slate-600">
               Listed by{" "}
-              <strong className="text-[#1b2748]">{providerName}</strong>{" "}
+              <strong className="text-foreground">{providerName}</strong>{" "}
               <span className="mx-1 text-slate-300">|</span>{" "}
               <Star className="mb-0.5 inline size-3.5 fill-[#f4b740] text-[#f4b740]" />{" "}
               Provider
@@ -130,8 +130,8 @@ export default async function GearDetailsPage({
           </div>
           <div className="my-6 border-t border-slate-200" />
           <div className="flex items-end gap-3">
-            <p className="text-4xl font-extrabold tracking-[-0.04em] text-[#e31824]">
-              ৳{gear.pricePerDay}
+            <p className="text-4xl font-extrabold tracking-[-0.04em] text-primary">
+              ${gear.pricePerDay}
               <span className="text-lg font-bold">/day</span>
             </p>
           </div>
@@ -147,14 +147,14 @@ export default async function GearDetailsPage({
                 ✓ Available
               </span>
             ) : (
-              <span className="rounded-full bg-red-100 px-3 py-1.5 text-red-700">
+              <span className="rounded-full bg-primary/20 px-3 py-1.5 text-red-700">
                 ✕ Not Available
               </span>
             )}
           </div>
           <p className="mt-6 leading-7 text-slate-600">
             {gear.description ||
-              `Rent the ${gear.name} today. Excellent for all your needs. Listed by a verified provider on GearUp.`}
+              `Rent the ${gear.name} today. Excellent for all your needs. Listed by a verified provider on RentRover.`}
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-slate-200 text-sm">
             {specs.map(([label, value]) => (
@@ -162,7 +162,7 @@ export default async function GearDetailsPage({
                 key={label}
                 className="grid grid-cols-2 border-b border-slate-200 last:border-0"
               >
-                <span className="bg-slate-50 px-4 py-3 font-bold text-[#1b2748]">
+                <span className="bg-slate-50 px-4 py-3 font-bold text-foreground">
                   {label}
                 </span>
                 <span className="px-4 py-3 text-slate-600">{value}</span>
@@ -182,7 +182,7 @@ export default async function GearDetailsPage({
         <div className="flex gap-6 overflow-x-auto scrollbar-none border-b border-slate-200">
           <a
             href="#reviews"
-            className="whitespace-nowrap border-b-2 border-[#e31824] pb-4 text-sm font-extrabold text-[#e31824]"
+            className="whitespace-nowrap border-b-2 border-primary pb-4 text-sm font-extrabold text-primary"
           >
             Reviews ({totalReviews})
           </a>
@@ -196,8 +196,8 @@ export default async function GearDetailsPage({
         <div className="mt-8 grid gap-8 lg:grid-cols-[270px_minmax(0,1fr)]">
           <div className="space-y-6">
             {/* Rating Box */}
-            <div className="rounded-xl bg-[#f5f6fa] p-6 text-center">
-              <p className="text-5xl font-extrabold text-[#1b2748]">
+            <div className="rounded-xl bg-muted p-6 text-center">
+              <p className="text-5xl font-extrabold text-foreground">
                 {avgRating}
               </p>
               <p className="mt-1 text-sm font-semibold text-slate-500">
@@ -243,7 +243,7 @@ export default async function GearDetailsPage({
                 id="provider"
                 className="rounded-xl border border-slate-200 p-6"
               >
-                <h3 className="mb-4 text-sm font-extrabold uppercase tracking-wider text-[#1b2748]">
+                <h3 className="mb-4 text-sm font-extrabold uppercase tracking-wider text-foreground">
                   Provider Info
                 </h3>
                 <div className="flex items-center gap-4">
@@ -251,7 +251,7 @@ export default async function GearDetailsPage({
                     {providerName.substring(0, 2)}
                   </span>
                   <div>
-                    <p className="font-bold text-[#1b2748]">{providerName}</p>
+                    <p className="font-bold text-foreground">{providerName}</p>
                     <p className="mt-0.5 text-xs text-slate-500">
                       Verified Provider
                     </p>
@@ -301,12 +301,12 @@ export default async function GearDetailsPage({
                     className="rounded-xl border border-slate-200 p-5"
                   >
                     <div className="flex gap-3">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-red-50 text-sm font-extrabold text-[#e31824]">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-extrabold text-primary">
                         {initials}
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <p className="font-bold text-[#1b2748]">
+                          <p className="font-bold text-foreground">
                             {customerName}
                           </p>
                           <p className="text-xs text-slate-400">{dateStr}</p>
@@ -335,16 +335,16 @@ export default async function GearDetailsPage({
       <section className="mt-16">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#e31824]">
+            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
               More to explore
             </p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-[-0.025em] text-[#1b2748]">
+            <h2 className="mt-2 text-3xl font-extrabold tracking-[-0.025em] text-foreground">
               You Might Also Like
             </h2>
           </div>
           <Link
             href="/gear"
-            className="hidden text-sm font-bold text-[#e31824] sm:block"
+            className="hidden text-sm font-bold text-primary sm:block"
           >
             View all gear →
           </Link>

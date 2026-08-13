@@ -46,8 +46,8 @@ const NavLinks = ({
           onClick={onNavClick}
           className={`flex items-center gap-3 rounded-lg border-l-2 px-3 py-3 text-sm font-semibold transition-colors ${
             isActive
-              ? "border-[#e31824] bg-white/10 text-white"
-              : "border-transparent text-slate-200 hover:border-[#e31824] hover:bg-white/5 hover:text-white"
+              ? "border-primary bg-white/10 text-white"
+              : "border-transparent text-slate-200 hover:border-primary hover:bg-white/5 hover:text-white"
           }`}
         >
           <Icon className="size-5" />
@@ -81,7 +81,7 @@ function DashboardSidebar() {
   };
 
   return (
-    <aside className="hidden fixed inset-y-0 left-0 z-40 w-[260px] flex-col bg-[#1b2748] px-4 py-7 text-white lg:flex">
+    <aside className="hidden fixed inset-y-0 left-0 z-40 w-[260px] flex-col bg-slate-900 px-4 py-7 text-white lg:flex">
       <Link href="/dashboard/customer" className="mb-10">
         <Logo inverse />
       </Link>
@@ -101,7 +101,7 @@ function DashboardSidebar() {
       {/* Fixed: w-full, cursor-pointer, transition-colors (matching Admin/Provider) */}
       <button
         onClick={handleLogout}
-        className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#e31824] text-sm font-bold text-red-200 transition-colors hover:bg-[#e31824] hover:text-white"
+        className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary text-sm font-bold text-red-200 transition-colors hover:bg-primary hover:text-white"
       >
         <LogOut className="size-4" />
         Log Out
@@ -145,7 +145,7 @@ function CustomerMobileDrawer() {
 
       {/* Drawer panel */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col bg-[#1b2748] px-4 py-7 text-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col bg-slate-900 px-4 py-7 text-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -180,7 +180,7 @@ function CustomerMobileDrawer() {
 
         <button
           onClick={handleLogout}
-          className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#e31824] text-sm font-bold text-red-200 transition-colors hover:bg-[#e31824] hover:text-white"
+          className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary text-sm font-bold text-red-200 transition-colors hover:bg-primary hover:text-white"
         >
           <LogOut className="size-4" />
           Log Out
@@ -205,10 +205,10 @@ export default function CustomerLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#f5f6fa] font-[Inter] text-[#1a1a2e]">
+    <div className="min-h-screen bg-muted font-[Inter] text-foreground">
       <DashboardSidebar />
       {/* Mobile top bar — now has hamburger drawer */}
-      <header className="flex h-16 items-center justify-between bg-[#1b2748] px-5 text-white lg:hidden">
+      <header className="flex h-16 items-center justify-between bg-slate-900 px-5 text-white lg:hidden">
         <CustomerMobileDrawer />
         <Link href="/dashboard/customer">
           <Logo inverse />

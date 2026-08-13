@@ -40,9 +40,9 @@ export const ProfileOverview = ({
       <div className="grid gap-6 md:grid-cols-2">
         {/* Personal Information */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4">
-            <User className="size-5 text-[#e31824]" />
-            <h3 className="text-lg font-extrabold text-[#1b2748]">
+          <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
+            <User className="size-5 text-primary" />
+            <h3 className="text-lg font-extrabold text-foreground">
               Personal Information
             </h3>
           </div>
@@ -92,9 +92,9 @@ export const ProfileOverview = ({
 
         {/* Account Information */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="mb-6 flex items-center gap-3 border-b border-slate-100 pb-4">
-            <ShieldCheck className="size-5 text-[#e31824]" />
-            <h3 className="text-lg font-extrabold text-[#1b2748]">
+          <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
+            <ShieldCheck className="size-5 text-primary" />
+            <h3 className="text-lg font-extrabold text-foreground">
               Account Information
             </h3>
           </div>
@@ -148,53 +148,53 @@ export const ProfileOverview = ({
       {/* Stats Overview */}
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <div className="mb-8 flex items-center gap-3">
-          <ShoppingBag className="size-5 text-[#e31824]" />
-          <h3 className="text-lg font-extrabold text-[#1b2748]">
+          <ShoppingBag className="size-5 text-primary" />
+          <h3 className="text-lg font-extrabold text-foreground">
             Profile Overview
           </h3>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex items-center gap-4">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-red-50 text-[#e31824]">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <ShoppingBag className="size-5" />
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">0</p>
-              <p className="text-sm font-bold text-[#1b2748]">Total Orders</p>
+              <p className="text-2xl font-extrabold text-foreground">0</p>
+              <p className="text-sm font-bold text-foreground">Total Orders</p>
               <p className="mt-0.5 text-xs text-slate-500">No orders yet</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-red-50 text-[#e31824]">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Store className="size-5" />
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">0</p>
-              <p className="text-sm font-bold text-[#1b2748]">Total Rentals</p>
+              <p className="text-2xl font-extrabold text-foreground">0</p>
+              <p className="text-sm font-bold text-foreground">Total Rentals</p>
               <p className="mt-0.5 text-xs text-slate-500">No rentals yet</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-red-50 text-[#e31824]">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Tag className="size-5" />
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">0</p>
-              <p className="text-sm font-bold text-[#1b2748]">Listed Gear</p>
+              <p className="text-2xl font-extrabold text-foreground">0</p>
+              <p className="text-sm font-bold text-foreground">Listed Gear</p>
               <p className="mt-0.5 text-xs text-slate-500">No gear listed</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-red-50 text-[#e31824]">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Star className="size-5" />
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">0</p>
-              <p className="text-sm font-bold text-[#1b2748]">Reviews</p>
+              <p className="text-2xl font-extrabold text-foreground">0</p>
+              <p className="text-sm font-bold text-foreground">Reviews</p>
               <p className="mt-0.5 text-xs text-slate-500">No reviews yet</p>
             </div>
           </div>
@@ -202,13 +202,13 @@ export const ProfileOverview = ({
       </div>
 
       {/* Security Banner */}
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-red-100 bg-red-50/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <div className="flex flex-col items-start gap-4 rounded-2xl border border-red-100 bg-primary/10/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
         <div className="flex items-start gap-4 sm:items-center">
-          <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 text-[#e31824]">
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
             <ShieldCheck className="size-6" />
           </div>
           <div>
-            <h4 className="font-extrabold text-[#1b2748]">
+            <h4 className="font-extrabold text-foreground">
               Keep Your Account Secure
             </h4>
             <p className="mt-1 text-sm text-slate-600">
@@ -218,7 +218,7 @@ export const ProfileOverview = ({
         </div>
         <button
           type="button"
-          className="flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 text-sm font-bold text-[#e31824] shadow-sm transition hover:bg-slate-50"
+          className="flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 text-sm font-bold text-primary shadow-sm transition hover:bg-slate-50"
         >
           <LockKeyhole className="size-4" />
           Security Settings

@@ -72,7 +72,7 @@ const CustomerDashboardPage = () => {
     .reduce((acc: number, p: any) => acc + parseFloat(p.amount), 0);
 
   const stats: StatRow[] = [
-    [Package, orders.length.toString(), "Total Rentals", "text-[#e31824]", "bg-red-50"],
+    [Package, orders.length.toString(), "Total Rentals", "text-primary", "bg-primary/10"],
     [RotateCw, activeRentals.toString(), "Active Rentals", "text-emerald-600", "bg-emerald-50"],
     [DollarSign, `$${totalSpent.toFixed(2)}`, "Total Spent", "text-amber-600", "bg-amber-50"],
     [Star, reviews.length.toString(), "Reviews Given", "text-blue-600", "bg-blue-50"],
@@ -91,14 +91,14 @@ const CustomerDashboardPage = () => {
             {/* P3-3: flex-wrap so both buttons appear on mobile */}
             <Link
               href="/dashboard/customer/rent"
-              className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#e31824] px-4 text-sm font-bold text-white transition-colors hover:bg-[#c41520]"
+              className="inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
             >
               <Plus className="size-4" />
               Rent New Gear
             </Link>
             <Link
               href="/dashboard/customer/rentals"
-              className="inline-flex h-10 items-center rounded-lg border border-[#e31824] px-4 text-sm font-bold text-[#e31824] transition-colors hover:bg-red-50"
+              className="inline-flex h-10 items-center rounded-lg border border-primary px-4 text-sm font-bold text-primary transition-colors hover:bg-primary/10"
             >
               View All Rentals →
             </Link>
@@ -117,7 +117,7 @@ const CustomerDashboardPage = () => {
               <Icon className={`size-6 ${color}`} />
             </span>
             <div>
-              <p className="text-2xl font-extrabold text-[#1b2748]">{number}</p>
+              <p className="text-2xl font-extrabold text-foreground">{number}</p>
               <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{label as string}</p>
             </div>
           </Card>
@@ -125,12 +125,12 @@ const CustomerDashboardPage = () => {
       </div>
       <section className="mt-8">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-extrabold text-[#1b2748]">
+          <h2 className="text-xl font-extrabold text-foreground">
             Recent Rentals
           </h2>
           <Link
             href="/dashboard/customer/rentals"
-            className="text-sm font-bold text-[#e31824] hover:underline"
+            className="text-sm font-bold text-primary hover:underline"
           >
             View all
           </Link>
@@ -173,7 +173,7 @@ const CustomerDashboardPage = () => {
                     actionComponent = (
                       <Link
                         href={`/dashboard/customer/payment/${order.id}`}
-                        className="inline-flex rounded-lg bg-[#e31824] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#c41520]"
+                        className="inline-flex rounded-lg bg-primary px-3 py-2 text-xs font-bold text-white transition hover:bg-primary/90"
                       >
                         Pay Now
                       </Link>
@@ -182,7 +182,7 @@ const CustomerDashboardPage = () => {
                     actionComponent = (
                       <Link
                         href="/dashboard/customer/reviews"
-                        className="text-xs font-bold text-[#e31824] hover:underline"
+                        className="text-xs font-bold text-primary hover:underline"
                       >
                         Leave Review
                       </Link>
@@ -191,7 +191,7 @@ const CustomerDashboardPage = () => {
                     actionComponent = (
                       <Link
                         href={`/dashboard/customer/rentals/${order.id}`}
-                        className="text-xs font-bold text-[#e31824] hover:underline"
+                        className="text-xs font-bold text-primary hover:underline"
                       >
                         View Details
                       </Link>
@@ -201,7 +201,7 @@ const CustomerDashboardPage = () => {
                   return (
                     <TableRow
                       key={order.id}
-                      className="border-b border-slate-100 last:border-0"
+                      className="border-b border-border last:border-0"
                     >
                       <TableCell className="px-5 py-4">
                         <div className="flex items-center gap-3">
@@ -220,7 +220,7 @@ const CustomerDashboardPage = () => {
                               <Package className="size-5 text-slate-300" />
                             </div>
                           )}
-                          <span className="font-bold text-[#1b2748] line-clamp-1">
+                          <span className="font-bold text-foreground line-clamp-1">
                             {order.gearItem?.name}
                           </span>
                         </div>
@@ -231,7 +231,7 @@ const CustomerDashboardPage = () => {
                       <TableCell className="px-5 py-4 text-slate-600">
                         {days} day{days > 1 ? "s" : ""}
                       </TableCell>
-                      <TableCell className="px-5 py-4 font-bold text-[#1b2748]">
+                      <TableCell className="px-5 py-4 font-bold text-foreground">
                         ${parseFloat(order.totalAmount).toFixed(2)}
                       </TableCell>
                       <TableCell className="px-5 py-4">
@@ -250,7 +250,7 @@ const CustomerDashboardPage = () => {
       </section>
       
       <section className="mt-8">
-        <h2 className="mb-4 text-xl font-extrabold text-[#1b2748]">
+        <h2 className="mb-4 text-xl font-extrabold text-foreground">
           Recent Payments
         </h2>
         {recentPayments.length === 0 ? (
@@ -281,9 +281,9 @@ const CustomerDashboardPage = () => {
                 {recentPayments.map((payment: any) => (
                   <TableRow
                     key={payment.id}
-                    className="border-b border-slate-100 last:border-0"
+                    className="border-b border-border last:border-0"
                   >
-                    <TableCell className="px-5 py-4 font-bold text-[#1b2748]">
+                    <TableCell className="px-5 py-4 font-bold text-foreground">
                       {payment.transactionId.slice(0, 12)}...
                     </TableCell>
                     <TableCell className="px-5 py-4">

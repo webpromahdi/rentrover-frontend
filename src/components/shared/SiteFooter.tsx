@@ -37,7 +37,7 @@ const SiteFooter = () => {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden bg-[#0d1526] text-white"
+      className="relative overflow-hidden bg-slate-950 text-white"
       style={{
         backgroundImage: `
           linear-gradient(rgba(10,18,40,.92), rgba(10,18,40,.94)),
@@ -63,7 +63,7 @@ const SiteFooter = () => {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:border-[#e31824] hover:bg-[#e31824]"
+                className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:border-primary hover:bg-primary"
               >
                 <Icon className="h-4 w-4 text-slate-300 transition-colors group-hover:text-white" />
               </Link>
@@ -75,7 +75,7 @@ const SiteFooter = () => {
           <h3 className="text-xs font-extrabold uppercase tracking-[0.18em] text-white">
             Quick Links
           </h3>
-          <div className="mt-3 h-[3px] w-10 rounded-full bg-[#e31824]" />
+          <div className="mt-3 h-[3px] w-10 rounded-full bg-primary" />
           <ul className="mt-6 space-y-3.5 text-sm text-slate-400">
             {[
               { label: "Browse Gear", href: "/gear" },
@@ -100,7 +100,7 @@ const SiteFooter = () => {
           <h3 className="text-xs font-extrabold uppercase tracking-[0.18em] text-white">
             Categories
           </h3>
-          <div className="mt-3 h-[3px] w-10 rounded-full bg-[#e31824]" />
+          <div className="mt-3 h-[3px] w-10 rounded-full bg-primary" />
           <ul className="mt-6 space-y-3.5 text-sm text-slate-400">
             {[
               "Camping & Hiking",
@@ -124,18 +124,18 @@ const SiteFooter = () => {
           <h3 className="text-xs font-extrabold uppercase tracking-[0.18em] text-white">
             Contact
           </h3>
-          <div className="mt-3 h-[3px] w-10 rounded-full bg-[#e31824]" />
+          <div className="mt-3 h-[3px] w-10 rounded-full bg-primary" />
           <ul className="mt-6 space-y-5 text-sm text-slate-400">
             <li className="flex items-start gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-[#e31824]" />
+              <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
               <span>support@gearup.com</span>
             </li>
             <li className="flex items-start gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-[#e31824]" />
+              <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
               <span>+880 1700-000000</span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-[#e31824]" />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
               <span>Dhaka, Bangladesh</span>
             </li>
           </ul>
@@ -145,7 +145,7 @@ const SiteFooter = () => {
       <div className="border-t border-white/10 bg-black/25">
         <div className="container py-5 text-center text-xs text-slate-500">
           <p>
-            © 2026 <span className="font-bold text-white">GearUp</span>. All
+            © 2026 <span className="font-bold text-white">RentRover</span>. All
             rights reserved.
           </p>
         </div>

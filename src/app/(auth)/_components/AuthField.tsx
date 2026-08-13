@@ -27,7 +27,7 @@ export const Field = ({
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-bold text-[#1b2748]">
+      <label htmlFor={id} className="text-sm font-bold text-foreground">
         {label}
       </label>
       <div className="relative mt-2">
@@ -39,7 +39,7 @@ export const Field = ({
           placeholder={placeholder}
           defaultValue={defaultValue}
           onChange={onChange}
-          className="h-12 w-full rounded-lg border border-slate-200 bg-white pl-10 pr-10 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#e31824] focus:ring-2 focus:ring-red-100"
+          className="h-12 w-full rounded-lg border border-slate-200 bg-white pl-10 pr-10 text-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-red-100"
         />
         {suffix && (
           <button

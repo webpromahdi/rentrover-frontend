@@ -102,7 +102,7 @@ const GearTable = ({
       }`}
     >
       <Table className="min-w-[1000px] w-full text-left text-sm">
-        <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+        <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           <TableRow className="hover:bg-transparent">
             {(short
               ? [
@@ -148,7 +148,7 @@ const GearTable = ({
             rows.map((gear: GearItem, index: number) => (
               <TableRow
                 key={gear.id || index}
-                className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                className="border-b border-border last:border-0 hover:bg-slate-50/50"
               >
                 <TableCell className="px-5 py-4">
                   {short ? (
@@ -169,7 +169,7 @@ const GearTable = ({
                 </TableCell>
                 <TableCell className="px-5 py-4">
                   {short ? (
-                    <span className="font-bold text-[#1b2748]">
+                    <span className="font-bold text-foreground">
                       {gear.name}
                     </span>
                   ) : (
@@ -185,7 +185,7 @@ const GearTable = ({
                   )}
                 </TableCell>
                 {!short && (
-                  <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
+                  <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
                     {gear.name}
                   </TableCell>
                 )}
@@ -199,8 +199,8 @@ const GearTable = ({
                     ? gear.category?.name
                     : gear.category || gear.categoryId}
                 </TableCell>
-                <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
-                  ৳{gear.pricePerDay}
+                <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
+                  ${gear.pricePerDay}
                 </TableCell>
                 <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                   {gear.stock}
@@ -219,14 +219,14 @@ const GearTable = ({
                   <div className="flex items-center gap-3">
                     <Link
                       href={`/dashboard/provider/gear/${gear.id}/edit`}
-                      className="rounded-md px-1.5 py-1 text-xs font-bold text-[#e31824] transition-colors hover:bg-red-50"
+                      className="rounded-md px-1.5 py-1 text-xs font-bold text-primary transition-colors hover:bg-primary/10"
                     >
                       Edit
                     </Link>
                     <Button
                       onClick={() => handleDelete(gear.id)}
                       disabled={deleteMutation.isPending}
-                      className="size-8 rounded-md text-slate-400 hover:bg-red-50 hover:text-[#e31824] disabled:opacity-50"
+                      className="size-8 rounded-md text-slate-400 hover:bg-primary/10 hover:text-primary disabled:opacity-50"
                     >
                       {deleteMutation.isPending ? (
                         <Loader2 className="size-4 animate-spin" />

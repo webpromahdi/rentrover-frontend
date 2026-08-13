@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export const AuthPanel = ({ register = false }: { register?: boolean }) => {
   const title = register
-    ? "Join GearUp Today"
+    ? "Join RentRover Today"
     : "Your Next Adventure Starts Here";
   const subtitle = register
     ? "List your gear or rent what you need — it's free to join."
     : "Join 1,200+ adventurers renting premium outdoor gear.";
   return (
-    <aside className="relative hidden overflow-hidden bg-[#1b2748] lg:flex lg:min-h-[780px] lg:items-center lg:justify-center">
+    <aside className="relative hidden overflow-hidden bg-slate-900 lg:flex lg:min-h-[780px] lg:items-center lg:justify-center">
       <Image
         src="https://i.ibb.co/gFLcqLT5/auth.webp"
         alt="People enjoying outdoor adventures with rental gear"
@@ -19,7 +19,7 @@ export const AuthPanel = ({ register = false }: { register?: boolean }) => {
         sizes="(max-width: 1024px) 0vw, 50vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-[#1b2748]/85" />
+      <div className="absolute inset-0 bg-slate-900/85" />
       <div className="relative z-10 max-w-md px-10 text-center text-white">
         <div className="mx-auto w-fit">
           <Logo inverse />

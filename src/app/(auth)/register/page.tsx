@@ -10,7 +10,7 @@ const RegisterPage = () => {
         <div className="mx-auto w-fit lg:hidden">
           <Logo />
         </div>
-        <h1 className="mt-6 text-3xl font-extrabold tracking-[-0.03em] text-[#1b2748]">
+        <h1 className="mt-6 text-3xl font-extrabold tracking-[-0.03em] text-foreground">
           Create Your Account
         </h1>
         <p className="mt-2 text-sm text-slate-500">
@@ -28,7 +28,7 @@ const RegisterPage = () => {
         Already have an account?{" "}
         <Link
           href="/login"
-          className="font-bold text-[#e31824] hover:underline"
+          className="font-bold text-primary hover:underline"
         >
           Sign In →
         </Link>

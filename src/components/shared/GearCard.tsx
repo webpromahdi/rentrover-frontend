@@ -47,17 +47,17 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover object-center transition duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-[#e31824] px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
+        <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
           {categoryName.toUpperCase()}
         </span>
         <span
-          className={`absolute right-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white ${conditionColor[item.condition] ?? "bg-slate-500"}`}
+          className="absolute right-3 top-3 rounded-full bg-condition px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-condition-foreground"
         >
           {item.condition}
         </span>
       </div>
       <div className="p-5">
-        <h3 className="truncate text-lg font-bold text-[#1b2748]">
+        <h3 className="truncate text-lg font-bold text-foreground">
           {item.name}
         </h3>
         <p className="mt-0.5 text-sm font-medium text-slate-500">{item.brand}</p>
@@ -75,8 +75,8 @@ export default function GearCard({ item }: { item: GearCardItem }) {
         )}
 
         <div className="mt-4 flex items-end justify-between">
-          <p className="text-xl font-extrabold text-[#e31824]">
-            ৳{price.toLocaleString()}
+          <p className="text-xl font-extrabold text-primary">
+            ${price.toLocaleString()}
             <span className="text-sm font-medium">/day</span>
           </p>
           {isAvailable ? (
@@ -94,7 +94,7 @@ export default function GearCard({ item }: { item: GearCardItem }) {
 
         <Link
           href={`/gear/${item.id}`}
-          className="mt-5 flex h-11 items-center justify-center rounded-lg bg-[#e31824] text-sm font-bold text-white transition hover:bg-[#c41520]"
+          className="mt-5 flex h-11 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
         >
           Rent Now
         </Link>

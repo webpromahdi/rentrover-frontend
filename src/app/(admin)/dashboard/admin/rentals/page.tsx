@@ -64,8 +64,8 @@ const AdminRentalsPage = () => {
       value: rentals.length,
       icon: ClipboardList,
       iconBg: "bg-slate-100",
-      iconColor: "text-[#1b2748]",
-      accent: "bg-[#1b2748]",
+      iconColor: "text-foreground",
+      accent: "bg-slate-900",
     },
     {
       label: "Active",
@@ -89,9 +89,9 @@ const AdminRentalsPage = () => {
       label: "Cancelled",
       value: rentals.filter((r: any) => r.status === "CANCELLED").length,
       icon: XCircle,
-      iconBg: "bg-red-50",
-      iconColor: "text-[#e31824]",
-      accent: "bg-[#e31824]",
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary",
+      accent: "bg-primary",
     },
   ];
 
@@ -107,7 +107,7 @@ const AdminRentalsPage = () => {
                 <Icon className={`size-5 ${iconColor}`} />
               </span>
               <div>
-                <p className="text-2xl font-extrabold text-[#1b2748]">{value}</p>
+                <p className="text-2xl font-extrabold text-foreground">{value}</p>
                 <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{label}</p>
               </div>
             </div>
@@ -121,7 +121,7 @@ const AdminRentalsPage = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`whitespace-nowrap border-b-2 pb-3 text-sm font-bold ${activeTab === tab ? "border-[#e31824] text-[#e31824]" : "border-transparent text-slate-500 hover:text-[#1b2748]"}`}
+              className={`whitespace-nowrap border-b-2 pb-3 text-sm font-bold ${activeTab === tab ? "border-primary text-primary" : "border-transparent text-slate-500 hover:text-foreground"}`}
             >
               {STATUS_DISPLAY[tab]}
             </button>
@@ -143,7 +143,7 @@ const AdminRentalsPage = () => {
       ) : (
         <ScrollArea className="mt-6 h-full w-full rounded-xl border border-slate-200 bg-white shadow-sm">
           <Table className="min-w-[1000px] w-full text-left text-sm">
-            <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+            <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
               <TableRow className="hover:bg-transparent">
                 {[
                   "ID",
@@ -175,12 +175,12 @@ const AdminRentalsPage = () => {
                 return (
                   <TableRow
                     key={order.id}
-                    className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                    className="border-b border-border last:border-0 hover:bg-slate-50/50"
                   >
-                    <TableCell className="px-5 py-4 text-[13px] font-bold text-[#e31824]">
+                    <TableCell className="px-5 py-4 text-[13px] font-bold text-primary">
                       #{order.id.slice(0, 8).toUpperCase()}
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-medium text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-medium text-foreground">
                       {order.customer?.name ?? "—"}
                     </TableCell>
                     <TableCell className="px-5 py-4 text-[13px] text-slate-600">
@@ -195,7 +195,7 @@ const AdminRentalsPage = () => {
                     <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                       {days}d
                     </TableCell>
-                    <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
+                    <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
                       ${parseFloat(order.totalAmount).toFixed(2)}
                     </TableCell>
                     <TableCell className="px-5 py-4">

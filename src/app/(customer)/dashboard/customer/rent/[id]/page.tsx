@@ -17,7 +17,7 @@ const conditionColors: Record<string, string> = {
   EXCELLENT: "bg-emerald-100 text-emerald-700",
   GOOD: "bg-green-100 text-green-700",
   FAIR: "bg-amber-100 text-amber-700",
-  POOR: "bg-red-100 text-red-700",
+  POOR: "bg-primary/20 text-red-700",
 };
 
 const BookingPage = () => {
@@ -127,7 +127,7 @@ const BookingPage = () => {
           <div className="p-6">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h2 className="text-2xl font-extrabold text-[#1b2748]">
+                <h2 className="text-2xl font-extrabold text-foreground">
                   {gear.name}
                 </h2>
                 <p className="mt-1 text-sm text-slate-500">
@@ -141,17 +141,17 @@ const BookingPage = () => {
               </span>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-y-4 border-t border-slate-100 pt-5 text-sm">
+            <div className="mt-5 grid grid-cols-2 gap-y-4 border-t border-border pt-5 text-sm">
               {gear.address && (
                 <p className="col-span-2 flex items-center gap-2 text-slate-500">
-                  <MapPin className="size-4 shrink-0 text-[#e31824]" />
+                  <MapPin className="size-4 shrink-0 text-primary" />
                   {gear.address}
                 </p>
               )}
               <p className="text-slate-500">
                 Price per day
-                <strong className="block pt-1 text-[#e31824]">
-                  ৳{pricePerDay.toFixed(2)}
+                <strong className="block pt-1 text-primary">
+                  ${pricePerDay.toFixed(2)}
                 </strong>
               </p>
               <p className="text-slate-500">
@@ -173,12 +173,12 @@ const BookingPage = () => {
         {/* Right: Booking Form */}
         <div className="space-y-4">
           <Card className="rounded-xl border-none bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-            <h2 className="text-xl font-extrabold text-[#1b2748]">
+            <h2 className="text-xl font-extrabold text-foreground">
               Select Rental Dates
             </h2>
             <form onSubmit={handleSubmit} className="mt-5 space-y-4">
               <div>
-                <label className="mb-1.5 block text-sm font-bold text-[#1b2748]">
+                <label className="mb-1.5 block text-sm font-bold text-foreground">
                   Start Date
                 </label>
                 <div className="relative">
@@ -195,7 +195,7 @@ const BookingPage = () => {
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm font-bold text-[#1b2748]">
+                <label className="mb-1.5 block text-sm font-bold text-foreground">
                   End Date
                 </label>
                 <div className="relative">
@@ -212,7 +212,7 @@ const BookingPage = () => {
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm font-bold text-[#1b2748]">
+                <label className="mb-1.5 block text-sm font-bold text-foreground">
                   Quantity
                 </label>
                 <div className="relative">
@@ -233,20 +233,20 @@ const BookingPage = () => {
               <div className="rounded-xl bg-slate-50 p-4 space-y-2 text-sm">
                 <div className="flex justify-between text-slate-600">
                   <span>Duration</span>
-                  <span className="font-bold text-[#1b2748]">
+                  <span className="font-bold text-foreground">
                     {days} day{days !== 1 ? "s" : ""}
                   </span>
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Rate</span>
-                  <span className="font-bold text-[#1b2748]">
-                    ৳{pricePerDay.toFixed(2)} / day × {quantity}
+                  <span className="font-bold text-foreground">
+                    ${pricePerDay.toFixed(2)} / day × {quantity}
                   </span>
                 </div>
-                <div className="border-t border-slate-200 pt-2 flex justify-between font-extrabold text-[#1b2748]">
+                <div className="border-t border-slate-200 pt-2 flex justify-between font-extrabold text-foreground">
                   <span>Total</span>
-                  <span className="text-[#e31824] text-base">
-                    ৳{subtotal.toFixed(2)}
+                  <span className="text-primary text-base">
+                    ${subtotal.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -254,7 +254,7 @@ const BookingPage = () => {
               <Button
                 type="submit"
                 disabled={createOrderMutation.isPending || days <= 0}
-                className="h-12 w-full bg-[#e31824] font-extrabold hover:bg-[#c41520] disabled:opacity-60"
+                className="h-12 w-full bg-primary font-extrabold hover:bg-primary/90 disabled:opacity-60"
               >
                 {createOrderMutation.isPending ? (
                   <span className="flex items-center gap-2">
@@ -262,7 +262,7 @@ const BookingPage = () => {
                     Creating Order...
                   </span>
                 ) : (
-                  `Confirm & Pay ৳${subtotal.toFixed(2)}`
+                  `Confirm & Pay $${subtotal.toFixed(2)}`
                 )}
               </Button>
             </form>

@@ -70,7 +70,7 @@ const AdminGearContent = () => {
             placeholder="Search gear..."
             value={localSearch}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm focus:border-[#e31824] focus:ring-2 focus:ring-red-100"
+            className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm focus:border-primary focus:ring-2 focus:ring-red-100"
           />
         </label>
         <select
@@ -89,7 +89,7 @@ const AdminGearContent = () => {
             handleSearchChange("");
             handleFilterChange("category", "All");
           }}
-          className="h-10 w-auto rounded-lg border border-slate-200 px-4 text-sm font-bold text-[#e31824] hover:bg-red-50 justify-self-start md:justify-self-auto"
+          className="h-10 w-auto rounded-lg border border-slate-200 px-4 text-sm font-bold text-primary hover:bg-primary/10 justify-self-start md:justify-self-auto"
         >
           Reset
         </button>
@@ -132,7 +132,7 @@ const AdminGearContent = () => {
               {filtered.map((gear: any, i: number) => (
                 <TableRow
                   key={gear.id}
-                  className="border-b border-slate-100 last:border-0"
+                  className="border-b border-border last:border-0"
                 >
                   <TableCell className="px-4 py-3 text-slate-500">
                     {i + 1}
@@ -154,7 +154,7 @@ const AdminGearContent = () => {
                       </div>
                     )}
                   </TableCell>
-                  <TableCell className="px-4 py-3 font-bold text-[#1b2748]">
+                  <TableCell className="px-4 py-3 font-bold text-foreground">
                     {gear.name}
                   </TableCell>
                   <TableCell className="px-4 py-3">{gear.brand}</TableCell>

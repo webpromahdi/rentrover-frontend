@@ -170,8 +170,8 @@ const AdminDashboardPage = () => {
       activeGear.toString(),
       "Active Listings",
       "Available",
-      "bg-red-50 text-[#e31824]",
-      "bg-[#e31824]",
+      "bg-primary/10 text-primary",
+      "bg-primary",
     ],
     [
       ClipboardList,
@@ -199,11 +199,11 @@ const AdminDashboardPage = () => {
       {/* Hero Header */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight text-[#1b2748]">
+          <h1 className="text-2xl font-extrabold tracking-tight text-foreground">
             Welcome back, Admin 👋
           </h1>
           <p className="mt-1 text-sm text-slate-500">
-            Here&apos;s what&apos;s happening on GearUp today.
+            Here&apos;s what&apos;s happening on RentRover today.
           </p>
         </div>
       </div>
@@ -221,7 +221,7 @@ const AdminDashboardPage = () => {
                 <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                   {label}
                 </p>
-                <p className="mt-2 text-3xl font-extrabold text-[#1b2748]">
+                <p className="mt-2 text-3xl font-extrabold text-foreground">
                   {num}
                 </p>
                 <p className="mt-3 flex items-center gap-1 text-xs font-semibold text-emerald-600">
@@ -243,21 +243,21 @@ const AdminDashboardPage = () => {
       <div className="mt-10 grid gap-6 xl:grid-cols-2">
         <Card className="rounded-lg border border-slate-200 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between">
-            <h2 className="flex items-center gap-2 text-base font-bold text-[#1b2748]">
-              <BarChart3 className="size-5 text-[#e31824]" />
+            <h2 className="flex items-center gap-2 text-base font-bold text-foreground">
+              <BarChart3 className="size-5 text-primary" />
               Rentals Over Time{" "}
               <span className="text-sm font-medium text-slate-400">
                 Last 18 days
               </span>
             </h2>
           </div>
-          <div className="mt-9 flex h-48 items-end gap-[3px] border-b border-slate-100 pb-1">
+          <div className="mt-9 flex h-48 items-end gap-[3px] border-b border-border pb-1">
             {chartData.barHeights.map((height, i) => (
               <div key={i} className="flex flex-1 flex-col items-center gap-0.5">
                 <div
                   title={chartData.last18Days[i]}
                   style={{ height }}
-                  className={`w-full rounded-t-sm transition-all duration-500 ${i === 17 ? "bg-[#e31824]" : "bg-[#1b2748] hover:bg-blue-800"}`}
+                  className={`w-full rounded-t-sm transition-all duration-500 ${i === 17 ? "bg-primary" : "bg-slate-900 hover:bg-blue-800"}`}
                 />
               </div>
             ))}
@@ -279,8 +279,8 @@ const AdminDashboardPage = () => {
         </Card>
         
         <Card className="rounded-lg border border-slate-200 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-          <h2 className="flex items-center gap-2 text-base font-bold text-[#1b2748]">
-            <PieChart className="size-5 text-[#e31824]" />
+          <h2 className="flex items-center gap-2 text-base font-bold text-foreground">
+            <PieChart className="size-5 text-primary" />
             Revenue Breakdown
           </h2>
           <div className="mt-8 flex items-center justify-around gap-8 sm:justify-start sm:gap-12">
@@ -289,7 +289,7 @@ const AdminDashboardPage = () => {
               style={{ background: chartData.conicGradient }}
             >
               <div className="flex size-28 flex-col items-center justify-center rounded-full bg-white text-center">
-                <span className="text-xl font-extrabold text-[#1b2748]">
+                <span className="text-xl font-extrabold text-foreground">
                   {/* P3-8: Smart formatter — exact $ for <1000, 'k' shorthand for >=1000 */}
                   {chartData.totalRevenue >= 1000
                     ? `$${(chartData.totalRevenue / 1000).toFixed(1)}k`
@@ -322,12 +322,12 @@ const AdminDashboardPage = () => {
       <div className="mt-10 grid gap-6 xl:grid-cols-2">
         <section className="flex flex-col h-full min-w-0">
           <div className="mb-4 flex shrink-0 items-center justify-between">
-            <h2 className="text-base font-bold tracking-tight text-[#1b2748]">
+            <h2 className="text-base font-bold tracking-tight text-foreground">
               Recent Users
             </h2>
             <Link
               href="/dashboard/admin/users"
-              className="text-[13px] font-semibold text-[#e31824] hover:underline"
+              className="text-[13px] font-semibold text-primary hover:underline"
             >
               View all
             </Link>
@@ -335,7 +335,7 @@ const AdminDashboardPage = () => {
           <div className="flex-1 min-h-0">
             <ScrollArea className="h-full w-full rounded-lg border border-slate-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
               <Table className="min-w-[500px] w-full text-left text-sm">
-                <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                   <TableRow className="hover:bg-transparent">
                     {["#", "User", "Role", "Status", "Joined", ""].map((x, i) => (
                       <TableHead key={i} className="px-5 py-3.5">
@@ -352,7 +352,7 @@ const AdminDashboardPage = () => {
                     return (
                       <TableRow
                         key={user.id}
-                        className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                        className="border-b border-border last:border-0 hover:bg-slate-50/50"
                       >
                         <TableCell className="px-5 py-4 text-[13px] text-slate-400">
                           {i + 1}
@@ -363,7 +363,7 @@ const AdminDashboardPage = () => {
                               {initials}
                             </span>
                             <div>
-                              <p className="text-[13px] font-bold text-[#1b2748]">
+                              <p className="text-[13px] font-bold text-foreground">
                                 {user.name ?? "—"}
                               </p>
                             </div>
@@ -374,7 +374,7 @@ const AdminDashboardPage = () => {
                         </TableCell>
                         <TableCell className="px-5 py-4">
                           <span
-                            className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-red-50 text-red-600"}`}
+                            className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-primary/10 text-red-600"}`}
                           >
                             {user.status}
                           </span>
@@ -398,12 +398,12 @@ const AdminDashboardPage = () => {
         </section>
         <section className="flex flex-col h-full min-w-0">
           <div className="mb-4 flex shrink-0 items-center justify-between">
-            <h2 className="text-base font-bold tracking-tight text-[#1b2748]">
+            <h2 className="text-base font-bold tracking-tight text-foreground">
               Recent Rentals
             </h2>
             <Link
               href="/dashboard/admin/rentals"
-              className="text-[13px] font-semibold text-[#e31824] hover:underline"
+              className="text-[13px] font-semibold text-primary hover:underline"
             >
               View all
             </Link>
@@ -411,7 +411,7 @@ const AdminDashboardPage = () => {
           <div className="flex-1 min-h-0">
             <ScrollArea className="h-full w-full rounded-lg border border-slate-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
               <Table className="min-w-[500px] w-full text-left text-sm">
-                <TableHeader className="border-b border-slate-100 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <TableHeader className="border-b border-border bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                   <TableRow className="hover:bg-transparent">
                     {["ID", "Customer", "Item", "Amount", "Status", "Date", ""].map((h, i) => (
                       <TableHead key={i} className="px-5 py-3.5">
@@ -424,18 +424,18 @@ const AdminDashboardPage = () => {
                   {recentRentals.map((order: any) => (
                     <TableRow
                       key={order.id}
-                      className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                      className="border-b border-border last:border-0 hover:bg-slate-50/50"
                     >
-                      <TableCell className="px-5 py-4 text-[13px] font-bold text-[#e31824]">
+                      <TableCell className="px-5 py-4 text-[13px] font-bold text-primary">
                         #{order.id.slice(0, 8).toUpperCase()}
                       </TableCell>
-                      <TableCell className="px-5 py-4 text-[13px] font-medium text-[#1b2748]">
+                      <TableCell className="px-5 py-4 text-[13px] font-medium text-foreground">
                         {order.customer?.name ?? "—"}
                       </TableCell>
                       <TableCell className="px-5 py-4 text-[13px] text-slate-600">
                         {order.gearItem?.name ?? "—"}
                       </TableCell>
-                      <TableCell className="px-5 py-4 text-[13px] font-bold text-[#1b2748]">
+                      <TableCell className="px-5 py-4 text-[13px] font-bold text-foreground">
                         ${parseFloat(order.totalAmount).toFixed(2)}
                       </TableCell>
                       <TableCell className="px-5 py-4">

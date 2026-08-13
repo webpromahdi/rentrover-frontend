@@ -41,7 +41,7 @@ const ProfilePage = () => {
     <div className="container py-10">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-[-0.03em] text-[#1b2748]">
+        <h1 className="text-3xl font-extrabold tracking-[-0.03em] text-foreground">
           My Profile
         </h1>
         <p className="mt-2 text-sm text-slate-500">

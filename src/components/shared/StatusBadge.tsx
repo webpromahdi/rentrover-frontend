@@ -4,7 +4,7 @@ const statusClasses: Record<string, string> = {
   PAID: "bg-purple-100 text-purple-700",
   PICKED_UP: "bg-green-100 text-green-700",
   RETURNED: "bg-slate-100 text-slate-600",
-  CANCELLED: "bg-red-100 text-red-700",
+  CANCELLED: "bg-primary/20 text-red-700",
   PENDING: "bg-orange-100 text-orange-700",
 };
 
