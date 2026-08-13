@@ -1,10 +1,10 @@
-# 🏕️ GearUp - Sports & Outdoor Gear Rental
+# 🏕️ RentRover - Sports & Outdoor Gear Rental
 
-**GearUp** is a full-stack gear rental application that connects outdoor enthusiasts with equipment providers. It covers the complete rental workflow, from browsing and booking gear to payment processing, inventory management, and rental tracking.
+**RentRover** is a full-stack gear rental application that connects outdoor enthusiasts with equipment providers. It covers the complete rental workflow, from browsing and booking gear to payment processing, inventory management, and rental tracking.
 
 This repository contains the frontend application, built with Next.js App Router and React Query, focusing on a responsive, role-based user interface.
 
-🔗 **Live Demo:** [https://gearup-frontend-nine.vercel.app/](https://gearup-frontend-nine.vercel.app/)
+🔗 **Live Demo:** [https://rentrover-web.vercel.app/](https://rentrover-web.vercel.app/)
 
 ---
 
@@ -47,7 +47,7 @@ This repository contains the frontend application, built with Next.js App Router
 ## 📂 Project Structure
 
 ```text
-gearup-frontend/
+rentrover-frontend/
 ├── src/
 │   ├── app/                 # Next.js App Router root
 │   │   ├── (admin)/         # Admin dashboard routes & actions
@@ -75,13 +75,13 @@ Follow these steps to run the frontend application locally on your machine.
 
 - Node.js (v18 or higher)
 - npm or yarn
-- A running instance of the GearUp Backend server.
+- A running instance of the RentRover Backend server.
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/webpromahdi/gearup-frontend.git
-cd gearup-frontend
+git clone https://github.com/webpromahdi/rentrover-frontend.git
+cd rentrover-frontend
 ```
 
 ### 2. Install dependencies
@@ -95,7 +95,7 @@ npm install
 Create a `.env` file in the root directory and configure the required variables. Use the `.env.example` file as a reference.
 
 ```env
-# The URL of your running GearUp backend API
+# The URL of your running RentRover backend API
 BACKEND_API_URL=http://localhost:5000
 ```
 
@@ -111,7 +111,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 🌐 Frontend Routes & API Integration
 
-The frontend consumes the GearUp Backend REST API and provides a structured routing system. Authentication is handled securely via `httpOnly` cookies (`accessToken`).
+The frontend consumes the RentRover Backend REST API and provides a structured routing system. Authentication is handled securely via `httpOnly` cookies (`accessToken`).
 
 For a complete and detailed list of all frontend routes, backend endpoints, and their respective integrations, please refer to the [API Integration Documentation](API_INTEGRATION.md).
 

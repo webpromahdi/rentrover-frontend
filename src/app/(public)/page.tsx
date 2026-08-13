@@ -137,7 +137,7 @@ export default async function HomePage() {
       {/* Hero*/}
       <section
         id="home"
-        className="relative flex min-h-[calc(90vh-70px)] items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/gearup-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
+        className="relative flex min-h-[calc(90vh-70px)] items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
       >
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="mx-auto inline-flex rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wider text-white sm:text-sm uppercase">
@@ -420,7 +420,7 @@ export default async function HomePage() {
         <div className="absolute -right-16 -bottom-28 size-72 rotate-45 border-[34px] border-white/10" />
         <div className="relative mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-extrabold tracking-[-0.025em] sm:text-4xl">
-            Ready to Gear Up for Your Next Adventure?
+            Ready to Rent Rover for Your Next Adventure?
           </h2>
           <p className="mt-4 text-lg text-red-100">
             Join 1,200+ adventurers who rent smart instead of buying.

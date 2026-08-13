@@ -128,7 +128,7 @@ const SiteFooter = () => {
           <ul className="mt-6 space-y-5 text-sm text-slate-400">
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-              <span>support@gearup.com</span>
+              <span>support@rentrover.com</span>
             </li>
             <li className="flex items-start gap-3">
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" />

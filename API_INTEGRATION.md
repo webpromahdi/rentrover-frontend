@@ -1,6 +1,6 @@
 # API Integration
 
-This frontend consumes the GearUp backend through server actions, client
+This frontend consumes the RentRover backend through server actions, client
 queries, and one internal Next.js proxy route. The backend base URL is read from
 `BACKEND_API_URL`, and all protected requests forward the `accessToken` stored
 in the app's httpOnly cookie.

@@ -51,7 +51,7 @@ const CancelContent = () => {
         <p className="mt-6 text-xs text-slate-400">
           Need help?{" "}
           <a
-            href="mailto:support@gearup.com"
+            href="mailto:support@rentrover.com"
             className="font-bold text-primary hover:underline"
           >
             Contact Support
