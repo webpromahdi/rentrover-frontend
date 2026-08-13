@@ -5,6 +5,7 @@ import { Search, Mountain } from "lucide-react";
 import Availability from "@/components/shared/Availability";
 import ConditionBadge from "@/components/shared/ConditionBadge";
 import PageHeading from "@/components/shared/PageHeading";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useSearchAndSort } from "@/app/hooks/useSearchAndSort";
 import {
@@ -84,15 +85,16 @@ const AdminGearContent = () => {
             </option>
           ))}
         </select>
-        <button
+        <Button
           onClick={() => {
             handleSearchChange("");
             handleFilterChange("category", "All");
           }}
-          className="h-10 w-auto rounded-lg border border-slate-200 px-4 text-sm font-bold text-primary hover:bg-primary/10 justify-self-start md:justify-self-auto"
+          variant="outline"
+          className="w-auto justify-self-start md:justify-self-auto"
         >
           Reset
-        </button>
+        </Button>
       </div>
 
       {isLoading ? (

@@ -190,7 +190,7 @@ const AdminUsersContent = () => {
                       {formatDate(user.createdAt)}
                     </TableCell>
                     <TableCell className="px-5 py-4">
-                      <button
+                      <Button
                         onClick={() =>
                           updateStatus({
                             id: user.id,
@@ -198,10 +198,12 @@ const AdminUsersContent = () => {
                               user.status === "ACTIVE" ? "SUSPENDED" : "ACTIVE",
                           })
                         }
-                        className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${user.status === "ACTIVE" ? "bg-primary/10 text-red-600 hover:bg-primary/20" : "bg-emerald-50 text-emerald-600 hover:bg-emerald-100"}`}
+                        variant="ghost"
+                        size="sm"
+                        className={user.status === "ACTIVE" ? "bg-primary/10 text-red-600 hover:bg-primary/20 hover:text-red-600" : "bg-emerald-50 text-emerald-600 hover:bg-emerald-100 hover:text-emerald-600"}
                       >
                         {user.status === "ACTIVE" ? "Suspend" : "Activate"}
-                      </button>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 );

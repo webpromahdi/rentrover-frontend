@@ -114,7 +114,7 @@ const BookingPage = () => {
 
       <div className="grid gap-6 xl:grid-cols-[3fr_2fr]">
         {/* Left: Gear Info */}
-        <Card className="overflow-hidden rounded-xl border-none bg-white p-0 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+        <Card className="overflow-hidden p-0 border-none">
           <div className="relative aspect-[21/9] overflow-hidden">
             <Image
               src={gear.image}
@@ -172,7 +172,7 @@ const BookingPage = () => {
 
         {/* Right: Booking Form */}
         <div className="space-y-4">
-          <Card className="rounded-xl border-none bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+          <Card className="p-6 border-none">
             <h2 className="text-xl font-extrabold text-foreground">
               Select Rental Dates
             </h2>
@@ -268,7 +268,7 @@ const BookingPage = () => {
             </form>
           </Card>
 
-          <Card className="rounded-xl border-none bg-amber-50 p-4 shadow-none text-sm text-amber-800">
+          <Card className="p-4 border-none bg-amber-50 shadow-none text-sm text-amber-800">
             <p className="font-bold">💡 How it works</p>
             <ul className="mt-2 list-disc pl-4 space-y-1 leading-relaxed">
               <li>Select your dates and confirm the order</li>

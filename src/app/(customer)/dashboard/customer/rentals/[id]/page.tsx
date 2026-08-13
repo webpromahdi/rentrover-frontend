@@ -138,7 +138,7 @@ const CustomerRentalDetailsPage = () => {
 
       <div className="grid gap-6 xl:grid-cols-[3fr_2fr]">
         {/* Left: Gear Info */}
-        <Card className="overflow-hidden rounded-xl bg-white p-0 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border-none">
+        <Card className="overflow-hidden p-0 border-none">
           {gear?.image ? (
             <div className="relative aspect-[21/9] w-full overflow-hidden">
               <Image
@@ -201,7 +201,7 @@ const CustomerRentalDetailsPage = () => {
         </Card>
 
         {/* Right: Order Summary + Pay Now */}
-        <Card className="h-fit rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+        <Card className="h-fit p-6">
           <h2 className="text-xl font-extrabold text-foreground">
             Order Summary
           </h2>
@@ -258,7 +258,7 @@ const CustomerRentalDetailsPage = () => {
 
       {/* Order Progress */}
       {!isCancelled && (
-        <section className="mt-8 rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+        <Card className="mt-8 p-6">
           <h2 className="text-xl font-extrabold text-foreground">
             Order Progress
           </h2>
@@ -297,11 +297,11 @@ const CustomerRentalDetailsPage = () => {
               );
             })}
           </div>
-        </section>
+        </Card>
       )}
 
       {/* Payment History */}
-      <section className="mt-8 rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <Card className="mt-8 p-6">
         <h2 className="mb-5 text-xl font-extrabold text-foreground">
           Payment History
         </h2>
@@ -361,7 +361,7 @@ const CustomerRentalDetailsPage = () => {
             </p>
           </div>
         )}
-      </section>
+      </Card>
 
       {/* Other Rentals */}
       <section className="mt-8">
@@ -388,7 +388,7 @@ const CustomerRentalDetailsPage = () => {
               <Link
                 key={rental.id}
                 href={`/dashboard/customer/rentals/${rental.id}`}
-                className="overflow-hidden rounded-xl border-none bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)] flex flex-col transition hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col transition hover:shadow-md"
               >
                 <div className="flex h-24 items-center border-b border-border">
                   {rental.gearItem?.image ? (

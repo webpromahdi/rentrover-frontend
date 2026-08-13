@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   ChevronRight,
@@ -151,18 +152,20 @@ export default async function HomePage() {
             Explore thousands of verified gear options from trusted providers. Book by the day and return when you are done. Experience top performance without the burden of ownership.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/gear"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-bold text-white transition hover:bg-primary/90"
+            <Button
+              render={<Link href="/gear" />}
+              size="xl"
             >
               Browse Gear Now <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="inline-flex h-12 items-center justify-center rounded-lg border border-white px-6 text-sm font-bold text-white transition hover:bg-white hover:text-foreground"
+            </Button>
+            <Button
+              render={<Link href="#how-it-works" />}
+              variant="outline"
+              size="xl"
+              className="border-white bg-transparent text-white hover:bg-white hover:text-foreground"
             >
               How It Works
-            </Link>
+            </Button>
           </div>
           <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 divide-x divide-y divide-white/20 border-white/20 text-left sm:grid-cols-4 sm:divide-y-0 sm:text-center">
             {[
@@ -287,12 +290,14 @@ export default async function HomePage() {
             </div>
           )}
 
-          <Link
-            href="/gear"
-            className="mx-auto mt-10 flex w-fit items-center gap-2 rounded-lg border border-primary px-6 py-3 text-sm font-bold text-primary transition hover:bg-primary/10"
+          <Button
+            render={<Link href="/gear" />}
+            variant="outline"
+            size="xl"
+            className="mx-auto mt-10 w-fit"
           >
             View All Gear <ArrowRight className="size-4" />
-          </Link>
+          </Button>
         </div>
       </section>
 

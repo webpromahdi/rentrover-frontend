@@ -343,7 +343,14 @@ const CustomerRentGearContent = () => {
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          {paginatedGears.map((gear) => (
+          {paginatedGears.map((gear) => {
+            const reviews = gear.reviews || [];
+            const avgRating =
+              reviews.length > 0
+                ? reviews.reduce((acc: any, r: any) => acc + r.rating, 0) / reviews.length
+                : 0;
+
+            return (
             <Card
               key={gear.id}
               className="group overflow-hidden rounded-xl bg-white p-0 shadow-[0_2px_12px_rgba(0,0,0,0.06)] flex flex-col border-none"
@@ -376,9 +383,14 @@ const CustomerRentGearContent = () => {
                   </div>
                 )}
 
-                <div className="mt-1 flex items-center gap-1.5 text-xs">
+                <div className="mt-1 flex flex-wrap items-center gap-1.5 text-xs">
                   <Star className="size-3.5 fill-amber-400 text-amber-400" />
-                  <span className="font-bold text-foreground">—</span>
+                  <span className="font-bold text-foreground">
+                    {reviews.length > 0 ? avgRating.toFixed(1) : "0.0"}
+                  </span>
+                  <span className="text-slate-500">
+                    ({reviews.length})
+                  </span>
                   <span
                     className={`ml-1 rounded px-1.5 py-0.5 text-[10px] font-extrabold uppercase ${conditionBadge[gear.condition] ?? "bg-slate-100 text-slate-600"}`}
                   >
@@ -406,7 +418,8 @@ const CustomerRentGearContent = () => {
                 </Link>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </div>
       )}
 

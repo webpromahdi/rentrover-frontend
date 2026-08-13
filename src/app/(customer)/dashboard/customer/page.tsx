@@ -109,7 +109,7 @@ const CustomerDashboardPage = () => {
         {stats.map(([Icon, number, label, color, bg]) => (
           <Card
             key={label as string}
-            className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+            className="flex items-center gap-4 p-5"
           >
             <span
               className={`flex size-11 items-center justify-center rounded-lg ${bg}`}

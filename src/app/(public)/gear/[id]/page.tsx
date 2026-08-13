@@ -9,6 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GearBookingSection } from "../_components/GearBookingSection";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default async function GearDetailsPage({
   params,
@@ -342,12 +343,13 @@ export default async function GearDetailsPage({
               You Might Also Like
             </h2>
           </div>
-          <Link
-            href="/gear"
-            className="hidden text-sm font-bold text-primary sm:block"
+          <Button
+            render={<Link href="/gear" />}
+            variant="link"
+            className="hidden px-0 sm:block"
           >
             View all gear →
-          </Link>
+          </Button>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
       </section>

@@ -241,16 +241,17 @@ const CustomerReviewsPage = () => {
                 )}
                 Submit Review
               </Button>
-              <button
+              <Button
                 type="button"
                 onClick={() => {
                   setSelectedRentalForReview(null);
                   reset();
                 }}
-                className="text-sm font-bold text-slate-500 hover:text-slate-700"
+                variant="ghost"
+                className="px-0 text-slate-500 hover:bg-transparent hover:text-slate-700"
               >
                 Cancel
-              </button>
+              </Button>
             </div>
           </form>
         </section>

@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { Mail, Calendar, CircleUserRound, Pencil } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+import { Card } from "@/components/ui/card";
 
 export const ProfileCard = ({ user }: { user: any }) => {
   const joinedDate = new Date(user.createdAt).toLocaleDateString("en-US", {
@@ -9,7 +12,7 @@ export const ProfileCard = ({ user }: { user: any }) => {
   });
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <Card className="relative p-0">
       {/* Decorative Banner Background */}
       <div className="absolute inset-y-0 right-0 w-full max-w-[600px] opacity-70 sm:opacity-100">
         <Image
@@ -75,12 +78,12 @@ export const ProfileCard = ({ user }: { user: any }) => {
 
         {/* Edit Button */}
         <div className="sm:self-start">
-          <button className="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-white transition hover:bg-primary/90">
+          <Button className="px-5">
             <Pencil className="size-4" />
             Edit Profile
-          </button>
+          </Button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

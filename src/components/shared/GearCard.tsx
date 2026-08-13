@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export type GearCardItem = {
   id: string;
@@ -38,7 +39,7 @@ export default function GearCard({ item }: { item: GearCardItem }) {
   const isAvailable = item.availability !== false;
 
   return (
-    <Card className="group p-0 overflow-hidden rounded-xl bg-white shadow-[0_2px_12px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(20,29,52,0.15)]">
+    <Card className="group p-0 shadow-[0_2px_12px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(20,29,52,0.15)]">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-200">
         <Image
           src={item.image}
@@ -92,12 +93,13 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           )}
         </div>
 
-        <Link
-          href={`/gear/${item.id}`}
-          className="mt-5 flex h-11 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
+        <Button
+          render={<Link href={`/gear/${item.id}`} />}
+          size="lg"
+          className="mt-5 w-full"
         >
           Rent Now
-        </Link>
+        </Button>
       </div>
     </Card>
   );

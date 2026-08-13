@@ -12,7 +12,10 @@ import {
   Tag,
   Star,
   LockKeyhole,
+  LogOut,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export const ProfileOverview = ({
   profile,
@@ -39,7 +42,7 @@ export const ProfileOverview = ({
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-2">
         {/* Personal Information */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <Card className="p-6 sm:p-8">
           <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
             <User className="size-5 text-primary" />
             <h3 className="text-lg font-extrabold text-foreground">
@@ -88,10 +91,10 @@ export const ProfileOverview = ({
               </p>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Account Information */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <Card className="p-6 sm:p-8">
           <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
             <ShieldCheck className="size-5 text-primary" />
             <h3 className="text-lg font-extrabold text-foreground">
@@ -142,11 +145,11 @@ export const ProfileOverview = ({
               </p>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
 
       {/* Stats Overview */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <Card className="p-6 sm:p-8">
         <div className="mb-8 flex items-center gap-3">
           <ShoppingBag className="size-5 text-primary" />
           <h3 className="text-lg font-extrabold text-foreground">
@@ -199,7 +202,7 @@ export const ProfileOverview = ({
             </div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Security Banner */}
       <div className="flex flex-col items-start gap-4 rounded-2xl border border-red-100 bg-primary/10/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
@@ -216,13 +219,14 @@ export const ProfileOverview = ({
             </p>
           </div>
         </div>
-        <button
+        <Button
           type="button"
-          className="flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 text-sm font-bold text-primary shadow-sm transition hover:bg-slate-50"
+          variant="secondary"
+          className="shrink-0 px-5 text-primary shadow-sm"
         >
           <LockKeyhole className="size-4" />
           Security Settings
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 import { useGearFilters } from "@/app/hooks/useGearFilters";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
+import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Filter } from "lucide-react";
 
 type PublicCategory = {
@@ -132,15 +133,16 @@ export function GearFilters({
       </div>
 
       {!hideApplyButton && (
-        <button
+        <Button
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="mt-8 flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
+          size="lg"
+          className="mt-8 w-full"
         >
           <Filter className="size-4" />
           View Results
-        </button>
+        </Button>
       )}
     </div>
   );

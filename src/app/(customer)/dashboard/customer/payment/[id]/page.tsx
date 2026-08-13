@@ -115,7 +115,7 @@ const CustomerPaymentPage = () => {
 
       <div className="grid gap-6 xl:grid-cols-[11fr_9fr]">
         {/* Order Summary Card */}
-        <Card className="rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+        <Card className="p-6">
           <h2 className="text-xl font-extrabold text-foreground">
             Order Summary
           </h2>
@@ -185,7 +185,7 @@ const CustomerPaymentPage = () => {
         </Card>
 
         {/* Pay Now Card */}
-        <Card className="rounded-xl bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+        <Card className="p-6">
           <h2 className="text-xl font-extrabold text-foreground">
             💳 Complete Payment
           </h2>

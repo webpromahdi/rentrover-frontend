@@ -29,7 +29,7 @@ const ProviderOrderDetailsPage = () => {
         title="Order Details"
       />
       <div className="grid gap-6 xl:grid-cols-[3fr_2fr]">
-        <Card className="rounded-xl border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <Card className="p-6">
           <div className="relative aspect-video w-full overflow-hidden rounded-xl">
             <Image
               src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=900&auto=format&fit=crop&q=85"
@@ -82,7 +82,7 @@ const ProviderOrderDetailsPage = () => {
             </Button>
           </div>
         </Card>
-        <Card className="h-fit rounded-xl border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <Card className="h-fit p-6">
           <div className="flex items-center gap-3">
             <span className="flex size-12 items-center justify-center rounded-full bg-blue-100 font-extrabold text-blue-700">
               JD
@@ -118,7 +118,7 @@ const ProviderOrderDetailsPage = () => {
           </Button>
         </Card>
       </div>
-      <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <Card className="mt-8 p-6">
         <h2 className="text-xl font-extrabold text-foreground">
           Order Progress
         </h2>
@@ -145,7 +145,7 @@ const ProviderOrderDetailsPage = () => {
             </div>
           ))}
         </div>
-      </section>
+      </Card>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 import { Avatar } from "./Avatar";
 import { accountLinks, logoutLink } from "./nav-links";
 import type { HeaderUser } from "./types";
@@ -22,24 +23,22 @@ export const GuestActions = ({ mobile = false }: { mobile?: boolean }) => {
   if (mobile) {
     return (
       <div className="grid gap-3">
-        <Link
-          href="/login"
-          className="flex h-11 w-full items-center justify-center rounded-lg bg-primary text-sm font-bold text-white transition hover:bg-primary/90"
+        <Button
+          render={<Link href="/login" />}
+          size="lg"
+          className="w-full"
         >
           Log In
-        </Link>
+        </Button>
       </div>
     );
   }
 
   return (
     <div className="flex items-center gap-3">
-      <Link
-        href="/login"
-        className="flex h-10 items-center rounded-lg bg-primary px-5 text-sm font-bold text-white transition hover:bg-primary/90"
-      >
+      <Button render={<Link href="/login" />}>
         Log In
-      </Link>
+      </Button>
     </div>
   );
 };

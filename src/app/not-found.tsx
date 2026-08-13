@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
@@ -40,13 +41,14 @@ export default function NotFound() {
         </p>
 
         {/* Button */}
-        <Link
-          href="/"
-          className="mt-8 flex h-12 w-full max-w-[260px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
+        <Button
+          render={<Link href="/" />}
+          size="xl"
+          className="mt-8 w-full max-w-[260px] rounded-full px-8 hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
         >
           <Home className="size-4 sm:size-5" />
           <span>Back to Homepage</span>
-        </Link>
+        </Button>
       </div>
     </section>
   );

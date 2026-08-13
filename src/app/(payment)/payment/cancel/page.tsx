@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { XCircle } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const CancelContent = () => {
   const searchParams = useSearchParams();
@@ -27,25 +28,30 @@ const CancelContent = () => {
 
         <div className="mt-8 flex flex-col gap-3">
           {rentalOrderId && (
-            <Link
-              href={`/dashboard/customer/payment/${rentalOrderId}`}
-              className="flex h-12 items-center justify-center rounded-xl bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
+            <Button
+              render={<Link href={`/dashboard/customer/payment/${rentalOrderId}`} />}
+              size="xl"
+              className="w-full rounded-xl"
             >
               Try Payment Again
-            </Link>
+            </Button>
           )}
-          <Link
-            href="/dashboard/customer/rentals"
-            className="flex h-11 items-center justify-center rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
+          <Button
+            render={<Link href="/dashboard/customer/rentals" />}
+            variant="secondary"
+            size="lg"
+            className="w-full rounded-xl"
           >
             View My Rentals
-          </Link>
-          <Link
-            href="/dashboard/customer"
-            className="flex h-11 items-center justify-center text-sm font-semibold text-slate-400 transition hover:text-slate-600"
+          </Button>
+          <Button
+            render={<Link href="/dashboard/customer" />}
+            variant="ghost"
+            size="lg"
+            className="w-full text-slate-400 hover:bg-transparent hover:text-slate-600"
           >
             Back to Dashboard
-          </Link>
+          </Button>
         </div>
 
         <p className="mt-6 text-xs text-slate-400">

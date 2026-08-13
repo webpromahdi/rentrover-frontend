@@ -15,6 +15,7 @@ import {
 import Logo from "@/components/shared/Logo";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { logout } from "@/app/services/auth/logout";
 import { useQuery } from "@tanstack/react-query";
 import { getMyProfile } from "@/lib/api/auth.api";
@@ -178,13 +179,14 @@ function CustomerMobileDrawer() {
 
         <NavLinks pathname={pathname} onNavClick={() => setOpen(false)} />
 
-        <button
+        <Button
           onClick={handleLogout}
-          className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary text-sm font-bold text-red-200 transition-colors hover:bg-primary hover:text-white"
+          variant="outline"
+          className="mt-auto w-full text-red-200 hover:bg-primary hover:text-white"
         >
           <LogOut className="size-4" />
           Log Out
-        </button>
+        </Button>
       </aside>
 
       {/* Hamburger trigger */}

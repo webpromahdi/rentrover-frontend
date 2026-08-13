@@ -5,7 +5,7 @@ import {
   Filter,
 } from "lucide-react";
 import { Suspense } from "react";
-import BrowseCard from "@/components/shared/BrowseCard";
+import GearCard, { type GearCardItem } from "@/components/shared/GearCard";
 import {
   Sheet,
   SheetContent,
@@ -56,26 +56,25 @@ export default async function GearBrowsePage({
   // Apply sorting
   gearItems = sortGears(gearItems, sortOption);
 
-  // Formatting for BrowseCard compatibility
-  const formattedItems = gearItems.map((g) => {
+  // Formatting for GearCard compatibility
+  const formattedItems: GearCardItem[] = gearItems.map((g) => {
     const reviews = g.reviews || [];
     const totalReviews = reviews.length;
     const avgRating = totalReviews > 0
-      ? (reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviews).toFixed(1)
-      : "0.0";
+      ? reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviews
+      : 0;
 
     return {
       id: g.id,
       name: g.name,
       brand: g.brand,
       category: g.category?.name || "Uncategorized",
-      price: parseInt(g.pricePerDay),
-      rating: avgRating,
-      reviews: totalReviews,
+      pricePerDay: g.pricePerDay,
+      avgRating,
+      reviewCount: totalReviews,
       condition: g.condition,
       image: g.image,
       availability: g.availability,
-      stock: g.stock,
     };
   });
 
@@ -230,7 +229,7 @@ export default async function GearBrowsePage({
             {/* Content Grid */}
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {paginatedItems.map((item) => (
-                <BrowseCard key={item.id} item={item as any} />
+                <GearCard key={item.id} item={item} />
               ))}
               {paginatedItems.length === 0 && (
                 <div className="col-span-full py-20 text-center">

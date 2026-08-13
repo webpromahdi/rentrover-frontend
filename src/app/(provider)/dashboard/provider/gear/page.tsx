@@ -5,6 +5,7 @@ import { Search, Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import GearTable, { GearItem } from "@/app/(provider)/_components/GearTable";
 import PageHeading from "@/components/shared/PageHeading";
 import Pagination from "@/components/shared/Pagination";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -73,13 +74,12 @@ const ProviderGearContent = () => {
       <PageHeading
         title="My Gear Listings"
         action={
-          <Link
-            href="/dashboard/provider/gear/new"
-            className="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
+          <Button
+            render={<Link href="/dashboard/provider/gear/new" />}
           >
             <Plus className="size-4" />
             Add New Gear
-          </Link>
+          </Button>
         }
       />
       <div className="mb-6 grid gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] sm:grid-cols-2 md:grid-cols-4">

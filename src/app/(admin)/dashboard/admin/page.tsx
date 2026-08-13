@@ -213,7 +213,7 @@ const AdminDashboardPage = () => {
         {stats.map(([Icon, num, label, trend, bg, accent]) => (
           <Card
             key={label}
-            className="relative overflow-hidden rounded-lg border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+            className="relative overflow-hidden p-6"
           >
             <div className={`absolute left-0 top-0 h-full w-1 ${accent}`} />
             <div className="flex items-start justify-between">
@@ -241,7 +241,7 @@ const AdminDashboardPage = () => {
 
       {/* Charts Section */}
       <div className="mt-10 grid gap-6 xl:grid-cols-2">
-        <Card className="rounded-lg border border-slate-200 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <Card className="p-8">
           <div className="flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-base font-bold text-foreground">
               <BarChart3 className="size-5 text-primary" />
@@ -278,7 +278,7 @@ const AdminDashboardPage = () => {
           </div>
         </Card>
         
-        <Card className="rounded-lg border border-slate-200 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <Card className="p-8">
           <h2 className="flex items-center gap-2 text-base font-bold text-foreground">
             <PieChart className="size-5 text-primary" />
             Revenue Breakdown

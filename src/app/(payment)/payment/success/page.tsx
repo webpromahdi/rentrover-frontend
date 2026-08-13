@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const SuccessContent = () => {
   const searchParams = useSearchParams();
@@ -32,18 +33,21 @@ const SuccessContent = () => {
         )}
 
         <div className="mt-8 flex flex-col gap-3">
-          <Link
-            href="/dashboard/customer/rentals"
-            className="flex h-12 items-center justify-center rounded-xl bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
+          <Button
+            render={<Link href="/dashboard/customer/rentals" />}
+            size="xl"
+            className="w-full rounded-xl"
           >
             View My Rentals
-          </Link>
-          <Link
-            href="/dashboard/customer"
-            className="flex h-11 items-center justify-center rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
+          </Button>
+          <Button
+            render={<Link href="/dashboard/customer" />}
+            variant="secondary"
+            size="lg"
+            className="w-full rounded-xl"
           >
             Back to Dashboard
-          </Link>
+          </Button>
         </div>
 
         <p className="mt-6 text-xs text-slate-400">

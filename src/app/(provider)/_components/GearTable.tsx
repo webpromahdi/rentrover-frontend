@@ -217,12 +217,14 @@ const GearTable = ({
                 </TableCell>
                 <TableCell className="px-5 py-4">
                   <div className="flex items-center gap-3">
-                    <Link
-                      href={`/dashboard/provider/gear/${gear.id}/edit`}
-                      className="rounded-md px-1.5 py-1 text-xs font-bold text-primary transition-colors hover:bg-primary/10"
+                    <Button
+                      render={<Link href={`/dashboard/provider/gear/${gear.id}/edit`} />}
+                      variant="ghost"
+                      size="xs"
+                      className="rounded-md px-1.5 py-1 text-primary hover:bg-primary/10 hover:text-primary"
                     >
                       Edit
-                    </Link>
+                    </Button>
                     <Button
                       onClick={() => handleDelete(gear.id)}
                       disabled={deleteMutation.isPending}

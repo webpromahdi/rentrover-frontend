@@ -340,12 +340,14 @@ const ProviderGearForm = ({
               * Required fields
             </p>
             <div className="flex flex-wrap justify-end gap-3">
-              <Link
-                href="/dashboard/provider/gear"
-                className="flex h-12 items-center rounded-xl border border-slate-200/90 bg-white px-6 text-sm font-bold text-slate-600 shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-colors hover:border-slate-300 hover:bg-slate-50"
+              <Button
+                render={<Link href="/dashboard/provider/gear" />}
+                variant="secondary"
+                size="xl"
+                className="rounded-xl border-slate-200/90 shadow-[0_4px_14px_rgba(15,23,42,0.04)] hover:border-slate-300"
               >
                 Cancel
-              </Link>
+              </Button>
               <Button
                 type="submit"
                 disabled={createMutation.isPending || updateMutation.isPending}
@@ -370,8 +372,7 @@ const ProviderGearForm = ({
   );
 };
 
-const cardClassName =
-  "gap-0 rounded-[22px] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_48px_rgba(15,23,42,0.055)] ring-1 ring-white/70 sm:p-8";
+const cardClassName = "gap-0";
 
 const inputClassName =
   "h-12 rounded-xl border border-slate-200/90 bg-white px-4 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-primary focus:ring-4 focus:ring-red-100/70";

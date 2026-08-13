@@ -102,20 +102,19 @@ const ProviderDashboardPage = () => {
       <PageHeading
         title="Provider Dashboard"
         action={
-          <div className="flex gap-3">
-            <Link
-              href="/dashboard/provider/gear/new"
-              className="flex h-10 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-white transition-colors hover:bg-primary/90"
+            <Button
+              render={<Link href="/dashboard/provider/gear/new" />}
             >
               <Plus className="size-4" />
               Add New Gear
-            </Link>
-            <Link
-              href="/dashboard/provider/orders"
-              className="hidden h-10 items-center rounded-lg border border-primary px-4 text-sm font-bold text-primary transition-colors hover:bg-primary/10 sm:flex"
+            </Button>
+            <Button
+              render={<Link href="/dashboard/provider/orders" />}
+              variant="outline"
+              className="hidden sm:flex"
             >
               View All Orders
-            </Link>
+            </Button>
           </div>
         }
       />
@@ -124,7 +123,7 @@ const ProviderDashboardPage = () => {
         {stats.map(({ Icon, n, label, c, b }) => (
           <Card
             key={label}
-            className="relative flex items-center gap-4 overflow-hidden rounded-xl border border-slate-200 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+            className="relative flex items-center gap-4 overflow-hidden p-6"
           >
             <span
               className={`flex size-11 items-center justify-center rounded-full ${b}`}

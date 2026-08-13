@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { AlertCircle, Plus, Search, Tag } from "lucide-react";
 import { useState } from "react";
 import {
   getCategoriesAction,
@@ -203,19 +204,22 @@ const AdminCategoriesPage = () => {
                       </TableCell>
                       <TableCell className="px-4 py-3">
                         <div className="flex gap-2">
-                          <button
+                          <Button
                             onClick={() => handleEditClick(category)}
-                            className="rounded-lg border border-blue-600 px-2.5 py-1.5 text-xs font-bold text-blue-600 hover:bg-blue-50 transition-colors"
+                            variant="outline"
+                            size="sm"
+                            className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-600"
                           >
                             Edit
-                          </button>
-                          <button
+                          </Button>
+                          <Button
                             onClick={() => deleteMutation.mutate(category.id)}
                             disabled={deleteMutation.isPending}
-                            className="rounded-lg border border-primary px-2.5 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 transition-colors disabled:opacity-50"
+                            variant="outline"
+                            size="sm"
                           >
                             {deleteMutation.isPending ? "..." : "Delete"}
-                          </button>
+                          </Button>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -284,13 +288,14 @@ const AdminCategoriesPage = () => {
                 )}
               </Button>
               {editingCategory && (
-                <button
+                <Button
                   type="button"
                   onClick={handleCancelEdit}
-                  className="h-10 w-full rounded-lg border border-slate-200 text-sm font-semibold text-slate-500 hover:bg-slate-50 transition-colors"
+                  variant="secondary"
+                  className="w-full"
                 >
                   Cancel
-                </button>
+                </Button>
               )}
             </div>
           </form>
