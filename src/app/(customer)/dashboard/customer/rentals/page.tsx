@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHeading from "@/components/shared/PageHeading";
 import StatusBadge from "@/components/shared/StatusBadge";
+import { Skeleton } from "@/components/ui/skeleton";
 import { getCustomerRentalOrdersAction } from "@/app/(customer)/_actions/rentalActions";
 
 type RentalStatus =
@@ -61,8 +62,15 @@ const CustomerRentalsListPage = () => {
       <PageHeading crumb="Dashboard › My Rentals" title="My Rentals" />
 
       {isLoading ? (
-        <div className="flex h-[40vh] items-center justify-center">
-          <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-border bg-slate-50/50 p-4">
+            <Skeleton className="h-4 w-full" />
+          </div>
+          <div className="space-y-4 p-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Skeleton key={i} className="h-12 w-full" />
+            ))}
+          </div>
         </div>
       ) : isError ? (
         <div className="flex h-[40vh] items-center justify-center text-red-500">

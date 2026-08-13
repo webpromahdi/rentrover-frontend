@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Search, PackageOpen } from "lucide-react";
 import Link from "next/link";
-import PageHeading from "@/components/shared/PageHeading";
 import StatusBadge from "@/components/shared/StatusBadge";
+import PageHeading from "@/components/shared/PageHeading";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSearchAndSort } from "@/app/hooks/useSearchAndSort";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -155,8 +156,15 @@ const ProviderOrdersContent = () => {
       </div>
 
       {isLoading ? (
-        <div className="flex h-[40vh] items-center justify-center">
-          <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+        <div className="mt-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-border bg-slate-50/50 p-4">
+            <Skeleton className="h-4 w-full" />
+          </div>
+          <div className="space-y-4 p-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Skeleton key={i} className="h-12 w-full" />
+            ))}
+          </div>
         </div>
       ) : filtered.length === 0 ? (
         <div className="mt-6 flex flex-col items-center justify-center rounded-xl bg-white py-20 shadow-sm">

@@ -3,6 +3,7 @@ import { Mail, Calendar, CircleUserRound, Pencil } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { Card } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const ProfileCard = ({ user }: { user: any }) => {
   const joinedDate = new Date(user.createdAt).toLocaleDateString("en-US", {
@@ -31,19 +32,16 @@ export const ProfileCard = ({ user }: { user: any }) => {
       <div className="relative z-10 flex flex-col items-start gap-6 p-6 sm:flex-row sm:items-center sm:p-8">
         {/* Avatar */}
         <div className="relative shrink-0">
-          {user.profile?.profileImage ? (
-            <Image
-              src={user.profile.profileImage}
+          <Avatar className="size-[120px] ring-4 ring-white shadow-sm">
+            <AvatarImage
+              src={user.profile?.profileImage ?? ""}
               alt={user.name}
-              width={120}
-              height={120}
-              className="size-[120px] rounded-full object-cover ring-4 ring-white shadow-sm"
+              className="object-cover"
             />
-          ) : (
-            <div className="flex size-[120px] items-center justify-center rounded-full bg-slate-900 text-white ring-4 ring-white shadow-sm">
+            <AvatarFallback className="bg-slate-900 text-white">
               <CircleUserRound className="size-[60px]" />
-            </div>
-          )}
+            </AvatarFallback>
+          </Avatar>
           {/* Edit Avatar Button */}
           <button
             type="button"

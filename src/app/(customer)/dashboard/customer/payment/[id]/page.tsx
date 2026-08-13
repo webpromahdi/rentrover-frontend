@@ -5,7 +5,9 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import PageHeading from "@/components/shared/PageHeading";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import {
   Calendar,
@@ -25,13 +27,13 @@ const formatDate = (dateStr: string) =>
     year: "numeric",
   });
 
-const statusColors: Record<string, string> = {
-  PLACED: "bg-amber-100 text-amber-700",
-  CONFIRMED: "bg-blue-100 text-blue-700",
-  PAID: "bg-emerald-100 text-emerald-700",
-  PICKED_UP: "bg-purple-100 text-purple-700",
-  RETURNED: "bg-slate-100 text-slate-700",
-  CANCELLED: "bg-primary/20 text-red-700",
+const statusBadgeVariants: Record<string, any> = {
+  PLACED: "colorAmber",
+  CONFIRMED: "colorBlue",
+  PAID: "colorEmerald",
+  PICKED_UP: "colorPurple",
+  RETURNED: "colorSlate700",
+  CANCELLED: "colorRed",
 };
 
 const CustomerPaymentPage = () => {
@@ -61,8 +63,15 @@ const CustomerPaymentPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-4 w-48" />
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Skeleton className="h-[400px] w-full rounded-xl" />
+          <Skeleton className="h-[400px] w-full rounded-xl" />
+        </div>
       </div>
     );
   }
@@ -173,14 +182,15 @@ const CustomerPaymentPage = () => {
           </div>
 
           <div className="mt-5 flex items-center gap-3">
-            <span
-              className={`rounded-full px-3 py-1 text-xs font-extrabold uppercase ${statusColors[order.status] ?? "bg-slate-100 text-slate-600"}`}
+            <Badge
+              size="statusLg"
+              variant={statusBadgeVariants[order.status] ?? "colorSlate600"}
             >
               {order.status}
-            </span>
-            <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500">
+            </Badge>
+            <Badge variant="colorSlate500" size="info">
               Powered by Stripe
-            </span>
+            </Badge>
           </div>
         </Card>
 

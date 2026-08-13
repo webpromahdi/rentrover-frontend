@@ -10,6 +10,9 @@ import { notFound } from "next/navigation";
 import { GearBookingSection } from "../_components/GearBookingSection";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { getInitials } from "@/lib/utils";
 
 export default async function GearDetailsPage({
   params,
@@ -92,9 +95,9 @@ export default async function GearDetailsPage({
           </div>
         </div>
         <div>
-          <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-white">
+          <Badge variant="default" size="categoryLg">
             {gear.category?.name || "Gear"}
-          </span>
+          </Badge>
           <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.03em] text-foreground sm:text-4xl">
             {gear.name}
           </h1>
@@ -118,9 +121,11 @@ export default async function GearDetailsPage({
             </a>
           </div>
           <div className="mt-5 flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-full bg-blue-100 text-sm font-extrabold uppercase text-blue-700">
-              {providerName.substring(0, 2)}
-            </span>
+            <Avatar className="size-10">
+              <AvatarFallback className="bg-blue-100 text-sm font-extrabold uppercase text-blue-700">
+                {getInitials(providerName)}
+              </AvatarFallback>
+            </Avatar>
             <p className="text-sm text-slate-600">
               Listed by{" "}
               <strong className="text-foreground">{providerName}</strong>{" "}
@@ -137,20 +142,20 @@ export default async function GearDetailsPage({
             </p>
           </div>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-bold">
-            <span className="rounded-full bg-emerald-100 px-3 py-1.5 text-emerald-700">
+            <Badge variant="colorEmerald" size="infoLg">
               Condition: {gear.condition}
-            </span>
-            <span className="rounded-full bg-amber-100 px-3 py-1.5 text-amber-700">
+            </Badge>
+            <Badge variant="colorAmber" size="infoLg">
               Stock: {gear.stock} units left
-            </span>
+            </Badge>
             {gear.availability ? (
-              <span className="rounded-full bg-green-100 px-3 py-1.5 text-green-700">
+              <Badge variant="colorGreen" size="infoLg">
                 ✓ Available
-              </span>
+              </Badge>
             ) : (
-              <span className="rounded-full bg-primary/20 px-3 py-1.5 text-red-700">
-                ✕ Not Available
-              </span>
+              <Badge variant="colorRed" size="infoLg">
+                ✗ Out of Stock
+              </Badge>
             )}
           </div>
           <p className="mt-6 leading-7 text-slate-600">

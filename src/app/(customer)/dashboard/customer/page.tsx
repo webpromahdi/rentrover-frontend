@@ -16,6 +16,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import { getCustomerRentalOrdersAction } from "@/app/(customer)/_actions/rentalActions";
 import { getCustomerPaymentsAction } from "@/app/(customer)/_actions/paymentActions";
 import { getCustomerReviewsAction } from "@/app/(customer)/_actions/reviewActions";
@@ -57,8 +59,20 @@ const CustomerDashboardPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-4 w-48" />
+        </div>
+        <div className="mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-24 w-full rounded-xl" />
+          ))}
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Skeleton className="h-96 w-full rounded-xl" />
+          <Skeleton className="h-96 w-full rounded-xl" />
+        </div>
       </div>
     );
   }

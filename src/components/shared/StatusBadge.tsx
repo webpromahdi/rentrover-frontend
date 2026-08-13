@@ -1,20 +1,29 @@
-const statusClasses: Record<string, string> = {
-  PLACED: "bg-amber-100 text-amber-700",
-  CONFIRMED: "bg-blue-100 text-blue-700",
-  PAID: "bg-purple-100 text-purple-700",
-  PICKED_UP: "bg-green-100 text-green-700",
-  RETURNED: "bg-slate-100 text-slate-600",
-  CANCELLED: "bg-primary/20 text-red-700",
-  PENDING: "bg-orange-100 text-orange-700",
+import { Badge } from "@/components/ui/badge";
+
+type BadgeVariant =
+  | "colorAmber"
+  | "colorBlue"
+  | "colorPurple"
+  | "colorGreen"
+  | "colorSlate600"
+  | "colorRed"
+  | "colorOrange";
+
+const statusVariants: Record<string, BadgeVariant> = {
+  PLACED: "colorAmber",
+  CONFIRMED: "colorBlue",
+  PAID: "colorPurple",
+  PICKED_UP: "colorGreen",
+  RETURNED: "colorSlate600",
+  CANCELLED: "colorRed",
+  PENDING: "colorOrange",
 };
 
 const StatusBadge = ({ status }: { status: string }) => {
   return (
-    <span
-      className={`inline-flex rounded-full px-2.5 py-1 text-[11px] font-extrabold tracking-[0.04em] ${statusClasses[status] ?? "bg-slate-100 text-slate-600"}`}
-    >
+    <Badge size="status" variant={statusVariants[status] ?? "colorSlate600"}>
       {status.replaceAll("_", " ")}
-    </span>
+    </Badge>
   );
 };
 

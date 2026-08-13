@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getMyProfile } from "@/lib/api/auth.api";
 import { ProfileCard } from "@/components/shared/profile/ProfileCard";
 import { ProfileOverview } from "@/components/shared/profile/ProfileOverview";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -24,10 +25,10 @@ const ProfilePage = () => {
   if (isLoading) {
     return (
       <div className="container py-10">
-        <div className="mb-8 h-8 w-48 animate-pulse rounded-lg bg-slate-200" />
+        <Skeleton className="mb-8 h-8 w-48 rounded-lg" />
         <div className="space-y-6">
-          <div className="h-40 animate-pulse rounded-2xl bg-slate-200" />
-          <div className="h-64 animate-pulse rounded-2xl bg-slate-200" />
+          <Skeleton className="h-40 rounded-2xl" />
+          <Skeleton className="h-64 rounded-2xl" />
         </div>
       </div>
     );

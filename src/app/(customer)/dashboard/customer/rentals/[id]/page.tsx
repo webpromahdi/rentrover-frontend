@@ -5,6 +5,7 @@ import { MapPin, Check, Circle, Package, PackageOpen } from "lucide-react";
 import Link from "next/link";
 import StatusBadge from "@/components/shared/StatusBadge";
 import PageHeading from "@/components/shared/PageHeading";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -14,6 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   getCustomerRentalOrderByIdAction,
@@ -37,13 +39,13 @@ const formatDate = (dateStr: string) =>
     year: "numeric",
   });
 
-const statusBadgeColors: Record<string, string> = {
-  PLACED: "bg-amber-100 text-amber-700",
-  CONFIRMED: "bg-blue-100 text-blue-700",
-  PAID: "bg-emerald-100 text-emerald-700",
-  PICKED_UP: "bg-purple-100 text-purple-700",
-  RETURNED: "bg-slate-100 text-slate-700",
-  CANCELLED: "bg-primary/20 text-red-700",
+const statusBadgeVariants: Record<string, any> = {
+  PLACED: "colorAmber",
+  CONFIRMED: "colorBlue",
+  PAID: "colorEmerald",
+  PICKED_UP: "colorPurple",
+  RETURNED: "colorSlate700",
+  CANCELLED: "colorRed",
 };
 
 const CustomerRentalDetailsPage = () => {
@@ -70,8 +72,18 @@ const CustomerRentalDetailsPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-4 w-48" />
+        </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Skeleton className="h-[500px] w-full rounded-xl lg:col-span-2" />
+          <div className="space-y-6">
+            <Skeleton className="h-[200px] w-full rounded-xl" />
+            <Skeleton className="h-[280px] w-full rounded-xl" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -420,11 +432,12 @@ const CustomerRentalDetailsPage = () => {
                   <span className="text-xs font-medium text-slate-500">
                     #{rental.id.slice(0, 8).toUpperCase()}
                   </span>
-                  <span
-                    className={`rounded px-2 py-0.5 text-[10px] font-extrabold uppercase ${statusBadgeColors[rental.status] ?? "bg-slate-100 text-slate-600"}`}
+                  <Badge
+                    size="statusSm"
+                    variant={statusBadgeVariants[rental.status] ?? "colorSlate600"}
                   >
                     {rental.status}
-                  </span>
+                  </Badge>
                 </div>
               </Link>
             ))}

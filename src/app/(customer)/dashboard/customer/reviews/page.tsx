@@ -9,6 +9,15 @@ import { toast } from "sonner";
 import { Star, MessageSquare, ClipboardList, Loader2, Package } from "lucide-react";
 import PageHeading from "@/components/shared/PageHeading";
 import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { getCustomerRentalOrdersAction } from "@/app/(customer)/_actions/rentalActions";
@@ -90,8 +99,20 @@ const CustomerReviewsPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-4 w-48" />
+        </div>
+        <div className="mb-10 grid gap-4 sm:grid-cols-3">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Skeleton key={i} className="h-24 w-full rounded-xl" />
+          ))}
+        </div>
+        <div className="space-y-6">
+          <Skeleton className="h-40 w-full rounded-xl" />
+          <Skeleton className="h-40 w-full rounded-xl" />
+        </div>
       </div>
     );
   }

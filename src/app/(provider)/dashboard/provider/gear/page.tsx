@@ -7,6 +7,7 @@ import PageHeading from "@/components/shared/PageHeading";
 import Pagination from "@/components/shared/Pagination";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Select,
   SelectContent,
@@ -151,8 +152,25 @@ const ProviderGearPage = () => (
 );
 
 const DashboardPageFallback = () => (
-  <div className="flex h-[60vh] items-center justify-center p-8">
-    <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+  <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+    <div className="mb-4">
+      <Skeleton className="h-8 w-64" />
+    </div>
+    <div className="mb-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+      <Skeleton className="h-10 w-full sm:col-span-2" />
+      <Skeleton className="h-10 w-full" />
+      <Skeleton className="h-10 w-full" />
+    </div>
+    <div className="rounded-xl border border-slate-200">
+      <div className="border-b border-border bg-slate-50/50 p-4">
+        <Skeleton className="h-4 w-full" />
+      </div>
+      <div className="space-y-4 p-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Skeleton key={i} className="h-12 w-full" />
+        ))}
+      </div>
+    </div>
   </div>
 );
 

@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Plus, RotateCw, DollarSign, ClipboardList, Boxes } from "lucide-react";
 import GearTable from "@/app/(provider)/_components/GearTable";
 import PageHeading from "@/components/shared/PageHeading";
+import { Skeleton } from "@/components/ui/skeleton";
 import StatusBadge from "@/components/shared/StatusBadge";
 import { Button } from "@/components/ui/button";
 import {
@@ -102,9 +103,8 @@ const ProviderDashboardPage = () => {
       <PageHeading
         title="Provider Dashboard"
         action={
-            <Button
-              render={<Link href="/dashboard/provider/gear/new" />}
-            >
+          <div className="flex items-center gap-3">
+            <Button render={<Link href="/dashboard/provider/gear/new" />}>
               <Plus className="size-4" />
               Add New Gear
             </Button>
@@ -171,8 +171,15 @@ const ProviderDashboardPage = () => {
         </div>
 
         {isLoading ? (
-          <div className="flex h-40 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="size-7 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+          <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div className="border-b border-border bg-slate-50/50 p-4">
+              <Skeleton className="h-4 w-full" />
+            </div>
+            <div className="space-y-4 p-4">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Skeleton key={i} className="h-12 w-full" />
+              ))}
+            </div>
           </div>
         ) : recentOrders.length === 0 ? (
           <div className="flex h-40 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm">

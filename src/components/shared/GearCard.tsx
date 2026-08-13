@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export type GearCardItem = {
   id: string;
@@ -48,14 +49,16 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover object-center transition duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
+        <Badge variant="default" size="category" className="absolute left-3 top-3">
           {categoryName.toUpperCase()}
-        </span>
-        <span
-          className="absolute right-3 top-3 rounded-full bg-condition px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-condition-foreground"
+        </Badge>
+        <Badge
+          variant="condition"
+          size="conditionCard"
+          className="absolute right-3 top-3"
         >
           {item.condition}
-        </span>
+        </Badge>
       </div>
       <div className="p-5">
         <h3 className="truncate text-lg font-bold text-foreground">

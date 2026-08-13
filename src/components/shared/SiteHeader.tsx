@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
@@ -14,13 +15,33 @@ interface SiteHeaderProps {
 
 const SiteHeader = ({ user }: SiteHeaderProps) => {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isHomePage = pathname === "/";
+  const isTransparent = isHomePage && !isScrolled;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Check initial scroll position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/95 shadow-[0_1px_8px_rgba(0,0,0,0.08)] backdrop-blur">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        !isTransparent
+          ? "border-b border-border bg-white/95 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-md"
+          : "border-transparent bg-transparent"
+      }`}
+    >
       <div className="container flex h-[70px] items-center justify-between">
         {/* Logo */}
         <Link href="/" aria-label="RentRover home">
-          <Logo />
+          <Logo inverse={isTransparent} />
         </Link>
 
         {/* Desktop Nav */}
@@ -36,7 +57,11 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
                 key={label}
                 href={href}
                 className={`text-sm font-semibold transition-colors hover:text-primary ${
-                  isActive ? "text-primary" : "text-foreground"
+                  isActive
+                    ? "text-primary"
+                    : !isTransparent
+                    ? "text-foreground"
+                    : "text-white/90"
                 }`}
               >
                 {label}
@@ -52,11 +77,11 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
 
         {/* Mobile Hamburger / Drawer */}
         <div className="lg:hidden">
-          <MobileDrawer user={user} />
+          <MobileDrawer user={user} isTransparent={isTransparent} />
         </div>
       </div>
     </header>
   );
-}
+};
 
 export default SiteHeader;

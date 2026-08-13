@@ -15,6 +15,7 @@ import {
 import PageHeading from "@/components/shared/PageHeading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Table,
@@ -163,13 +164,15 @@ const AdminCategoriesPage = () => {
               </TableHeader>
               <TableBody>
                 {isLoading ? (
-                  <TableRow>
-                    <TableCell colSpan={5} className="p-4 text-center">
-                      <div className="flex justify-center items-center py-8">
-                        <div className="h-6 w-6 animate-spin rounded-full border-2 border-slate-300 border-t-[#e31824]" />
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                  <>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <TableRow key={`skeleton-${i}`}>
+                        <TableCell colSpan={5} className="p-4">
+                          <Skeleton className="h-10 w-full" />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </>
                 ) : categories.length === 0 ? (
                   <TableRow>
                     <TableCell

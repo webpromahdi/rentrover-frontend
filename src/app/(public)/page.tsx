@@ -138,7 +138,7 @@ export default async function HomePage() {
       {/* Hero*/}
       <section
         id="home"
-        className="relative flex min-h-[calc(90vh-70px)] items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
+        className="relative flex min-h-screen items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
       >
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="mx-auto inline-flex rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wider text-white sm:text-sm uppercase">

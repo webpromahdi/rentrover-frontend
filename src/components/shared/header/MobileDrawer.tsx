@@ -19,9 +19,10 @@ import type { HeaderUser } from "./types";
 
 interface MobileDrawerProps {
   user?: HeaderUser;
+  isTransparent?: boolean;
 }
 
-export const MobileDrawer = ({ user }: MobileDrawerProps) => {
+export const MobileDrawer = ({ user, isTransparent }: MobileDrawerProps) => {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -34,7 +35,11 @@ export const MobileDrawer = ({ user }: MobileDrawerProps) => {
     <Sheet>
       <SheetTrigger
         aria-label="Open navigation menu"
-        className="flex size-10 items-center justify-center rounded-lg text-foreground outline-none hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-[#e31824]"
+        className={`flex size-10 items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-[#e31824] ${
+          isTransparent
+            ? "text-white hover:bg-white/10"
+            : "text-foreground hover:bg-slate-50"
+        }`}
       >
         <Menu className="size-6" />
       </SheetTrigger>

@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { getInitials } from "@/lib/utils";
 import {
   Table,
   TableBody,
@@ -36,18 +40,17 @@ const formatDate = (dateStr: string) =>
     year: "numeric",
   });
 
+const roleVariants: Record<string, any> = {
+  CUSTOMER: "roleCustomer",
+  PROVIDER: "roleProvider",
+  ADMIN: "roleAdmin",
+};
+
 const RoleBadge = ({ role }: { role: string }) => {
-  const classes: Record<string, string> = {
-    CUSTOMER: "bg-blue-50 text-blue-600",
-    PROVIDER: "bg-amber-50 text-amber-600",
-    ADMIN: "bg-slate-100 text-slate-700",
-  };
   return (
-    <span
-      className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${classes[role] ?? "bg-slate-100 text-slate-600"}`}
-    >
+    <Badge size="role" variant={roleVariants[role] ?? "roleAdmin"}>
       {role}
-    </span>
+    </Badge>
   );
 };
 
@@ -148,8 +151,24 @@ const AdminDashboardPage = () => {
 
   if (isLoading || !chartData) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50/50">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="min-h-screen bg-slate-50/50 p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-48" />
+          <Skeleton className="h-4 w-64" />
+        </div>
+        <div className="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-[120px] w-full rounded-xl" />
+          ))}
+        </div>
+        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <Skeleton className="h-[320px] w-full rounded-xl lg:col-span-2" />
+          <Skeleton className="h-[320px] w-full rounded-xl" />
+        </div>
+        <div className="grid gap-6 xl:grid-cols-2">
+          <Skeleton className="h-[400px] w-full rounded-xl" />
+          <Skeleton className="h-[400px] w-full rounded-xl" />
+        </div>
       </div>
     );
   }
@@ -346,9 +365,7 @@ const AdminDashboardPage = () => {
                 </TableHeader>
                 <TableBody>
                   {recentUsers.map((user: any, i: number) => {
-                    const initials = user.name
-                      ? user.name.split(" ").map((n: string) => n[0]).join("").toUpperCase().slice(0, 2)
-                      : "??";
+                    const initials = getInitials(user.name);
                     return (
                       <TableRow
                         key={user.id}
@@ -359,9 +376,11 @@ const AdminDashboardPage = () => {
                         </TableCell>
                         <TableCell className="px-5 py-4">
                           <div className="flex items-center gap-3">
-                            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-200 text-[11px] font-bold text-slate-600">
-                              {initials}
-                            </span>
+                            <Avatar className="size-8 shrink-0">
+                              <AvatarFallback className="bg-slate-200 text-[11px] font-bold text-slate-600">
+                                {initials}
+                              </AvatarFallback>
+                            </Avatar>
                             <div>
                               <p className="text-[13px] font-bold text-foreground">
                                 {user.name ?? "—"}
@@ -373,11 +392,12 @@ const AdminDashboardPage = () => {
                           <RoleBadge role={user.role} />
                         </TableCell>
                         <TableCell className="px-5 py-4">
-                          <span
-                            className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-primary/10 text-red-600"}`}
+                          <Badge
+                            size="role"
+                            variant={user.status === "ACTIVE" ? "statusActive" : "statusInactive"}
                           >
                             {user.status}
-                          </span>
+                          </Badge>
                         </TableCell>
                         <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                           {formatDate(user.createdAt)}

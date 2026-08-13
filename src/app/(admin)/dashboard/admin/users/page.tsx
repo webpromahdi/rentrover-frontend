@@ -5,6 +5,10 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Search, UserPlus, Users } from "lucide-react";
 import PageHeading from "@/components/shared/PageHeading";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import { getInitials } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { useSearchAndSort } from "@/app/hooks/useSearchAndSort";
 import {
@@ -31,18 +35,17 @@ const formatDate = (dateStr: string) =>
     year: "numeric",
   });
 
+const roleVariants: Record<string, any> = {
+  CUSTOMER: "roleCustomer",
+  PROVIDER: "roleProvider",
+  ADMIN: "roleAdmin",
+};
+
 const RoleBadge = ({ role }: { role: string }) => {
-  const classes: Record<string, string> = {
-    CUSTOMER: "bg-blue-50 text-blue-600",
-    PROVIDER: "bg-amber-50 text-amber-600",
-    ADMIN: "bg-slate-100 text-slate-700",
-  };
   return (
-    <span
-      className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${classes[role] ?? "bg-slate-100 text-slate-600"}`}
-    >
+    <Badge size="role" variant={roleVariants[role] ?? "roleAdmin"}>
       {role}
-    </span>
+    </Badge>
   );
 };
 
@@ -121,8 +124,15 @@ const AdminUsersContent = () => {
       </div>
 
       {isLoading ? (
-        <div className="flex h-[40vh] items-center justify-center">
-          <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-border bg-slate-50/50 p-4">
+            <Skeleton className="h-4 w-full" />
+          </div>
+          <div className="space-y-4 p-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Skeleton key={i} className="h-12 w-full" />
+            ))}
+          </div>
         </div>
       ) : filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-xl bg-white py-20 shadow-sm">
@@ -145,14 +155,7 @@ const AdminUsersContent = () => {
             </TableHeader>
             <TableBody>
               {filtered.map((user: any, i: number) => {
-                const initials = user.name
-                  ? user.name
-                      .split(" ")
-                      .map((n: string) => n[0])
-                      .join("")
-                      .toUpperCase()
-                      .slice(0, 2)
-                  : "??";
+                const initials = getInitials(user.name);
                 return (
                   <TableRow
                     key={user.id}
@@ -163,9 +166,11 @@ const AdminUsersContent = () => {
                     </TableCell>
                     <TableCell className="px-5 py-4">
                       <div className="flex items-center gap-3">
-                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-700 text-[11px] font-bold text-white">
-                          {initials}
-                        </span>
+                        <Avatar className="size-8 shrink-0">
+                          <AvatarFallback className="bg-gradient-to-br from-blue-400 to-blue-700 text-[11px] font-bold text-white">
+                            {initials}
+                          </AvatarFallback>
+                        </Avatar>
                         <div>
                           <p className="text-[13px] font-bold text-foreground">
                             {user.name ?? "—"}
@@ -180,11 +185,12 @@ const AdminUsersContent = () => {
                       <RoleBadge role={user.role} />
                     </TableCell>
                     <TableCell className="px-5 py-4">
-                      <span
-                        className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${user.status === "ACTIVE" ? "bg-emerald-50 text-emerald-600" : "bg-primary/10 text-red-600"}`}
+                      <Badge
+                        size="role"
+                        variant={user.status === "ACTIVE" ? "statusActive" : "statusInactive"}
                       >
                         {user.status}
-                      </span>
+                      </Badge>
                     </TableCell>
                     <TableCell className="px-5 py-4 text-[13px] text-slate-500">
                       {formatDate(user.createdAt)}

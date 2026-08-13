@@ -18,6 +18,7 @@ import Availability from "@/components/shared/Availability";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 
 export type GearItem = {
@@ -70,8 +71,15 @@ const GearTable = ({
 
   if (isLoading) {
     return (
-      <div className="flex h-64 items-center justify-center rounded-xl border border-slate-200 bg-white">
-        <Loader2 className="size-8 animate-spin text-slate-300" />
+      <div className="rounded-xl border border-slate-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="border-b border-border bg-slate-50/50 p-4">
+          <Skeleton className="h-4 w-full" />
+        </div>
+        <div className="space-y-4 p-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-12 w-full" />
+          ))}
+        </div>
       </div>
     );
   }

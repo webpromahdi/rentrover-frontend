@@ -4,20 +4,22 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useParams } from "next/navigation";
 import { toast } from "sonner";
 import PageHeading from "@/components/shared/PageHeading";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { MapPin, Calendar, Package, Tag, Loader2 } from "lucide-react";
 import { getPublicGearsAction } from "@/app/(customer)/_actions/gearActions";
 import { createRentalOrderAction } from "@/app/(customer)/_actions/rentalActions";
 import Image from "next/image";
 
-const conditionColors: Record<string, string> = {
-  NEW: "bg-blue-100 text-blue-700",
-  EXCELLENT: "bg-emerald-100 text-emerald-700",
-  GOOD: "bg-green-100 text-green-700",
-  FAIR: "bg-amber-100 text-amber-700",
-  POOR: "bg-primary/20 text-red-700",
+const conditionBadgeVariants: Record<string, any> = {
+  NEW: "colorBlue",
+  EXCELLENT: "colorEmerald",
+  GOOD: "colorGreen",
+  FAIR: "colorAmber",
+  POOR: "colorRed",
 };
 
 const BookingPage = () => {
@@ -81,8 +83,15 @@ const BookingPage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[60vh] items-center justify-center">
-        <div className="size-8 animate-spin rounded-full border-4 border-slate-200 border-t-[#e31824]" />
+      <div className="p-6 sm:p-10">
+        <div className="mb-8 space-y-2">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-4 w-48" />
+        </div>
+        <div className="grid gap-6 xl:grid-cols-[3fr_2fr]">
+          <Skeleton className="h-[500px] w-full rounded-xl" />
+          <Skeleton className="h-[500px] w-full rounded-xl" />
+        </div>
       </div>
     );
   }
@@ -134,11 +143,12 @@ const BookingPage = () => {
                   {gear.brand}&nbsp;•&nbsp;{gear.category?.name}
                 </p>
               </div>
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-extrabold uppercase ${conditionColors[gear.condition] ?? "bg-slate-100 text-slate-600"}`}
+              <Badge
+                size="statusLg"
+                variant={conditionBadgeVariants[gear.condition] ?? "colorSlate600"}
               >
                 {gear.condition}
-              </span>
+              </Badge>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-y-4 border-t border-border pt-5 text-sm">
