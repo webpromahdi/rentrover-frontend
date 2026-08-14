@@ -42,14 +42,12 @@ export default function NotFound() {
 
         {/* Button */}
         <Button
-          asChild
+          render={(props) => <Link href="/" {...props} />}
           size="xl"
           className="mt-8 w-full max-w-[260px] rounded-full px-8 hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
         >
-          <Link href="/">
-            <Home className="size-4 sm:size-5" />
-            <span>Back to Homepage</span>
-          </Link>
+          <Home className="size-4 sm:size-5" />
+          <span>Back to Homepage</span>
         </Button>
       </div>
     </section>

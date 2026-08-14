@@ -75,11 +75,9 @@ const ProviderGearContent = () => {
       <PageHeading
         title="My Gear Listings"
         action={
-          <Button asChild>
-            <Link href="/dashboard/provider/gear/new">
-              <Plus className="size-4" />
-              Add New Gear
-            </Link>
+          <Button render={(props) => <Link href="/dashboard/provider/gear/new" {...props} />}>
+            <Plus className="size-4" />
+            Add New Gear
           </Button>
         }
       />
