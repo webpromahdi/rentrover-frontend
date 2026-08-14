@@ -16,7 +16,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { EmptyState } from "@/components/shared/EmptyState";
-import { Button } from "@/components/ui/button";
+import { LinkButton } from "@/components/shared/LinkButton";
 import Link from "next/link";
 import { getPublicCategoriesAction } from "@/app/(public)/_actions/homeActions";
 import { getPublicGearsAction } from "@/app/(customer)/_actions/gearActions";
@@ -242,9 +242,9 @@ export default async function GearBrowsePage({
                     title="No gear found"
                     description="We couldn't find any gear matching your current filters. Try adjusting your search criteria."
                     action={
-                      <Button render={(props) => <Link href="/gear" {...props} />} variant="outline">
+                      <LinkButton href="/gear" variant="outline">
                         Clear Filters
-                      </Button>
+                      </LinkButton>
                     }
                   />
                 </div>

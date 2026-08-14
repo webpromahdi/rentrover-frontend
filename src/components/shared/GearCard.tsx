@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { LinkButton } from "@/components/shared/LinkButton";
 import { Badge } from "@/components/ui/badge";
 
 export type GearCardItem = {
@@ -96,13 +96,13 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           )}
         </div>
 
-        <Button
-          render={(props) => <Link href={`/gear/${item.id}`} {...props} />}
+        <LinkButton
+          href={`/gear/${item.id}`}
           size="lg"
           className="mt-5 w-full"
         >
           Rent Now
-        </Button>
+        </LinkButton>
       </div>
     </Card>
   );

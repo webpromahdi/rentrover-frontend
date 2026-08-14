@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { LinkButton } from "@/components/shared/LinkButton";
 import {
   ArrowRight,
   ChevronRight,
@@ -152,20 +152,17 @@ export default async function HomePage() {
             Explore thousands of verified gear options from trusted providers. Book by the day and return when you are done. Experience top performance without the burden of ownership.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button
-              render={(props) => <Link href="/gear" {...props} />}
-              size="xl"
-            >
+            <LinkButton href="/gear" size="xl">
               Browse Gear Now <ArrowRight className="size-4" />
-            </Button>
-            <Button
-              render={(props) => <Link href="#how-it-works" {...props} />}
+            </LinkButton>
+            <LinkButton
+              href="#how-it-works"
               variant="outline"
               size="xl"
               className="border-white bg-transparent text-white hover:bg-white hover:text-foreground"
             >
               How It Works
-            </Button>
+            </LinkButton>
           </div>
           <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 divide-x divide-y divide-white/20 border-white/20 text-left sm:grid-cols-4 sm:divide-y-0 sm:text-center">
             {[
@@ -290,14 +287,14 @@ export default async function HomePage() {
             </div>
           )}
 
-          <Button
-            render={(props) => <Link href="/gear" {...props} />}
+          <LinkButton
+            href="/gear"
             variant="outline"
             size="xl"
             className="mx-auto mt-10 w-fit"
           >
             View All Gear <ArrowRight className="size-4" />
-          </Button>
+          </LinkButton>
         </div>
       </section>
 

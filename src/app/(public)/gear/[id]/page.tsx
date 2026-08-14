@@ -9,7 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GearBookingSection } from "../_components/GearBookingSection";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { LinkButton } from "@/components/shared/LinkButton";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { getInitials } from "@/lib/utils";
@@ -348,9 +348,9 @@ export default async function GearDetailsPage({
               You Might Also Like
             </h2>
           </div>
-          <Button render={(props) => <Link href="/gear" {...props} />} variant="link" className="hidden px-0 sm:block">
+          <LinkButton href="/gear" variant="link" className="hidden px-0 sm:block">
             View all gear →
-          </Button>
+          </LinkButton>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
       </section>
