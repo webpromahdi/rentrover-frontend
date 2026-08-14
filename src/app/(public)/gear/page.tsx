@@ -242,8 +242,8 @@ export default async function GearBrowsePage({
                     title="No gear found"
                     description="We couldn't find any gear matching your current filters. Try adjusting your search criteria."
                     action={
-                      <Button render={<Link href="/gear" />} variant="outline">
-                        Clear Filters
+                      <Button asChild variant="outline">
+                        <Link href="/gear">Clear Filters</Link>
                       </Button>
                     }
                   />

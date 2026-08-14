@@ -152,19 +152,18 @@ export default async function HomePage() {
             Explore thousands of verified gear options from trusted providers. Book by the day and return when you are done. Experience top performance without the burden of ownership.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button
-              render={<Link href="/gear" />}
-              size="xl"
-            >
-              Browse Gear Now <ArrowRight className="size-4" />
+            <Button asChild size="xl">
+              <Link href="/gear">
+                Browse Gear Now <ArrowRight className="size-4" />
+              </Link>
             </Button>
             <Button
-              render={<Link href="#how-it-works" />}
+              asChild
               variant="outline"
               size="xl"
               className="border-white bg-transparent text-white hover:bg-white hover:text-foreground"
             >
-              How It Works
+              <Link href="#how-it-works">How It Works</Link>
             </Button>
           </div>
           <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 divide-x divide-y divide-white/20 border-white/20 text-left sm:grid-cols-4 sm:divide-y-0 sm:text-center">
@@ -291,12 +290,14 @@ export default async function HomePage() {
           )}
 
           <Button
-            render={<Link href="/gear" />}
+            asChild
             variant="outline"
             size="xl"
             className="mx-auto mt-10 w-fit"
           >
-            View All Gear <ArrowRight className="size-4" />
+            <Link href="/gear">
+              View All Gear <ArrowRight className="size-4" />
+            </Link>
           </Button>
         </div>
       </section>

@@ -104,16 +104,14 @@ const ProviderDashboardPage = () => {
         title="Provider Dashboard"
         action={
           <div className="flex items-center gap-3">
-            <Button render={<Link href="/dashboard/provider/gear/new" />}>
-              <Plus className="size-4" />
-              Add New Gear
+            <Button asChild>
+              <Link href="/dashboard/provider/gear/new">
+                <Plus className="size-4" />
+                Add New Gear
+              </Link>
             </Button>
-            <Button
-              render={<Link href="/dashboard/provider/orders" />}
-              variant="outline"
-              className="hidden sm:flex"
-            >
-              View All Orders
+            <Button asChild variant="outline" className="hidden sm:flex">
+              <Link href="/dashboard/provider/orders">View All Orders</Link>
             </Button>
           </div>
         }

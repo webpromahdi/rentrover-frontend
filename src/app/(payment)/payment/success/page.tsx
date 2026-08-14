@@ -33,20 +33,11 @@ const SuccessContent = () => {
         )}
 
         <div className="mt-8 flex flex-col gap-3">
-          <Button
-            render={<Link href="/dashboard/customer/rentals" />}
-            size="xl"
-            className="w-full rounded-xl"
-          >
-            View My Rentals
+          <Button asChild size="xl" className="w-full rounded-xl">
+            <Link href="/dashboard/customer/rentals">View My Rentals</Link>
           </Button>
-          <Button
-            render={<Link href="/dashboard/customer" />}
-            variant="secondary"
-            size="lg"
-            className="w-full rounded-xl"
-          >
-            Back to Dashboard
+          <Button asChild variant="secondary" size="lg" className="w-full rounded-xl">
+            <Link href="/dashboard/customer">Back to Dashboard</Link>
           </Button>
         </div>
 

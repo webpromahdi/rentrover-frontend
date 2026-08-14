@@ -341,12 +341,12 @@ const ProviderGearForm = ({
             </p>
             <div className="flex flex-wrap justify-end gap-3">
               <Button
-                render={<Link href="/dashboard/provider/gear" />}
+                asChild
                 variant="secondary"
                 size="xl"
                 className="rounded-xl border-slate-200/90 shadow-[0_4px_14px_rgba(15,23,42,0.04)] hover:border-slate-300"
               >
-                Cancel
+                <Link href="/dashboard/provider/gear">Cancel</Link>
               </Button>
               <Button
                 type="submit"

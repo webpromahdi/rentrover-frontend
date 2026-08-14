@@ -28,29 +28,15 @@ const CancelContent = () => {
 
         <div className="mt-8 flex flex-col gap-3">
           {rentalOrderId && (
-            <Button
-              render={<Link href={`/dashboard/customer/payment/${rentalOrderId}`} />}
-              size="xl"
-              className="w-full rounded-xl"
-            >
-              Try Payment Again
+            <Button asChild size="xl" className="w-full rounded-xl">
+              <Link href={`/dashboard/customer/payment/${rentalOrderId}`}>Try Payment Again</Link>
             </Button>
           )}
-          <Button
-            render={<Link href="/dashboard/customer/rentals" />}
-            variant="secondary"
-            size="lg"
-            className="w-full rounded-xl"
-          >
-            View My Rentals
+          <Button asChild variant="secondary" size="lg" className="w-full rounded-xl">
+            <Link href="/dashboard/customer/rentals">View My Rentals</Link>
           </Button>
-          <Button
-            render={<Link href="/dashboard/customer" />}
-            variant="ghost"
-            size="lg"
-            className="w-full text-slate-400 hover:bg-transparent hover:text-slate-600"
-          >
-            Back to Dashboard
+          <Button asChild variant="ghost" size="lg" className="w-full text-slate-400 hover:bg-transparent hover:text-slate-600">
+            <Link href="/dashboard/customer">Back to Dashboard</Link>
           </Button>
         </div>
 

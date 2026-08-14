@@ -23,12 +23,8 @@ export const GuestActions = ({ mobile = false }: { mobile?: boolean }) => {
   if (mobile) {
     return (
       <div className="grid gap-3">
-        <Button
-          render={<Link href="/login" />}
-          size="lg"
-          className="w-full"
-        >
-          Log In
+        <Button asChild size="lg" className="w-full">
+          <Link href="/login">Log In</Link>
         </Button>
       </div>
     );
@@ -36,8 +32,8 @@ export const GuestActions = ({ mobile = false }: { mobile?: boolean }) => {
 
   return (
     <div className="flex items-center gap-3">
-      <Button render={<Link href="/login" />}>
-        Log In
+      <Button asChild>
+        <Link href="/login">Log In</Link>
       </Button>
     </div>
   );

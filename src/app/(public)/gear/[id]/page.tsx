@@ -348,12 +348,8 @@ export default async function GearDetailsPage({
               You Might Also Like
             </h2>
           </div>
-          <Button
-            render={<Link href="/gear" />}
-            variant="link"
-            className="hidden px-0 sm:block"
-          >
-            View all gear →
+          <Button asChild variant="link" className="hidden px-0 sm:block">
+            <Link href="/gear">View all gear →</Link>
           </Button>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>

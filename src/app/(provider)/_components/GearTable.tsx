@@ -152,8 +152,8 @@ const GearTable = ({
                   title="No gear found"
                   description="You haven't added any gear yet. Add some gear to get started!"
                   action={
-                    <Button render={<Link href="/dashboard/provider/gear/new" />} size="sm">
-                      Add New Gear
+                    <Button asChild size="sm">
+                      <Link href="/dashboard/provider/gear/new">Add New Gear</Link>
                     </Button>
                   }
                   className="min-h-[250px] border-none bg-transparent"
@@ -234,12 +234,12 @@ const GearTable = ({
                 <TableCell className="px-5 py-4">
                   <div className="flex items-center gap-3">
                     <Button
-                      render={<Link href={`/dashboard/provider/gear/${gear.id}/edit`} />}
+                      asChild
                       variant="ghost"
                       size="xs"
                       className="rounded-md px-1.5 py-1 text-primary hover:bg-primary/10 hover:text-primary"
                     >
-                      Edit
+                      <Link href={`/dashboard/provider/gear/${gear.id}/edit`}>Edit</Link>
                     </Button>
                     <Button
                       onClick={() => handleDelete(gear.id)}

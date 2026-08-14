@@ -96,12 +96,8 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           )}
         </div>
 
-        <Button
-          render={<Link href={`/gear/${item.id}`} />}
-          size="lg"
-          className="mt-5 w-full"
-        >
-          Rent Now
+        <Button asChild size="lg" className="mt-5 w-full">
+          <Link href={`/gear/${item.id}`}>Rent Now</Link>
         </Button>
       </div>
     </Card>
