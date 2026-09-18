@@ -20,7 +20,6 @@ import {
   CheckCircle2,
   Headphones,
   Sparkles,
-  Compass,
 } from "lucide-react";
 import GearCard, { type GearCardItem } from "@/components/shared/GearCard";
 import { Card } from "@/components/ui/card";
@@ -137,73 +136,43 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen bg-white text-foreground selection:bg-primary/20 selection:text-primary">
-      {/* Asymmetric Hero Section */}
+      {/* Hero Section */}
       <section
         id="home"
-        className="relative overflow-hidden bg-slate-950 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center py-24 lg:py-36 text-white before:absolute before:inset-0 before:bg-gradient-to-r before:from-slate-950/95 before:via-slate-950/85 before:to-slate-950/60"
+        className="relative overflow-hidden bg-slate-950 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center py-24 lg:py-36 text-white before:absolute before:inset-0 before:bg-slate-950/80"
       >
         <div className="absolute -top-40 -left-40 size-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 right-0 size-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 text-left">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-semibold tracking-wide text-primary-foreground backdrop-blur-md sm:text-sm mb-6">
-                <Sparkles className="size-4 text-primary animate-pulse" />
-                <span>Premier Equipment Rental Platform</span>
-              </div>
+        <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-semibold tracking-wide text-primary-foreground backdrop-blur-md sm:text-sm mb-6">
+            <Sparkles className="size-4 text-primary animate-pulse" />
+            <span>Premier Equipment Rental Platform</span>
+          </div>
 
-              <h1 className="text-4xl font-black tracking-tight leading-[1.08] sm:text-6xl lg:text-7xl">
-                Access Premium Sports <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-primary via-emerald-400 to-teal-300 bg-clip-text text-transparent">
-                  & Outdoor Gear
-                </span>
-              </h1>
+          <h1 className="text-4xl font-black tracking-tight leading-[1.08] sm:text-6xl lg:text-7xl">
+            Access Premium Sports <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-primary via-emerald-400 to-teal-300 bg-clip-text text-transparent">
+              & Outdoor Gear
+            </span>
+          </h1>
 
-              <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
-                Explore thousands of verified gear options from trusted local providers. Book by the day, adventure without limits, and skip the financial burden of ownership.
-              </p>
+          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
+            Explore thousands of verified gear options from trusted local providers. Book by the day, adventure without limits, and skip the financial burden of ownership.
+          </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <LinkButton href="/gear" size="xl" className="shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
-                  Browse Gear Now <ArrowRight className="size-4 ml-1" />
-                </LinkButton>
-                <LinkButton
-                  href="#how-it-works"
-                  variant="outline"
-                  size="xl"
-                  className="border-slate-700 bg-slate-900/50 text-white hover:bg-slate-800 hover:text-white backdrop-blur-sm"
-                >
-                  How It Works
-                </LinkButton>
-              </div>
-            </div>
-
-            {/* Hero Side Highlight Card */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-3xl border border-white/10 bg-slate-900/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
-                <div className="absolute -top-3 -right-3 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
-                  Live Stats
-                </div>
-                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                  <Compass className="size-5 text-primary" /> Trusted by Adventurers
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    [`${stats.gearCount}+`, "Gear Items", "Ready for booking"],
-                    [`${stats.customerCount}+`, "Happy Customers", "Active community"],
-                    [`${stats.providerCount}+`, "Verified Providers", "Local experts"],
-                    [`${stats.categoryCount}+`, "Categories", "Endless choices"],
-                  ].map(([number, label, desc]) => (
-                    <div key={label} className="rounded-2xl bg-white/5 border border-white/5 p-4 transition hover:bg-white/10">
-                      <p className="text-2xl sm:text-3xl font-extrabold text-white">{number}</p>
-                      <p className="mt-1 text-xs font-bold uppercase tracking-wider text-primary">{label}</p>
-                      <p className="mt-0.5 text-[11px] text-slate-400">{desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <LinkButton href="/gear" size="xl" className="shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
+              Browse Gear Now <ArrowRight className="size-4 ml-1" />
+            </LinkButton>
+            <LinkButton
+              href="#how-it-works"
+              variant="outline"
+              size="xl"
+              className="border-slate-700 bg-slate-900/50 text-white hover:bg-slate-800 hover:text-white backdrop-blur-sm"
+            >
+              How It Works
+            </LinkButton>
           </div>
         </div>
       </section>
@@ -432,18 +401,32 @@ export default async function HomePage() {
                 </div>
               </Card>
             ))}
-            {/* Extra Bento Card for Balance */}
-            <div className="md:col-span-2 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-950 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-              <div>
+            {/* Ready to Explore Full-Width CTA Card */}
+            <div className="relative overflow-hidden col-span-full md:col-span-3 rounded-3xl bg-slate-950 p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-blue-900/30 shadow-[0_20px_50px_-15px_rgba(37,99,235,0.25),0_10px_25px_-10px_rgba(15,23,42,0.8)]">
+              {/* Background Image on Right (Restricted width to zoom out, blended by the gradient) */}
+              <div
+                className="absolute right-0 top-0 bottom-0 w-full md:w-[70%] lg:w-[60%] bg-cover bg-right bg-no-repeat pointer-events-none"
+                style={{
+                  backgroundImage: `url('https://i.ibb.co.com/4Zh8gJWW/Provider-handing-over-gear.png')`,
+                }}
+              />
+
+              {/* Dark gradient overlay & subtle RentRover blue glow: darker on left for content, blending naturally to image on right */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/35 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent md:hidden pointer-events-none" />
+              <div className="absolute -left-16 -top-16 size-64 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
+
+              {/* Content */}
+              <div className="relative z-10">
                 <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-3">
                   Ready to explore?
                 </span>
                 <h3 className="text-2xl font-black">List your own gear & earn extra income</h3>
-                <p className="text-slate-300 text-sm mt-2 max-w-lg">
+                <p className="text-slate-300 text-sm mt-2 max-w-xl">
                   Turn your idle camping gear, skis, or bikes into a revenue stream when you are not using them.
                 </p>
               </div>
-              <LinkButton href="/register" size="lg" className="shrink-0">
+              <LinkButton href="/register" size="lg" className="relative z-10 shrink-0 shadow-lg shadow-primary/25">
                 Become a Provider <ArrowRight className="size-4 ml-1" />
               </LinkButton>
             </div>
