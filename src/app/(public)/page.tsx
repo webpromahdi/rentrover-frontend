@@ -19,6 +19,8 @@ import {
   ShieldCheck,
   CheckCircle2,
   Headphones,
+  Sparkles,
+  Compass,
 } from "lucide-react";
 import GearCard, { type GearCardItem } from "@/components/shared/GearCard";
 import { Card } from "@/components/ui/card";
@@ -36,22 +38,22 @@ const steps = [
   {
     icon: Search,
     title: "Browse & Filter",
-    text: "Search thousands of verified gear items.",
+    text: "Search thousands of verified gear items tailored to your exact adventure needs.",
   },
   {
     icon: CalendarDays,
     title: "Select Rental Dates",
-    text: "Pick your start and end dates with our smart calendar.",
+    text: "Pick your start and end dates effortlessly with our smart availability calendar.",
   },
   {
     icon: CircleDollarSign,
     title: "Confirm & Pay",
-    text: "Secure checkout powered by Stripe.",
+    text: "Secure checkout powered by Stripe with instant booking confirmation.",
   },
   {
     icon: TentTree,
     title: "Pick Up & Adventure",
-    text: "Collect your gear and head out!",
+    text: "Collect your gear from verified local providers and head straight into nature!",
   },
 ];
 
@@ -59,32 +61,32 @@ const benefits = [
   {
     icon: ShieldCheck,
     title: "Verified Providers",
-    text: "Every provider is identity-verified and reviewed.",
+    text: "Every provider undergoes rigorous identity verification and community review.",
+    className: "md:col-span-2",
   },
   {
     icon: CalendarDays,
     title: "Flexible Rental Dates",
-    text: "Rent for a day, a week, or longer.",
+    text: "Rent for a single day, an entire weekend, or weeks on end.",
+    className: "md:col-span-1",
   },
   {
     icon: CircleDollarSign,
     title: "Secure Stripe Payments",
-    text: "Bank-grade payment security on every transaction.",
+    text: "Bank-grade encryption on every transaction for absolute peace of mind.",
+    className: "md:col-span-1",
   },
   {
     icon: CheckCircle2,
     title: "Damage Protection",
-    text: "Optional damage cover for peace of mind.",
+    text: "Comprehensive optional damage cover so you can explore worry-free.",
+    className: "md:col-span-1",
   },
   {
     icon: Headphones,
-    title: "24/7 Support",
-    text: "Our team is always here when you need help.",
-  },
-  {
-    icon: ArrowRight,
-    title: "Easy Returns",
-    text: "Simple drop-off process at the provider location.",
+    title: "24/7 Expert Support",
+    text: "Our dedicated support team is always on standby whenever you need assistance.",
+    className: "md:col-span-1",
   },
 ];
 
@@ -134,90 +136,146 @@ export default async function HomePage() {
   ]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-foreground">
-      {/* Hero*/}
+    <main className="min-h-screen bg-white text-foreground selection:bg-primary/20 selection:text-primary">
+      {/* Asymmetric Hero Section */}
       <section
         id="home"
-        className="relative flex min-h-screen items-center justify-center bg-slate-900 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center px-5 py-20 text-center before:absolute before:inset-0 before:bg-slate-950/78"
+        className="relative overflow-hidden bg-slate-950 bg-[url('https://i.ibb.co.com/Vp55rN0J/rentrover-bg.webp')] bg-cover bg-center py-24 lg:py-36 text-white before:absolute before:inset-0 before:bg-gradient-to-r before:from-slate-950/95 before:via-slate-950/85 before:to-slate-950/60"
       >
-        <div className="relative z-10 mx-auto max-w-5xl">
-          <p className="mx-auto inline-flex rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wide text-white sm:text-sm uppercase">
-            Premier Equipment Rental Platform
-          </p>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.07] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Access Premium Sports
-            <br className="hidden sm:block" /> and Outdoor Gear
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
-            Explore thousands of verified gear options from trusted providers. Book by the day and return when you are done. Experience top performance without the burden of ownership.
-          </p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <LinkButton href="/gear" size="xl">
-              Browse Gear Now <ArrowRight className="size-4" />
-            </LinkButton>
-            <LinkButton
-              href="#how-it-works"
-              variant="outline"
-              size="xl"
-              className="border-white bg-transparent text-white hover:bg-white hover:text-foreground"
-            >
-              How It Works
-            </LinkButton>
-          </div>
-          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 divide-x divide-y divide-white/20 border-white/20 text-left sm:grid-cols-4 sm:divide-y-0 sm:text-center">
-            {[
-              [`${stats.gearCount}+`, "Gear Items"],
-              [`${stats.customerCount}+`, "Happy Customers"],
-              [`${stats.providerCount}+`, "Verified Providers"],
-              [`${stats.categoryCount}+`, "Categories"],
-            ].map(([number, label]) => (
-              <div key={label} className="px-4 py-4">
-                <p className="text-2xl font-extrabold text-white">{number}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-slate-300">
-                  {label}
-                </p>
+        <div className="absolute -top-40 -left-40 size-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 right-0 size-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 text-left">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-semibold tracking-wide text-primary-foreground backdrop-blur-md sm:text-sm mb-6">
+                <Sparkles className="size-4 text-primary animate-pulse" />
+                <span>Premier Equipment Rental Platform</span>
               </div>
-            ))}
+
+              <h1 className="text-4xl font-black tracking-tight leading-[1.08] sm:text-6xl lg:text-7xl">
+                Access Premium Sports <br className="hidden sm:block" />
+                <span className="bg-gradient-to-r from-primary via-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                  & Outdoor Gear
+                </span>
+              </h1>
+
+              <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
+                Explore thousands of verified gear options from trusted local providers. Book by the day, adventure without limits, and skip the financial burden of ownership.
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <LinkButton href="/gear" size="xl" className="shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
+                  Browse Gear Now <ArrowRight className="size-4 ml-1" />
+                </LinkButton>
+                <LinkButton
+                  href="#how-it-works"
+                  variant="outline"
+                  size="xl"
+                  className="border-slate-700 bg-slate-900/50 text-white hover:bg-slate-800 hover:text-white backdrop-blur-sm"
+                >
+                  How It Works
+                </LinkButton>
+              </div>
+            </div>
+
+            {/* Hero Side Highlight Card */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl border border-white/10 bg-slate-900/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+                <div className="absolute -top-3 -right-3 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+                  Live Stats
+                </div>
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                  <Compass className="size-5 text-primary" /> Trusted by Adventurers
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    [`${stats.gearCount}+`, "Gear Items", "Ready for booking"],
+                    [`${stats.customerCount}+`, "Happy Customers", "Active community"],
+                    [`${stats.providerCount}+`, "Verified Providers", "Local experts"],
+                    [`${stats.categoryCount}+`, "Categories", "Endless choices"],
+                  ].map(([number, label, desc]) => (
+                    <div key={label} className="rounded-2xl bg-white/5 border border-white/5 p-4 transition hover:bg-white/10">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-white">{number}</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-wider text-primary">{label}</p>
+                      <p className="mt-0.5 text-[11px] text-slate-400">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/*Browse by Category*/}
-      <section id="categories" className="bg-muted px-5 py-20">
+      {/* Improved Stats Bar */}
+      <section className="relative z-20 -mt-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 lg:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
+          {[
+            { label: "Verified Gear", value: `${stats.gearCount}+`, sub: "Top condition items" },
+            { label: "Active Renters", value: `${stats.customerCount}+`, sub: "Satisfied explorers" },
+            { label: "Trusted Partners", value: `${stats.providerCount}+`, sub: "Verified providers" },
+            { label: "Gear Categories", value: `${stats.categoryCount}+`, sub: "Sports & outdoors" },
+          ].map((stat, i) => (
+            <div key={i} className="flex items-center gap-4 px-2">
+              <div className="size-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                <Sparkles className="size-6 text-primary" />
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black">{stat.value}</div>
+                <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-[11px] text-slate-400">{stat.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Refined Categories Grid */}
+      <section id="categories" className="py-24 bg-slate-50 px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
-              Find your kit
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-              Browse by Category
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
+            <div>
+              <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-primary mb-2">
+                Find your kit
+              </span>
+              <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+                Browse by Category
+              </h2>
+            </div>
+            <Link
+              href="/gear"
+              className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary/80 transition"
+            >
+              Explore all categories <ChevronRight className="size-4" />
+            </Link>
           </div>
 
           {categories.length > 0 ? (
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {categories.map((cat: PublicCategory) => {
                 const Icon = CATEGORY_ICONS[cat.name] ?? Layers;
                 return (
                   <Link
                     key={cat.id}
                     href={`/gear?category=${encodeURIComponent(cat.name)}`}
-                    className="group flex min-h-36 flex-col items-center justify-center rounded-xl border border-transparent bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md"
+                    className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
                   >
-                    <Icon
-                      className="size-9 text-primary transition group-hover:scale-110"
-                      strokeWidth={1.8}
-                    />
-                    <span className="mt-3 text-sm font-bold leading-5 text-foreground">
+                    <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-inner">
+                      <Icon className="size-8" strokeWidth={1.8} />
+                    </div>
+                    <span className="mt-5 text-base font-bold text-slate-900 group-hover:text-primary transition-colors">
                       {cat.name}
+                    </span>
+                    <span className="mt-1 text-xs text-slate-400 group-hover:text-slate-600">
+                      Browse gear &rarr;
                     </span>
                   </Link>
                 );
               })}
             </div>
           ) : (
-            // Fallback static categories if API fails
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {[
                 { name: "Camping & Hiking", Icon: TentTree },
                 { name: "Cycling", Icon: Bike },
@@ -231,14 +289,16 @@ export default async function HomePage() {
                 <Link
                   key={name}
                   href={`/gear?category=${encodeURIComponent(name)}`}
-                  className="group flex min-h-36 flex-col items-center justify-center rounded-xl border border-transparent bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-md"
+                  className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
                 >
-                  <Icon
-                    className="size-9 text-primary transition group-hover:scale-110"
-                    strokeWidth={1.8}
-                  />
-                  <span className="mt-3 text-sm font-bold leading-5 text-foreground">
+                  <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-inner">
+                    <Icon className="size-8" strokeWidth={1.8} />
+                  </div>
+                  <span className="mt-5 text-base font-bold text-slate-900 group-hover:text-primary transition-colors">
                     {name}
+                  </span>
+                  <span className="mt-1 text-xs text-slate-400 group-hover:text-slate-600">
+                    Browse gear &rarr;
                   </span>
                 </Link>
               ))}
@@ -247,125 +307,167 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/*Top Gear This Week*/}
-      <section id="featured-gear" className="px-5 py-20">
+      {/* Top Gear This Week */}
+      <section id="featured-gear" className="py-24 px-5 sm:px-6 lg:px-8 bg-white">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
+              <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-primary mb-2">
                 Popular right now
-              </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              </span>
+              <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
                 Top Gear This Week
               </h2>
-              <p className="mt-3 text-slate-500">
-                Highest-rated gear from our verified providers.
+              <p className="mt-2 text-slate-500">
+                Highest-rated equipment from our community of verified providers.
               </p>
             </div>
             <Link
               href="/gear"
-              className="hidden items-center gap-1 text-sm font-bold text-primary hover:underline md:inline-flex"
+              className="hidden md:inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline"
             >
               View all gear <ChevronRight className="size-4" />
             </Link>
           </div>
 
           {topGears.length > 0 ? (
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {topGears.map((item) => (
                 <GearCard key={item.id} item={toGearCardItem(item)} />
               ))}
             </div>
           ) : (
-            <div className="mt-10 flex flex-col items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 py-16 text-center">
-              <p className="text-lg font-bold text-slate-400">
-                No gear available yet
-              </p>
-              <p className="mt-2 text-sm text-slate-400">
-                Check back soon for top-rated gear!
-              </p>
+            <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 py-16 text-center">
+              <p className="text-lg font-bold text-slate-400">No gear available yet</p>
+              <p className="mt-2 text-sm text-slate-400">Check back soon for top-rated gear!</p>
             </div>
           )}
 
-          <LinkButton
-            href="/gear"
-            variant="outline"
-            size="xl"
-            className="mx-auto mt-10 w-fit"
-          >
-            View All Gear <ArrowRight className="size-4" />
-          </LinkButton>
+          <div className="mt-12 text-center md:hidden">
+            <LinkButton href="/gear" variant="outline" size="xl" className="w-full">
+              View All Gear <ArrowRight className="size-4" />
+            </LinkButton>
+          </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="bg-slate-900 px-5 py-20 text-white">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-primary/70">
-              The simple way
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      {/* Staggered Timeline for How It Works */}
+      <section id="how-it-works" className="py-24 bg-slate-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.15),rgba(255,255,255,0))] pointer-events-none" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-primary mb-2">
+              Seamless process
+            </span>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
               Rent Gear in 4 Simple Steps
             </h2>
+            <p className="mt-3 text-slate-400">
+              Getting equipped for your next great adventure has never been this effortless.
+            </p>
           </div>
-          <div className="relative mt-14 grid gap-10 md:grid-cols-4 md:gap-5 before:absolute before:left-[12.5%] before:right-[12.5%] before:top-7 before:hidden before:border-t-2 before:border-dashed before:border-primary md:before:block">
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 relative">
             {steps.map(({ icon: Icon, title, text }, index) => (
-              <div key={title} className="relative z-10 text-center">
-                <div className="mx-auto flex size-14 items-center justify-center rounded-full border-4 border-[#1b2748] bg-primary text-lg font-extrabold">
-                  {index + 1}
+              <div
+                key={title}
+                className={`relative rounded-3xl border border-slate-800 bg-slate-900/80 p-8 backdrop-blur-md flex flex-col justify-between transition hover:border-primary/50 hover:bg-slate-900 ${
+                  index % 2 === 1 ? "lg:translate-y-8" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="size-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shadow-inner">
+                      <Icon className="size-7" />
+                    </div>
+                    <span className="text-3xl font-black text-slate-700">0{index + 1}</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white mb-3">{title}</h3>
+                  <p className="text-sm leading-relaxed text-slate-300">{text}</p>
                 </div>
-                <Icon className="mx-auto mt-5 size-7 text-primary/70" />
-                <h3 className="mt-3 text-lg font-bold">{title}</h3>
-                <p className="mx-auto mt-2 max-w-56 text-sm leading-6 text-slate-300">
-                  {text}
-                </p>
+                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center text-xs font-semibold text-primary">
+                  <span>Step {index + 1} of 4</span>
+                  <ArrowRight className="size-3.5 ml-auto" />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose RentRover*/}
-      <section id="about-us" className="bg-muted px-5 py-20">
+      {/* Asymmetric Bento Benefits */}
+      <section id="about-us" className="py-24 bg-slate-50 px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
-              Built for the outdoors
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-primary mb-2">
+              Built for outdoors
+            </span>
+            <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
               Why Thousands Choose RentRover
             </h2>
+            <p className="mt-3 text-slate-500">
+              Everything you need for a frictionless, trustworthy, and secure equipment rental experience.
+            </p>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map(({ icon: Icon, title, text }) => (
-              <Card key={title} className="rounded-xl bg-white p-6 shadow-sm">
-                <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon className="size-6 text-primary" />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits.map(({ icon: Icon, title, text, className }, index) => (
+              <Card
+                key={title}
+                className={`rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm transition hover:shadow-xl hover:border-primary/40 flex flex-col justify-between ${
+                  className ?? ""
+                }`}
+              >
+                <div>
+                  <div className="size-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
+                    <Icon className="size-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+                  <p className="text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500">{text}</p>
+                <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                  <span>RentRover Guarantee</span>
+                  <span className="text-primary font-bold">Verified &bull; 0{index + 1}</span>
+                </div>
               </Card>
             ))}
+            {/* Extra Bento Card for Balance */}
+            <div className="md:col-span-2 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-950 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+              <div>
+                <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+                  Ready to explore?
+                </span>
+                <h3 className="text-2xl font-black">List your own gear & earn extra income</h3>
+                <p className="text-slate-300 text-sm mt-2 max-w-lg">
+                  Turn your idle camping gear, skis, or bikes into a revenue stream when you are not using them.
+                </p>
+              </div>
+              <LinkButton href="/register" size="lg" className="shrink-0">
+                Become a Provider <ArrowRight className="size-4 ml-1" />
+              </LinkButton>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Masonry Testimonials */}
       {reviews.length > 0 && (
-        <section className="px-5 py-20">
+        <section className="py-24 bg-white px-5 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <div className="text-center">
-              <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
+            <div className="text-center mb-16">
+              <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-primary mb-2">
                 In their words
-              </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              </span>
+              <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
                 What Our Customers Say
               </h2>
+              <p className="mt-3 text-slate-500">
+                Real experiences from adventurers across the globe.
+              </p>
             </div>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {reviews.map((review) => {
                 const initials = review.customer.name
                   .split(" ")
@@ -374,38 +476,27 @@ export default async function HomePage() {
                   .toUpperCase()
                   .slice(0, 2);
                 return (
-                  <Card
-                    key={review.id}
-                    className="rounded-xl border border-border bg-white p-7 shadow-sm"
-                  >
-                    <p className="font-serif text-5xl leading-7 text-primary">
-                      "
-                    </p>
-                    <div className="mt-4 flex gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="size-4 fill-[#f4b740] text-[#f4b740]"
-                        />
-                      ))}
-                    </div>
-                    <p className="mt-5 leading-7 text-slate-600">
-                      {review.comment}
-                    </p>
-                    <div className="mt-7 flex items-center gap-3">
-                      <span className="flex size-10 items-center justify-center rounded-full bg-primary/20 text-sm font-extrabold text-primary">
-                        {initials}
-                      </span>
-                      <div>
-                        <p className="text-sm font-bold text-foreground">
-                          {review.customer.name}
-                        </p>
-                        <p className="text-xs text-slate-400">
-                          Rented: {review.gearItem.name}
-                        </p>
+                  <div key={review.id} className="break-inside-avoid">
+                    <Card className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition">
+                      <div className="flex gap-1 mb-4">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="size-4 fill-amber-400 text-amber-400" />
+                        ))}
                       </div>
-                    </div>
-                  </Card>
+                      <p className="text-slate-700 leading-relaxed italic text-base">
+                        &ldquo;{review.comment}&rdquo;
+                      </p>
+                      <div className="mt-6 pt-6 border-t border-slate-100 flex items-center gap-4">
+                        <span className="size-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center font-black text-primary text-base">
+                          {initials}
+                        </span>
+                        <div>
+                          <p className="font-bold text-slate-900">{review.customer.name}</p>
+                          <p className="text-xs text-slate-400">Rented: {review.gearItem.name}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
                 );
               })}
             </div>
@@ -413,26 +504,38 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* CTA */}
+      {/* Premium CTA */}
       <section
         id="rent"
-        className="relative overflow-hidden bg-primary px-5 py-20 text-center text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-primary via-emerald-600 to-teal-700 py-24 px-5 text-center text-white"
       >
-        <div className="absolute -left-12 top-0 size-64 rounded-full border-[28px] border-white/10" />
-        <div className="absolute -right-16 -bottom-28 size-72 rotate-45 border-[34px] border-white/10" />
-        <div className="relative mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Ready to Rent Rover for Your Next Adventure?
+        <div className="absolute -left-20 -top-20 size-96 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+        <div className="absolute -right-20 -bottom-20 size-96 rounded-full bg-black/10 blur-2xl pointer-events-none" />
+
+        <div className="relative mx-auto max-w-3xl z-10">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-widest backdrop-blur-md mb-6">
+            Start your journey today
+          </span>
+          <h2 className="text-3xl font-black tracking-tight sm:text-5xl leading-tight">
+            Ready for Your Next Outdoor Adventure?
           </h2>
-          <p className="mt-4 text-lg text-red-100">
-            Join 1,200+ adventurers who rent smart instead of buying.
+          <p className="mt-4 text-lg text-emerald-100 max-w-xl mx-auto font-normal">
+            Join thousands of adventurers who rent premium gear instead of buying. Experience top performance without the burden of ownership.
           </p>
-          <Link
-            href="/register"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-slate-900"
-          >
-            Start Renting Today <ArrowRight className="size-4" />
-          </Link>
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/register"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-8 py-4 text-base font-extrabold text-white shadow-2xl transition hover:bg-slate-900 hover:scale-105"
+            >
+              Start Renting Today <ArrowRight className="size-5" />
+            </Link>
+            <Link
+              href="/gear"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/10 border border-white/30 px-8 py-4 text-base font-extrabold text-white backdrop-blur-md transition hover:bg-white/20"
+            >
+              Browse All Gear
+            </Link>
+          </div>
         </div>
       </section>
     </main>

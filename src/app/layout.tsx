@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import QueryProvider from "@/lib/query/QueryProvider";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
+// Geist is the primary brand font — clean, technical, and modern.
+// Inter has been removed to avoid the generic "AI default" look.
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const geistMono = Geist_Mono({
@@ -18,8 +19,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RentRover | Premier Equipment Rentals",
-  description: "RentRover is the premier equipment rental platform for sports and outdoor gear. Rent top-quality equipment for your next adventure.",
+  title: "RentRover | Sports & Outdoor Equipment Rentals",
+  description:
+    "Rent verified sports and outdoor gear from trusted local providers. Book by the day, pick up, and adventure. No ownership needed.",
+  openGraph: {
+    title: "RentRover | Sports & Outdoor Equipment Rentals",
+    description:
+      "Rent verified sports and outdoor gear from trusted local providers. Book by the day, pick up, and adventure.",
+    type: "website",
+  },
 };
 
 const RootLayout = ({
@@ -31,18 +39,11 @@ const RootLayout = ({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(
-        "h-full",
-        "antialiased",
-        geistSans.variable,
-        geistMono.variable,
-        "font-sans",
-        inter.variable,
-      )}
+      className={cn("h-full", geistSans.variable, geistMono.variable)}
     >
       <body
         suppressHydrationWarning
-        className="min-h-full flex flex-col overflow-x-hidden"
+        className="min-h-full flex flex-col overflow-x-hidden font-sans antialiased"
       >
         <QueryProvider>
           {children}
@@ -51,6 +52,6 @@ const RootLayout = ({
       </body>
     </html>
   );
-}
+};
 
 export default RootLayout;

@@ -20,13 +20,13 @@ export default function NotFound() {
           />
         </div>
 
-        {/* Oops label */}
+        {/* 404 label */}
         <div className="mt-6 flex items-center gap-3 sm:mt-8">
-          <span className="h-px w-6 bg-primary sm:w-8" />
-          <span className="text-sm font-semibold tracking-widest text-primary sm:text-base">
-            Oops!
+          <span className="h-px w-6 bg-border sm:w-8" />
+          <span className="text-sm font-semibold tracking-widest text-muted-foreground sm:text-base">
+            404 — Page not found
           </span>
-          <span className="h-px w-6 bg-primary sm:w-8" />
+          <span className="h-px w-6 bg-border sm:w-8" />
         </div>
 
         {/* Heading */}
@@ -44,10 +44,10 @@ export default function NotFound() {
         <LinkButton
           href="/"
           size="xl"
-          className="mt-8 w-full max-w-[260px] rounded-full px-8 hover:shadow-lg hover:shadow-red-500/25 sm:h-13 sm:max-w-[280px] sm:text-base"
+          className="mt-8 w-full max-w-[260px] rounded-xl px-8 hover:bg-[#1D4ED8] hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] sm:h-13 sm:max-w-[280px] sm:text-base"
         >
           <Home className="size-4 sm:size-5" />
-          <span>Back to Homepage</span>
+          <span>Back to homepage</span>
         </LinkButton>
       </div>
     </section>

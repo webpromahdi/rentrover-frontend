@@ -35,7 +35,7 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
       <header
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           !isTransparent
-            ? "border-b border-border bg-white/95 shadow-sm backdrop-blur-md"
+            ? "border-b border-border/60 bg-white/96 shadow-[0_1px_16px_0_rgba(37,99,235,0.07)] backdrop-blur-md"
             : "border-transparent bg-transparent"
         }`}
       >
@@ -57,7 +57,7 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
                 <Link
                   key={label}
                   href={href}
-                  className={`text-sm font-semibold transition-colors hover:text-primary ${
+                  className={`text-sm font-semibold transition-colors duration-200 hover:text-primary ${
                     isActive
                       ? "text-primary"
                       : !isTransparent
