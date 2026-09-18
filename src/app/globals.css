@@ -153,6 +153,31 @@
   }
 }
 
+/* Honour prefers-reduced-motion — disable decorative motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep only opacity fade for overlays/dialogs; kill transform-based motion */
+  [class*="translate-"],
+  [class*="scale-"],
+  [class*="hover:-translate-"],
+  [class*="hover:scale-"],
+  [class*="group-hover:scale-"],
+  [class*="hover:-translate-y"],
+  [class*="lg:translate-y"] {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
 @layer components {
   .container {
     @apply mx-auto w-full max-w-7xl px-5 lg:px-8 xl:px-12;

@@ -67,6 +67,7 @@ const RegisterForm = () => {
         name="name"
         icon={User}
         placeholder="Your full name"
+        autoComplete="name"
         defaultValue={state?.data?.name || ""}
       />
       {state?.errors?.name && (
@@ -80,6 +81,7 @@ const RegisterForm = () => {
         icon={AtSign}
         type="email"
         placeholder="your@email.com"
+        autoComplete="email"
         defaultValue={state?.data?.email || ""}
       />
       {state?.errors?.email && (
@@ -94,6 +96,7 @@ const RegisterForm = () => {
           icon={LockKeyhole}
           type="password"
           placeholder="Create a password"
+          autoComplete="new-password"
           suffix
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -130,6 +133,7 @@ const RegisterForm = () => {
         icon={LockKeyhole}
         type="password"
         placeholder="Confirm your password"
+        autoComplete="new-password"
         suffix
       />
       {state?.errors?.confirmPassword && (
@@ -250,7 +254,8 @@ const RegisterForm = () => {
         disabled={isPending}
         className="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
       >
-        {isPending ? "Creating Account..." : "Create Account"}
+        {isPending ? "Creating Account…" : "Create Account"}
+
         {!isPending && <ArrowRight className="size-4" />}
       </Button>
     </form>

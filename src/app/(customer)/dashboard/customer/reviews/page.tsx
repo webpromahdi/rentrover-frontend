@@ -223,10 +223,13 @@ const CustomerReviewsPage = () => {
                   <button
                     key={index}
                     type="button"
+                    aria-label={`Rate ${starValue} out of 5`}
+                    aria-pressed={starValue <= ratingValue}
                     onClick={() => setValue("rating", starValue)}
-                    className="text-3xl text-amber-400 focus:outline-none"
+                    className="text-3xl text-amber-400 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
                   >
                     <Star
+                      aria-hidden="true"
                       className={`size-8 ${
                         starValue <= ratingValue ? "fill-amber-400" : "fill-transparent"
                       } transition-colors`}
@@ -243,9 +246,10 @@ const CustomerReviewsPage = () => {
               Your review (Optional)
               <Textarea
                 {...register("comment")}
-                placeholder="Share your experience with this gear..."
-                className="mt-2 min-h-[120px] w-full rounded-lg border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-primary"
+                placeholder="Share your experience with this gear…"
+                className="mt-2 min-h-[120px] w-full rounded-lg border border-slate-200 p-3 text-sm leading-6 focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
               />
+
             </label>
             {errors.comment && (
               <p className="mt-2 text-sm text-red-500">{errors.comment.message}</p>

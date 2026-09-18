@@ -13,6 +13,7 @@ export const Field = ({
   suffix,
   defaultValue,
   onChange,
+  autoComplete,
 }: {
   label: string;
   name: string;
@@ -22,6 +23,7 @@ export const Field = ({
   suffix?: boolean;
   defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  autoComplete?: string;
 }) => {
   const id = label.toLowerCase().replaceAll(" ", "-");
   const [showPassword, setShowPassword] = useState(false);
@@ -39,18 +41,22 @@ export const Field = ({
           placeholder={placeholder}
           defaultValue={defaultValue}
           onChange={onChange}
-          className="h-12 w-full rounded-lg border border-slate-200 bg-white pl-10 pr-10 text-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-red-100"
+          autoComplete={autoComplete}
+          /* Disable spellcheck on email and username fields to avoid browser red-underlining */
+          spellCheck={type === "email" || name === "email" ? false : undefined}
+          className="h-12 w-full rounded-lg border border-slate-200 bg-white pl-10 pr-10 text-sm transition-[border-color,box-shadow] placeholder:text-slate-400 focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
         />
         {suffix && (
           <button
             type="button"
+            aria-label={showPassword ? "Hide password" : "Show password"}
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded text-slate-400 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             {showPassword ? (
-              <EyeOff className="size-4" />
+              <EyeOff className="size-4" aria-hidden="true" />
             ) : (
-              <Eye className="size-4" />
+              <Eye className="size-4" aria-hidden="true" />
             )}
           </button>
         )}

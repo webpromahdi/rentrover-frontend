@@ -65,7 +65,8 @@ const SiteFooter = () => {
                 aria-label={label}
                 className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:border-primary hover:bg-primary"
               >
-                <Icon className="h-4 w-4 text-slate-300 transition-colors group-hover:text-white" />
+                <Icon className="h-4 w-4 text-slate-300 transition-colors group-hover:text-white" aria-hidden="true" />
+
               </Link>
             ))}
           </div>
@@ -127,15 +128,18 @@ const SiteFooter = () => {
           <div className="mt-3 h-[3px] w-10 rounded-full bg-primary" />
           <ul className="mt-6 space-y-5 text-sm text-slate-400">
             <li className="flex items-start gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
+              <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+
               <span>support@rentrover.com</span>
             </li>
             <li className="flex items-start gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
+              <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+
               <span>+880 1700-000000</span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+
               <span>Dhaka, Bangladesh</span>
             </li>
           </ul>

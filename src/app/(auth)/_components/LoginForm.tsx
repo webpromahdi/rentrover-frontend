@@ -88,6 +88,7 @@ const LoginForm = () => {
           type="email"
           name="email"
           placeholder="your@email.com"
+          autoComplete="email"
           defaultValue={demoCredentials?.email ?? ""}
           key={demoCredentials?.email}
         />
@@ -101,6 +102,7 @@ const LoginForm = () => {
           type="password"
           name="password"
           placeholder="Enter your password"
+          autoComplete="current-password"
           suffix
           defaultValue={demoCredentials?.password ?? ""}
           key={demoCredentials?.password}
@@ -128,7 +130,8 @@ const LoginForm = () => {
           disabled={isPending}
           className="flex h-12 w-full items-center justify-center rounded-lg bg-primary text-sm font-extrabold text-white transition hover:bg-primary/90"
         >
-          {isPending ? "Signing in..." : "Sign In"}
+          {isPending ? "Signing in…" : "Sign In"}
+
         </Button>
       </form>
     </div>

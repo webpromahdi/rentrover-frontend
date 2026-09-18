@@ -51,7 +51,8 @@ const NavLinks = ({
               : "border-transparent text-slate-200 hover:border-primary hover:bg-white/5 hover:text-white"
           }`}
         >
-          <Icon className="size-5" />
+          <Icon className="size-5" aria-hidden="true" />
+
           {label}
         </Link>
       );
@@ -104,7 +105,8 @@ function DashboardSidebar() {
         onClick={handleLogout}
         className="mt-auto flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-primary text-sm font-bold text-red-200 transition-colors hover:bg-primary hover:text-white"
       >
-        <LogOut className="size-4" />
+        <LogOut className="size-4" aria-hidden="true" />
+
         Log Out
       </button>
     </aside>
@@ -138,10 +140,13 @@ function CustomerMobileDrawer() {
     <>
       {/* Backdrop */}
       {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+        <button
+          type="button"
+          aria-label="Close navigation"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden cursor-default"
           onClick={() => setOpen(false)}
         />
+
       )}
 
       {/* Drawer panel */}
@@ -184,7 +189,8 @@ function CustomerMobileDrawer() {
           variant="outline"
           className="mt-auto w-full text-red-200 hover:bg-primary hover:text-white"
         >
-          <LogOut className="size-4" />
+          <LogOut className="size-4" aria-hidden="true" />
+
           Log Out
         </Button>
       </aside>

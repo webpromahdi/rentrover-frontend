@@ -222,7 +222,7 @@ export default async function HomePage() {
                 <Sparkles className="size-6 text-primary" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-black">{stat.value}</div>
+                <div className="text-2xl sm:text-3xl font-black tabular-nums">{stat.value}</div>
                 <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">{stat.label}</div>
                 <div className="text-[11px] text-slate-400">{stat.sub}</div>
               </div>
@@ -332,8 +332,8 @@ export default async function HomePage() {
 
           {topGears.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {topGears.map((item) => (
-                <GearCard key={item.id} item={toGearCardItem(item)} />
+              {topGears.map((item, index) => (
+                <GearCard key={item.id} item={toGearCardItem(item)} priority={index < 4} />
               ))}
             </div>
           ) : (
@@ -478,21 +478,22 @@ export default async function HomePage() {
                 return (
                   <div key={review.id} className="break-inside-avoid">
                     <Card className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition">
-                      <div className="flex gap-1 mb-4">
+                      {/* Stars are decorative — aria-label on wrapper communicates the rating */}
+                      <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
                         {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="size-4 fill-amber-400 text-amber-400" />
+                          <Star key={i} className="size-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                         ))}
                       </div>
                       <p className="text-slate-700 leading-relaxed italic text-base">
                         &ldquo;{review.comment}&rdquo;
                       </p>
                       <div className="mt-6 pt-6 border-t border-slate-100 flex items-center gap-4">
-                        <span className="size-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center font-black text-primary text-base">
+                        <span className="size-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center font-black text-primary text-base shrink-0">
                           {initials}
                         </span>
-                        <div>
-                          <p className="font-bold text-slate-900">{review.customer.name}</p>
-                          <p className="text-xs text-slate-400">Rented: {review.gearItem.name}</p>
+                        <div className="min-w-0">
+                          <p className="font-bold text-slate-900 truncate">{review.customer.name}</p>
+                          <p className="text-xs text-slate-400 truncate">Rented: {review.gearItem.name}</p>
                         </div>
                       </div>
                     </Card>

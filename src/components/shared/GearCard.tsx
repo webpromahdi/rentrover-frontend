@@ -26,7 +26,14 @@ const conditionColor: Record<GearCardItem["condition"], string> = {
   POOR: "bg-slate-500",
 };
 
-export default function GearCard({ item }: { item: GearCardItem }) {
+export default function GearCard({
+  item,
+  priority = false,
+}: {
+  item: GearCardItem;
+  /** Set true for above-the-fold cards (LCP candidates) to avoid lazy-loading penalty */
+  priority?: boolean;
+}) {
   const categoryName =
     typeof item.category === "string" ? item.category : item.category.name;
 
@@ -47,6 +54,7 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           alt={item.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
           className="object-cover object-center transition duration-500 group-hover:scale-[1.04]"
         />
         <Badge variant="default" size="category" className="absolute left-3 top-3">
@@ -68,7 +76,8 @@ export default function GearCard({ item }: { item: GearCardItem }) {
 
         {reviews > 0 ? (
           <div className="mt-3 flex items-center gap-1.5 text-sm text-slate-600">
-            <Star className="size-3.5 fill-amber-400 text-amber-400" />
+            {/* Star icon is decorative — rating value is in adjacent text */}
+            <Star className="size-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
             <span className="font-semibold text-slate-700">{rating.toFixed(1)}</span>
             <span className="text-slate-400">· {reviews} reviews</span>
           </div>
@@ -85,12 +94,12 @@ export default function GearCard({ item }: { item: GearCardItem }) {
           </div>
           {isAvailable ? (
             <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
               Available
             </span>
           ) : (
             <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
-              <span className="size-2 rounded-full bg-slate-300" />
+              <span className="size-2 rounded-full bg-slate-300" aria-hidden="true" />
               Unavailable
             </span>
           )}

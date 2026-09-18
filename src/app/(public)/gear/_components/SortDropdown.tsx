@@ -14,7 +14,8 @@ export default function SortDropdown({
       <select
         value={sortValue}
         onChange={(e) => handleSort(e.target.value)}
-        className="h-10 w-full appearance-none rounded-lg border border-slate-200 bg-white pl-3 pr-8 text-sm font-semibold text-slate-600 outline-none focus:border-primary sm:text-sm text-xs"
+        aria-label="Sort gear by"
+        className="h-10 w-full appearance-none rounded-lg border border-slate-200 bg-white pl-3 pr-8 text-sm font-semibold text-slate-600 focus-visible:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 sm:text-sm text-xs"
       >
         <option value="newest">Sort by: Newest First</option>
         <option value="popularity">Sort by: Popularity</option>
