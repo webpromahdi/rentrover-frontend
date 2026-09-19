@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LinkButton } from "@/components/shared/LinkButton";
 import {
   ArrowRight,
   ChevronRight,
   Star,
+  Compass,
   TentTree,
   Bike,
   Waves,
@@ -480,37 +482,92 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Premium CTA */}
+      {/* Premium CTA - Redesigned 2-Column Layout */}
       <section
         id="rent"
-        className="relative overflow-hidden bg-gradient-to-br from-primary via-emerald-600 to-teal-700 py-24 px-5 text-center text-white"
+        className="relative overflow-hidden bg-slate-950 py-16 lg:py-20 px-5 text-white border-t border-slate-900"
       >
-        <div className="absolute -left-20 -top-20 size-96 rounded-full bg-white/10 blur-2xl pointer-events-none" />
-        <div className="absolute -right-20 -bottom-20 size-96 rounded-full bg-black/10 blur-2xl pointer-events-none" />
+        {/* Subtle glowing radial background accents for premium feel */}
+        <div className="absolute -left-40 top-0 size-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none" />
+        <div className="absolute right-0 bottom-0 size-[400px] rounded-full bg-blue-400/10 blur-[100px] pointer-events-none" />
 
-        <div className="relative mx-auto max-w-3xl z-10">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-widest backdrop-blur-md mb-6">
-            Start your journey today
-          </span>
-          <h2 className="text-3xl font-black tracking-tight sm:text-5xl leading-tight">
-            Ready for Your Next Outdoor Adventure?
-          </h2>
-          <p className="mt-4 text-lg text-emerald-100 max-w-xl mx-auto font-normal">
-            Join thousands of adventurers who rent premium gear instead of buying. Experience top performance without the burden of ownership.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/register"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-8 py-4 text-base font-extrabold text-white shadow-2xl transition-[transform,background-color] duration-150 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] hover:bg-slate-900 [@media(hover:hover)and(pointer:fine)]:hover:scale-[1.02]"
-            >
-              Start Renting Today <ArrowRight className="size-5" />
-            </Link>
-            <Link
-              href="/gear"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/10 border border-white/30 px-8 py-4 text-base font-extrabold text-white backdrop-blur-md transition hover:bg-white/20"
-            >
-              Browse All Gear
-            </Link>
+        <div className="relative mx-auto max-w-7xl z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Content */}
+          <div className="max-w-xl lg:pr-8">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+              Start your journey today
+            </span>
+            <h2 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-5xl leading-[1.15]">
+              Ready for Your Next <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">Outdoor Adventure?</span>
+            </h2>
+            <p className="mt-6 text-lg text-slate-400 font-normal leading-relaxed">
+              Join thousands of adventurers who rent premium gear instead of buying. Experience top performance without the burden of ownership.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/register"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 text-base font-extrabold text-white shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] transition-[transform,background-color] duration-150 hover:bg-blue-700 [@media(hover:hover)and(pointer:fine)]:hover:scale-[1.02]"
+              >
+                Start Renting Today <ArrowRight className="size-5" />
+              </Link>
+              <Link
+                href="/gear"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/5 border border-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/10"
+              >
+                Browse All Gear
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Trust & Experience Collage */}
+          <div className="relative w-full h-[350px] lg:h-[450px] hidden md:block lg:ml-auto lg:w-[90%]">
+            {/* Main high-quality image */}
+            <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]">
+              <Image 
+                src="https://i.ibb.co.com/3tkn0q0/Chat-GPT-Image-Sep-19-2026-11-03-05-AM.png" 
+                alt="Outdoor adventure camping"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Floating Glassmorphism Card 1: 5-Star Rating */}
+            <div className="absolute bottom-8 -left-8 rounded-2xl bg-slate-900/70 backdrop-blur-xl border border-white/10 p-4 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex items-center gap-4 hover:-translate-y-1 transition-transform duration-500 cursor-default">
+              <div className="flex -space-x-3">
+                {[
+                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop",
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop",
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop",
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
+                ].map((url, i) => (
+                  <div key={i} className="size-8 rounded-full border-2 border-slate-900 overflow-hidden bg-slate-800 relative">
+                    <Image src={url} alt="User" fill className="object-cover" />
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-yellow-500 mb-0.5">
+                  <Star className="size-3.5 fill-current" />
+                  <Star className="size-3.5 fill-current" />
+                  <Star className="size-3.5 fill-current" />
+                  <Star className="size-3.5 fill-current" />
+                  <Star className="size-3.5 fill-current" />
+                </div>
+                <p className="text-xs font-bold text-white">4.9/5 from 10k+ users</p>
+              </div>
+            </div>
+
+            {/* Floating Glassmorphism Card 2: Gear Availability */}
+            <div className="absolute top-12 -right-6 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-3 shadow-2xl flex items-center gap-3 hover:-translate-y-1 transition-transform duration-500 cursor-default">
+              <div className="size-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+                <Compass className="size-5" />
+              </div>
+              <div>
+                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider mb-0.5">Available Now</p>
+                <p className="text-xs font-bold text-white">5,000+ Premium Items</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
