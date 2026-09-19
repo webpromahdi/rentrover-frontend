@@ -536,10 +536,10 @@ export default async function HomePage() {
             <div className="absolute bottom-8 -left-8 rounded-2xl bg-slate-900/70 backdrop-blur-xl border border-white/10 p-4 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex items-center gap-4 hover:-translate-y-1 transition-transform duration-500 cursor-default">
               <div className="flex -space-x-3">
                 {[
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop",
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop",
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop",
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
+                  "https://i.ibb.co.com/7J2wTsL0/photo-1534528741775-53994a69daeb.avif",
+                  "https://i.ibb.co.com/zT7pP6Xb/photo-1506794778202-cad84cf45f1d.avif",
+                  "https://i.ibb.co.com/Hfcw9P0X/photo-1494790108377-be9c29b29330.avif",
+                  "https://i.ibb.co.com/jP5JPHC2/photo-1507003211169-0a1dd7228f2d.avif"
                 ].map((url, i) => (
                   <div key={i} className="size-8 rounded-full border-2 border-slate-900 overflow-hidden bg-slate-800 relative">
                     <Image src={url} alt="User" fill className="object-cover" />
