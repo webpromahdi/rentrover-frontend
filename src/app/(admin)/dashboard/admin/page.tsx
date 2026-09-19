@@ -276,7 +276,7 @@ const AdminDashboardPage = () => {
                 <div
                   title={chartData.last18Days[i]}
                   style={{ height }}
-                  className={`w-full rounded-t-sm transition-all duration-500 ${i === 17 ? "bg-primary" : "bg-slate-900 hover:bg-blue-800"}`}
+                  className={`w-full rounded-t-sm transition-[background-color] duration-150 ${i === 17 ? "bg-primary" : "bg-slate-900 [@media(hover:hover)and(pointer:fine)]:hover:bg-blue-800"}`}
                 />
               </div>
             ))}

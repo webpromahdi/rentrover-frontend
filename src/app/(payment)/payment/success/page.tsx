@@ -12,8 +12,27 @@ const SuccessContent = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-        <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-emerald-100">
+      {/*
+        #1 — Delight / Rare (once per booking).
+        Card: opacity 0→1 + scale(0.95)→scale(1), 350ms var(--ease-out), 50ms delay.
+        Icon: opacity 0→1 + scale(0.6)→scale(1), 300ms var(--ease-spring) (controlled
+        overshoot), 150ms delay — reads "confirmed" without being cartoonish.
+        Reduced motion: global kill-switch in globals.css collapses both to 0.01ms.
+      */}
+      <div
+        className="w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
+        style={{
+          animation:
+            "success-card-in 350ms cubic-bezier(0.23,1,0.32,1) 50ms both",
+        }}
+      >
+        <div
+          className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-emerald-100"
+          style={{
+            animation:
+              "success-icon-in 300ms cubic-bezier(0.34,1.56,0.64,1) 150ms both",
+          }}
+        >
           <CheckCircle2 className="size-10 text-emerald-500" />
         </div>
 

@@ -43,6 +43,8 @@ export function GearBookingSection({
 
   const price = parseInt(pricePerDay) || 0;
   const subtotal = price * days * quantity;
+  // #2 — price-tick: key={subtotal} remounts the span on every value change,
+  // retriggereing the CSS animation. No state, no effect, no extra re-render.
 
   const createOrderMutation = useMutation({
     mutationFn: () =>
@@ -133,7 +135,8 @@ export function GearBookingSection({
         <span className="text-slate-600">
           Duration: <strong className="text-foreground">{days} day{days !== 1 ? 's' : ''}</strong>
         </span>
-        <span className="font-extrabold text-foreground">
+        {/* #2 — key={subtotal} remounts the span on value change → CSS animation retriggers */}
+        <span key={subtotal} className="price-tick font-extrabold text-foreground">
           Subtotal: ${subtotal.toLocaleString()}
         </span>
       </div>

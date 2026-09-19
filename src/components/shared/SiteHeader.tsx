@@ -33,7 +33,7 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
           !isTransparent
             ? "border-b border-border/60 bg-white/96 shadow-[0_1px_16px_0_rgba(37,99,235,0.07)] backdrop-blur-md"
             : "border-transparent bg-transparent"

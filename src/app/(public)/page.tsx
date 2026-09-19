@@ -22,6 +22,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import GearCard, { type GearCardItem } from "@/components/shared/GearCard";
+import { StatsCounter } from "@/components/shared/StatsCounter";
 import { Card } from "@/components/ui/card";
 import {
   getPublicCategoriesAction,
@@ -146,7 +147,7 @@ export default async function HomePage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-semibold tracking-wide text-primary-foreground backdrop-blur-md sm:text-sm mb-6">
-            <Sparkles className="size-4 text-primary animate-pulse" />
+            <Sparkles className="size-4 text-primary" />
             <span>Premier Equipment Rental Platform</span>
           </div>
 
@@ -162,7 +163,7 @@ export default async function HomePage() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <LinkButton href="/gear" size="xl" className="shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
+            <LinkButton href="/gear" size="xl" className="shadow-lg shadow-primary/25 [@media(hover:hover)and(pointer:fine)]:hover:shadow-primary/40 transition-[box-shadow]">
               Browse Gear Now <ArrowRight className="size-4 ml-1" />
             </LinkButton>
             <LinkButton
@@ -177,27 +178,18 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Improved Stats Bar */}
+      {/* Stats Bar */}
       <section className="relative z-20 -mt-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-6 lg:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
-          {[
-            { label: "Verified Gear", value: `${stats.gearCount}+`, sub: "Top condition items" },
-            { label: "Active Renters", value: `${stats.customerCount}+`, sub: "Satisfied explorers" },
-            { label: "Trusted Partners", value: `${stats.providerCount}+`, sub: "Verified providers" },
-            { label: "Gear Categories", value: `${stats.categoryCount}+`, sub: "Sports & outdoors" },
-          ].map((stat, i) => (
-            <div key={i} className="flex items-center gap-4 px-2">
-              <div className="size-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <Sparkles className="size-6 text-primary" />
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black tabular-nums">{stat.value}</div>
-                <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">{stat.label}</div>
-                <div className="text-[11px] text-slate-400">{stat.sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* StatsCounter is a client component — owns the count-up animation and
+            IntersectionObserver. page.tsx stays a pure Server Component. */}
+        <StatsCounter
+          items={[
+            { label: "Verified Gear",    target: stats.gearCount,      sub: "Top condition items" },
+            { label: "Active Renters",   target: stats.customerCount,  sub: "Satisfied explorers" },
+            { label: "Trusted Partners", target: stats.providerCount,  sub: "Verified providers" },
+            { label: "Gear Categories",  target: stats.categoryCount,  sub: "Sports & outdoors" },
+          ]}
+        />
       </section>
 
       {/* Refined Categories Grid */}
@@ -228,9 +220,9 @@ export default async function HomePage() {
                   <Link
                     key={cat.id}
                     href={`/gear?category=${encodeURIComponent(cat.name)}`}
-                    className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+                    className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-[transform,box-shadow,border-color] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:hover:-translate-y-1.5 [@media(hover:hover)and(pointer:fine)]:hover:border-primary/50 [@media(hover:hover)and(pointer:fine)]:hover:shadow-xl [@media(hover:hover)and(pointer:fine)]:hover:shadow-primary/5"
                   >
-                    <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-inner">
+                    <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-[transform,background-color,color] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:group-hover:bg-primary [@media(hover:hover)and(pointer:fine)]:group-hover:text-white [@media(hover:hover)and(pointer:fine)]:group-hover:scale-[1.05] shadow-inner">
                       <Icon className="size-8" strokeWidth={1.8} />
                     </div>
                     <span className="mt-5 text-base font-bold text-slate-900 group-hover:text-primary transition-colors">
@@ -258,9 +250,9 @@ export default async function HomePage() {
                 <Link
                   key={name}
                   href={`/gear?category=${encodeURIComponent(name)}`}
-                  className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+                  className="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-xs transition-[transform,box-shadow,border-color] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:hover:-translate-y-1.5 [@media(hover:hover)and(pointer:fine)]:hover:border-primary/50 [@media(hover:hover)and(pointer:fine)]:hover:shadow-xl [@media(hover:hover)and(pointer:fine)]:hover:shadow-primary/5"
                 >
-                  <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-inner">
+                  <div className="size-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary transition-[transform,background-color,color] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:group-hover:bg-primary [@media(hover:hover)and(pointer:fine)]:group-hover:text-white [@media(hover:hover)and(pointer:fine)]:group-hover:scale-[1.05] shadow-inner">
                     <Icon className="size-8" strokeWidth={1.8} />
                   </div>
                   <span className="mt-5 text-base font-bold text-slate-900 group-hover:text-primary transition-colors">
@@ -509,7 +501,7 @@ export default async function HomePage() {
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/register"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-8 py-4 text-base font-extrabold text-white shadow-2xl transition hover:bg-slate-900 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-8 py-4 text-base font-extrabold text-white shadow-2xl transition-[transform,background-color] duration-150 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] hover:bg-slate-900 [@media(hover:hover)and(pointer:fine)]:hover:scale-[1.02]"
             >
               Start Renting Today <ArrowRight className="size-5" />
             </Link>

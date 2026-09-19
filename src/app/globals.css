@@ -56,6 +56,60 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ─── Motion tokens ──────────────────────────────────────────────────────── */
+/* Emil Kowalski easing vocabulary — extend, never fork */
+:root {
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out for UI */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);     /* strong ease-in-out for on-screen movement */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);      /* iOS-like drawer curve */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);   /* controlled overshoot — confirmation moments */
+}
+
+/* ─── Keyframes ───────────────────────────────────────────────────────────── */
+
+/* #2 — Booking subtotal price tick (opacity pulse on value change) */
+@keyframes price-tick {
+  0%   { opacity: 1; }
+  35%  { opacity: 0.35; }
+  100% { opacity: 1; }
+}
+
+/* #4 — Gear browse grid card entrance */
+@keyframes gear-card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* #1 — Payment success card entrance */
+@keyframes success-card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* #1 — Payment success icon spring-like entrance */
+@keyframes success-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 :root {
   --background: #F8FAFC;
   --foreground: #0F172A;
@@ -148,8 +202,8 @@
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
-  button, a, [role="button"] {
-    @apply active:scale-[0.98] transition-transform duration-150;
+  button:not(a):not([role="button"]) {
+    @apply transition-[transform] duration-150;
   }
 }
 
@@ -160,20 +214,21 @@
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 
-  /* Keep only opacity fade for overlays/dialogs; kill transform-based motion */
+  /* Kill transform-based motion; preserve opacity/color transitions for comprehension */
   [class*="translate-"],
   [class*="scale-"],
   [class*="hover:-translate-"],
-  [class*="hover:scale-"],
   [class*="group-hover:scale-"],
   [class*="hover:-translate-y"],
-  [class*="lg:translate-y"] {
+  [class*="lg:translate-y"],
+  .gear-card-enter {
     transform: none !important;
-    transition: none !important;
+    animation: none !important;
+    transition-property: opacity, color, background-color, border-color !important;
+    transition-duration: 150ms !important;
   }
 }
 
@@ -181,6 +236,16 @@
 @layer components {
   .container {
     @apply mx-auto w-full max-w-7xl px-5 lg:px-8 xl:px-12;
+  }
+
+  /* #4 — Gear card browse-grid entrance */
+  .gear-card-enter {
+    animation: gear-card-in 280ms var(--ease-out) both;
+  }
+
+  /* #2 — Booking subtotal price tick */
+  .price-tick {
+    animation: price-tick 180ms var(--ease-out) both;
   }
 }
 

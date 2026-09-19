@@ -47,7 +47,7 @@ export default function GearCard({
   const isAvailable = item.availability !== false;
 
   return (
-    <Card className="group overflow-hidden p-0 border-border shadow-blue-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-blue hover:border-primary/20">
+    <Card className="gear-card-enter group overflow-hidden p-0 border-border shadow-blue-sm transition-[transform,box-shadow,border-color] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:hover:-translate-y-1 [@media(hover:hover)and(pointer:fine)]:hover:shadow-blue [@media(hover:hover)and(pointer:fine)]:hover:border-primary/20">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
         <Image
           src={item.image}
@@ -55,7 +55,7 @@ export default function GearCard({
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={priority}
-          className="object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+          className="object-cover object-center transition-[transform] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)and(pointer:fine)]:group-hover:scale-[1.04]"
         />
         <Badge variant="default" size="category" className="absolute left-3 top-3">
           {categoryName.toUpperCase()}
@@ -94,7 +94,7 @@ export default function GearCard({
           </div>
           {isAvailable ? (
             <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              <span className="size-2 rounded-full bg-emerald-500" aria-hidden="true" />
               Available
             </span>
           ) : (
@@ -108,7 +108,7 @@ export default function GearCard({
         <LinkButton
           href={`/gear/${item.id}`}
           size="lg"
-          className="mt-5 w-full hover:bg-[#1D4ED8] active:scale-[0.98]"
+          className="mt-5 w-full hover:bg-[#1D4ED8]"
         >
           Rent Now
         </LinkButton>

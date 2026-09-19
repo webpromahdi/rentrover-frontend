@@ -245,7 +245,7 @@ const ProviderGearForm = ({
                 required
                 error={errors.pricePerDay?.message}
               >
-                <div className="flex overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus-within:border-primary focus-within:ring-4 focus-within:ring-red-100/70">
+                <div className="flex overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-[border-color,box-shadow] duration-150 focus-within:border-primary focus-within:ring-4 focus-within:ring-red-100/70">
                   <span className="flex h-12 w-11 items-center justify-center border-r border-slate-200/80 bg-slate-50 text-sm font-semibold text-slate-600">
                     $
                   </span>
@@ -375,13 +375,13 @@ const ProviderGearForm = ({
 const cardClassName = "gap-0";
 
 const inputClassName =
-  "h-12 rounded-xl border border-slate-200/90 bg-white px-4 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-primary focus:ring-4 focus:ring-red-100/70";
+  "h-12 rounded-xl border border-slate-200/90 bg-white px-4 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-[border-color,box-shadow] duration-150 focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const textareaClassName =
-  "rounded-xl border border-slate-200/90 bg-white text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all focus:border-primary focus:ring-4 focus:ring-red-100/70";
+  "rounded-xl border border-slate-200/90 bg-white text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-[border-color,box-shadow] duration-150 focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const selectClassName =
-  "h-12 w-full appearance-none rounded-xl border border-slate-200/90 bg-white px-4 pr-11 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-all disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary focus:ring-4 focus:ring-red-100/70";
+  "h-12 w-full appearance-none rounded-xl border border-slate-200/90 bg-white px-4 pr-11 text-sm text-[#15213d] shadow-[0_1px_2px_rgba(15,23,42,0.02)] transition-[border-color,box-shadow] duration-150 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary focus:ring-4 focus:ring-red-100/70";
 
 const Field = ({
   label,
