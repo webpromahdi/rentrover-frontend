@@ -459,7 +459,7 @@ export default async function HomePage() {
                           <Star key={i} className="size-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                         ))}
                       </div>
-                      <p className="text-slate-700 leading-relaxed italic text-base">
+                      <p className="text-slate-700 leading-relaxed italic text-base line-clamp-4">
                         &ldquo;{review.comment}&rdquo;
                       </p>
                       <div className="mt-6 pt-6 border-t border-slate-100 flex items-center gap-4">
